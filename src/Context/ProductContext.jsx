@@ -1,13 +1,9 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/ProductReducer";
-import apiData from "../API/Product.json";
-// import { SinglePro } from "../Data/SinglePro";
 
 const ProductContext = createContext();
-// const API = "https://mocki.io/v1/9002e200-0d52-42a3-902a-2164d85fd476";
-const API = apiData;
-// console.log(API);
+const API = "https://productionapi.up.railway.app/api/products";
 
 const initialState = {
   isError: false,
@@ -24,11 +20,19 @@ const ProductProvider = ({ children }) => {
   const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
     try {
-      // const res = await axios.get(url);
-      // const products = await res.data;
-      const products = url;
-      // console.log(products);
-      dispatch({ type: "SET_API_DATA", payload: products });
+      // Fetch data from API
+      const res = await axios.get(url);
+
+      // Ensure the response data is valid
+      const products = res.data;
+      if (!products || !products.Products) {
+        throw new Error("Invalid product data structure.");
+      }
+
+      // Log products for debugging
+      console.log("Fetched Products:", products.Products[0]);
+
+      dispatch({ type: "SET_API_DATA", payload: products.Products });
     } catch (error) {
       dispatch({ type: "API_ERROR" });
     }
@@ -36,9 +40,9 @@ const ProductProvider = ({ children }) => {
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
     try {
-      // const res = await axios.get(url);
-      // const singleProduct = await res.data;
-      const singleProduct = url;
+      const res = await axios.get(url);
+      const singleProduct = await res.data;
+      // const singleProduct = url;
 
       dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct });
     } catch (error) {
