@@ -6,7 +6,7 @@ import Button from "../Styles/Button";
 const HeroSection = () => {
   return (
     <div className="p-5">
-      <div className="container mx-auto my-2 grid gap-3 md:grid-cols-2">
+      <div className="container grid gap-3 mx-auto my-2 md:grid-cols-2">
         <div className="p-3 md:p-12">
           <div className="md:mt-20">
             <p className="mb-1 text-xl uppercase text-btn">Welcome to</p>
