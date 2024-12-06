@@ -30,7 +30,7 @@ const ProductProvider = ({ children }) => {
       }
 
       // Log products for debugging
-      console.log("Fetched Products:", products.Products[0]);
+      // console.log("Fetched Products:", products.Products[0]);
 
       dispatch({ type: "SET_API_DATA", payload: products.Products });
     } catch (error) {
