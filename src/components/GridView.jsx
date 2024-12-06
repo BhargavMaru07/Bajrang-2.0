@@ -5,7 +5,7 @@ import Product from "./Product";
 const GridView = ({ products }) => {
   //   console.log("products :", products);
   return (
-    <Wrapper className="p-10 sm:py-8">
+    <Wrapper className="flex items-center justify-center p-10 sm:py-8">
       <div className="container grid grid-cols-1 gap-12 sm:grid-cols-3">
         {products.map((curEle) => {
           return <Product key={curEle.id} {...curEle} />;

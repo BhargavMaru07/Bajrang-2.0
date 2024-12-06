@@ -17,11 +17,12 @@ import Footer from "./components/Footer";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Reset from "./Auth/Reset";
 import { GlobalStyle } from "./GlobalStyles";
 import Profile from "./pages/Profile";
 import Gallery from "./pages/Gallery";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const theme = {
@@ -54,7 +55,8 @@ const App = () => {
         <ToastContainer />
         <Main>
           <GlobalStyle />
-          <Header />
+          {/* <Header /> */}
+          <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />

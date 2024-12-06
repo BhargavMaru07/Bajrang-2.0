@@ -7,7 +7,7 @@ import { useFilterContext } from "../Context/FilterContext";
 import { Link } from "react-router-dom";
 import { subCategories, filters } from "../Data";
 import SearchBar from "../helper/Search";
-import Sort from "../SemiComponents/Sort";
+import Sort from "../Shared/Sort";
 import { useProductContext } from "../Context/ProductContext";
 import Progress from "../helper/Progress";
 
