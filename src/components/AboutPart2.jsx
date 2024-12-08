@@ -34,24 +34,22 @@ const cards = [
 
 const AboutPart2 = () => {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-2 mb-4 sm:px-6 mt-6">
+    <div className="px-4 py-2 mx-auto mt-6 mb-4 max-w-7xl sm:px-6">
       <div className="px-2 lg:px-4">
-        <h1 className="font-black text-2xl sm:text-4xl text-[#6254F3] mb-2">
-          What
-        </h1>
-        <h3 className="text-2xl sm:text-4xl font-semibold mb-4 ">We Do</h3>
-        <p className="mb-12 text-gray-600 text-lg ">
+        <h1 className="mb-2 text-2xl font-semibold text-head">What</h1>
+        <h3 className="mb-4 text-3xl font-semibold sm:text-3xl">We Do</h3>
+        <p className="mb-12 text-lg text-gray-600 ">
           At Bajrang Latkan, we elevate traditional artistry. Our latkans are
           meticulously handcrafted, using only the finest materials and
           intricate techniques. We blend heritage with modern style, creating
           exquisite pieces that add a touch of elegance to every outfit.
         </p>
       </div>
-      <div className="mt-6 grid grid-cols-1 gap-8 px-2 py-2 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 px-2 py-2 mt-6 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
         {cards.map((item, index) => (
           <div
             key={index}
-            className="p-6 border-2 rounded-xl hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-3 cursor-pointer"
+            className="p-6 transition duration-300 ease-in-out transform border-2 cursor-pointer rounded-xl hover:shadow-lg hover:-translate-y-3"
             style={{ borderColor: item.color }}
           >
             <div className="mb-6 ">{item.icon}</div>

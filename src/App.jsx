@@ -17,11 +17,11 @@ import Footer from "./components/Footer";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
-// import Header from "./components/Header";
 import Reset from "./Auth/Reset";
 import { GlobalStyle } from "./GlobalStyles";
 import Profile from "./pages/Profile";
 import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
 import Navbar from "./components/Navbar";
 
 const App = () => {
@@ -35,6 +35,7 @@ const App = () => {
       bg: "#F6F8FA",
       card_bg: "#b0a69d",
       footer_bg: "#0a1435",
+      head: "#E2218F",
       btn: "rgb(98,84,243)",
       hr: "#fffff",
       border: "rgba(98, 84, 243, 0.5)",
@@ -62,8 +63,9 @@ const App = () => {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/resetpassword" element={<Reset />} />
             <Route exact path="/register" element={<Register />} />
-            <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/blog" element={<Blog />} />
             <Route exact path="/gallery" element={<Gallery />} />
             {/* <Route
               exact

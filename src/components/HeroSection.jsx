@@ -95,7 +95,7 @@ const HeroSection = () => {
               <div className="grid md:grid-cols-3 gap-2 md:h-[80vh] sm:h-[55vh] sm:px-[50px]">
                 <div className="w-full m-auto md:pl-[0px] lg:px-16 order-last md:order-none sm:col-span-2">
                   <div className="details lg:ml-[40px] md:ml-[0px] text-center sm:text-start">
-                    <h2 className="text-[#E2218F] sm:text-3xl font-bold my-5 text-[30px] lg:text-3xl">
+                    <h2 className="text-head sm:text-3xl font-bold my-5 text-[30px] lg:text-3xl">
                       {item.title}
                     </h2>
                     <h1 className="my-3 text-2xl sm:text-3xl lg:text-5xl !leading-[1.4]">
