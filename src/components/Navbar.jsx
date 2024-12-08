@@ -153,7 +153,8 @@ const navigation = {
   ],
   pages: [
     { name: "Shop", path: "/shop" },
-    { name: "Blog", path: "/blog" },
+    { name: "About us", path: "/aboutus" },
+    { name: "Blogs", path: "/blog" },
   ],
 };
 

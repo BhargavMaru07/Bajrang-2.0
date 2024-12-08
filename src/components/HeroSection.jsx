@@ -7,7 +7,6 @@ import slider_2 from "../assets/Banner/slide2.png";
 import slider_3 from "../assets/Banner/slide3.png";
 import Button from "../Styles/Button";
 import styled from "styled-components";
-import { slider } from "@material-tailwind/react";
 
 const HeroSection = () => {
   const SampleNextArrow = (props) => {
@@ -38,6 +37,7 @@ const HeroSection = () => {
       <div
         className={`${className}`}
         style={{
+          ...style,
           background: "transperent",
           width: "40px",
           display: "flex",
@@ -57,7 +57,7 @@ const HeroSection = () => {
     dots: true,
     infinite: true,
     speed: 600,
-    // autoplay: true,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 3000,
