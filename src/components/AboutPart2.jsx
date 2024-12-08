@@ -36,11 +36,15 @@ const AboutPart2 = () => {
   return (
     <div className="mx-auto max-w-7xl px-4 py-2 mb-4 sm:px-6 mt-6">
       <div className="px-2 lg:px-4">
-        <h1 className="font-black text-2xl sm:text-4xl text-[#6254F3] mb-2">What</h1>
+        <h1 className="font-black text-2xl sm:text-4xl text-[#6254F3] mb-2">
+          What
+        </h1>
         <h3 className="text-2xl sm:text-4xl font-semibold mb-4 ">We Do</h3>
         <p className="mb-12 text-gray-600 text-lg ">
-          At HalfChoice we don't just provide children's clothing; we celebrate
-          the art of childhood fashion. Here's what sets us apart:
+          At Bajrang Latkan, we elevate traditional artistry. Our latkans are
+          meticulously handcrafted, using only the finest materials and
+          intricate techniques. We blend heritage with modern style, creating
+          exquisite pieces that add a touch of elegance to every outfit.
         </p>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-8 px-2 py-2 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">

@@ -31,14 +31,17 @@ const AboutPart1 = () => {
   return (
     <div className="mx-auto max-w-7xl px-4 py-4 mt-12 mb-16 sm:px-6">
       <div className="lg:px-4 py-2 px-2 ">
-        <h1 className="text-[#6254F3] font-semibold mb-3 text-2xl sm:text-4xl ">OUR</h1>
+        <h1 className="text-[#6254F3] font-semibold mb-3 text-2xl sm:text-4xl ">
+          OUR
+        </h1>
         <h3 className="font-bold text-2xl sm:text-4xl mb-4">
           Value Proposition
         </h3>
         <p className="mb-12 text-gray-600 text-lg ">
-          We empower kids to be themselves through high-quality, affordable
-          clothing that combines style, comfort, and durability. Our designs
-          celebrate childhood while giving parents peace of mind.
+          Discover a world of Latkan possibilities at Bajrang Latkan. From
+          classic to contemporary, we offer a vast array of styles and designs.
+          Our customization options allow you to create a unique piece that
+          reflects your personal style.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-8 px-4 py-2 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
