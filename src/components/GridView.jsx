@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Product from "./Product";
+import Product from "../Shared/Product";
 
 const GridView = ({ products }) => {
-  //   console.log("products :", products);
+  // console.log("products :", products);
   return (
-    <Wrapper className="flex items-center justify-center p-10 sm:py-8">
-      <div className="container grid grid-cols-1 gap-12 sm:grid-cols-3">
-        {products.map((curEle) => {
-          return <Product key={curEle.id} {...curEle} />;
+    <Wrapper className="flex items-center justify-center p-0 sm:py-8">
+      <div className="container grid grid-cols-2 gap-0 sm:gap-4 sm:grid-cols-4">
+        {products.map((product) => {
+          return <Product key={product.id} {...product} />;
         })}
       </div>
     </Wrapper>

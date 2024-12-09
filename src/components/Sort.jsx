@@ -9,9 +9,9 @@ const Sort = () => {
     useFilterContext();
   return (
     <>
-      <Wrapper className="mt-20 flex flex-col items-center justify-between gap-10 sm:flex-row sm:gap-0">
+      <Wrapper className="flex flex-col items-center justify-between gap-10 mt-20 sm:flex-row sm:gap-0">
         {/* 1st column */}
-        <div className="sorting-list--grid flex gap-8">
+        <div className="flex gap-8 sorting-list--grid">
           <button
             className={Grid_View ? "active sort-btn" : "sort-btn"}
             onClick={setGridView}
@@ -26,7 +26,7 @@ const Sort = () => {
           </button>
         </div>
         {/* 2nd column */}
-        <div className="text-text">{`${filter_product.length} Product Available`}</div>
+        {/* <div className="text-text">{`${filter_product.length} Product Available`}</div> */}
         {/* 3rd column */}
         <div className="sort-selection">
           <form action="#">
@@ -34,7 +34,7 @@ const Sort = () => {
             <select
               name="sort"
               id="sort"
-              className="cursor-pointer border border-btn p-2 outline-none"
+              className="p-2 border outline-none cursor-pointer border-btn"
               onClick={sorting}
             >
               <option value="lowest">Price(lowest)</option>

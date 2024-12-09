@@ -177,7 +177,11 @@ const Navbar = () => {
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      <Dialog
+        open={open}
+        onClose={setOpen}
+        className="relative z-[99] lg:hidden"
+      >
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
@@ -244,7 +248,7 @@ const Navbar = () => {
                         </div>
                       ))}
                     </div>
-                    {category.sections.map((section) => (
+                    {/* {category.sections.map((section) => (
                       <div key={section.name}>
                         <p
                           id={`${category.id}-${section.id}-heading-mobile`}
@@ -269,7 +273,7 @@ const Navbar = () => {
                           ))}
                         </ul>
                       </div>
-                    ))}
+                    ))} */}
                   </TabPanel>
                 ))}
               </TabPanels>
@@ -290,24 +294,40 @@ const Navbar = () => {
             </div>
 
             <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-              <div className="flow-root">
-                <Link
-                  to="/login"
-                  onClick={() => setOpen(false)}
-                  className="block p-2 -m-2 font-medium text-gray-900"
-                >
-                  Sign in
-                </Link>
-              </div>
-              <div className="flow-root">
-                <Link
-                  to="/register"
-                  onClick={() => setOpen(false)}
-                  className="block p-2 -m-2 font-medium text-gray-900"
-                >
-                  Create account
-                </Link>
-              </div>
+              {user ? (
+                <>
+                  <div className="flow-root">
+                    <Link
+                      to="/"
+                      onClick={handleSignOut}
+                      className="block p-2 -m-2 font-medium text-gray-900"
+                    >
+                      Sign out
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flow-root">
+                    <Link
+                      to="/login"
+                      onClick={() => setOpen(false)}
+                      className="block p-2 -m-2 font-medium text-gray-900"
+                    >
+                      Sign in
+                    </Link>
+                  </div>
+                  <div className="flow-root">
+                    <Link
+                      to="/register"
+                      onClick={() => setOpen(false)}
+                      className="block p-2 -m-2 font-medium text-gray-900"
+                    >
+                      Create account
+                    </Link>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* <div className="px-4 py-6 border-t border-gray-200">

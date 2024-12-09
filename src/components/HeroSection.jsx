@@ -7,62 +7,49 @@ import slider_2 from "../assets/Banner/slide2.png";
 import slider_3 from "../assets/Banner/slide3.png";
 import Button from "../Styles/Button";
 import styled from "styled-components";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+
+const CustomArrow = ({ className, style, onClick, direction }) => {
+  return (
+    <div
+      className={`${className} custom-arrow ${
+        direction === "next" ? "next-arrow" : "prev-arrow"
+      }`}
+      onClick={onClick}
+      style={{
+        ...style,
+        background: "transperent",
+        width: "40px",
+        display: "flex",
+        zIndex: "99",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "40px",
+        border: "1px solid black",
+        cursor: "pointer",
+        borderRadius: "50%",
+        right: "0px",
+        ...(direction === "next" ? { right: "10px" } : { left: "10px" }),
+      }}
+    >
+      <span className="text-xl text-text">
+        {direction === "next" ? <IoIosArrowForward /> : <IoIosArrowBack />}
+      </span>
+    </div>
+  );
+};
 
 const HeroSection = () => {
-  const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          background: "transperent",
-          width: "40px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "40px",
-          // border: "1px solid black",
-          borderRadius: "50%",
-          right: "0px",
-        }}
-        onClick={onClick}
-      />
-    );
-  };
-
-  const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={`${className}`}
-        style={{
-          ...style,
-          background: "transperent",
-          width: "40px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "40px",
-          // border: "1px solid black",
-          borderRadius: "50%",
-          left: "0px",
-        }}
-        onClick={onClick}
-      />
-    );
-  };
-
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 200,
     autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 3000,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    autoplaySpeed: 2000,
+    nextArrow: <CustomArrow direction="next" />,
+    prevArrow: <CustomArrow direction="prev" />,
   };
 
   const banner = [
@@ -124,19 +111,7 @@ const HeroSection = () => {
 export default HeroSection;
 
 const Wrapper = styled.section`
-  .slick-prev::before {
-    font-size: 46px !important;
-    height: 40px !important;
-    width: 46px !important;
-    opacity: 0.5;
-    color: black;
-  }
-
-  .slick-next::before {
-    font-size: 46px !important;
-    height: 40px !important;
-    width: 46px !important;
-    opacity: 0.5;
-    color: black;
+  .custom-arrow::before {
+    display: none;
   }
 `;

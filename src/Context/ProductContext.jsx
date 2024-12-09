@@ -3,8 +3,8 @@ import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/ProductReducer";
 
 const ProductContext = createContext();
-// const API = "https://productionapi.up.railway.app/api/products";
-const API = "http://localhost:8000/api/products";
+const API = "https://productionapi.up.railway.app/api/products";
+// const API = "http://localhost:8000/api/products";
 
 const initialState = {
   isError: false,

@@ -13,9 +13,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Sort = ({setMobileFiltersOpen}) => {
-
-
+const Sort = ({ setMobileFiltersOpen }) => {
   const { Grid_View, setGridView, setListView, sorting } = useFilterContext();
   return (
     <div className="flex items-center">
@@ -52,7 +50,7 @@ const Sort = ({setMobileFiltersOpen}) => {
                           ? "font-medium text-gray-900"
                           : "text-gray-500",
                         active ? "bg-gray-100" : "",
-                        "block cursor-pointer px-4 py-2 text-sm",
+                        "block cursor-pointer px-4 py-2 text-sm"
                       )}
                     >
                       {option.name}
