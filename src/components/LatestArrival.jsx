@@ -132,7 +132,7 @@ const LatestArrival = () => {
               <Product key={product.id} {...product} />
             ))}
           </Slider>
-        )}``
+        )}
       </div>
     </Wrapper>
   );
