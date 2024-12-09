@@ -6,7 +6,7 @@ import CurrencyFormate from "../helper/CurrencyFormate";
 const Product = (Product) => {
   // console.log(Product);
 
-  const { image, name, price } = Product;
+  const { image, name, price, colors, category } = Product;
 
   return (
     <div className="p-2">
@@ -27,7 +27,7 @@ const Product = (Product) => {
           />
         </div>
 
-        <div className="p-1 sm:p-4">
+        <div className="p-1 sm:p-1">
           <h4 className="font-semibold text-text text-md">
             {/* <TruncatedTitle name={name} /> */}
             {name}
@@ -39,6 +39,17 @@ const Product = (Product) => {
             <span className="ml-2 text-sm text-gray-400 line-through">
               {<CurrencyFormate price={price} />}
             </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="w-5 h-5 rounded-full md:w-6 md:h-6 border-[#C7C7C7] border p-0.5 flex items-center justify-center">
+              <span
+                className="w-full h-full rounded-full"
+                style={{
+                  background: colors[0],
+                }}
+              ></span>
+            </div>
+            <span className="text-text sm:text-sm">Category : {category}</span>
           </div>
         </div>
       </div>

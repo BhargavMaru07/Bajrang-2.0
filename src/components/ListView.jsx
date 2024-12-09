@@ -3,26 +3,72 @@ import styled from "styled-components";
 import CurrencyFormate from "../helper/CurrencyFormate";
 import { NavLink } from "react-router-dom";
 import Button from "../Styles/Button";
+import TruncatedTitle from "../helper/TruncatedTitle";
 
 const ListView = ({ products }) => {
   return (
     <Wrapper className="py-8 ">
-      <div className="container grid gap-12 px-8 sm:p-0">
+      <div className="container grid gap-12 p-0 sm:px-8">
         {products.map((curElem) => {
-          const { id, name, image, price, description } = curElem;
+          const { id, name, image, price, description, colors } = curElem;
+          // console.log("Color", colors[0]);
+
           return (
-            <div className="grid grid-cols-1 card sm:grid-cols-2" key={id}>
-              <figure>
-                <img src={image} alt={name} />
+            <div className="grid grid-cols-3 gap-4 sm:gap-8" key={id}>
+              <figure className="col-span-1 lg:w-[70%] rounded-lg relative md:w-[80%] h-full">
+                {/* First Image */}
+                <img
+                  src={image}
+                  alt={name}
+                  className="object-fill w-full h-full duration-300 rounded-lg"
+                />
+
+                {/* Second Image (Hidden by Default) */}
+                <img
+                  src={image}
+                  alt={name}
+                  className="absolute top-0 left-0 object-fill w-full h-full duration-300 ease-in-out rounded-lg opacity-0 hover:cursor-pointer hover:opacity-100 -scale-x-100"
+                />
               </figure>
-              <div className="card-data">
-                <h3 className="my-8 text-3xl capitalize">{name}</h3>
-                <p className="font-bold text-text">
-                  <CurrencyFormate price={price} />
+              <div className="flex flex-col justify-between col-span-2">
+                <h3 className="my-0 text-xl font-semibold sm:text-2xl sm:my-2 text-text md:my-4">
+                  {name}
+                </h3>
+                <div className="flex items-center justify-start mt-2">
+                  <span className="font-bold sm:text-lg text-head">
+                    {<CurrencyFormate price={price} />}
+                  </span>
+                  <span className="ml-4 text-sm line-through text-text">
+                    {<CurrencyFormate price={price} />}
+                  </span>
+                </div>
+                <div className="w-5 h-5 rounded-full md:w-6 md:h-6 border-[#C7C7C7] border p-0.5 flex items-center justify-center">
+                  <div
+                    className="w-full h-full rounded-full"
+                    style={{
+                      background: colors[0],
+                    }}
+                  ></div>
+                </div>
+                <p>
+                  <TruncatedTitle
+                    name={description}
+                    desktopLimit={140}
+                    mobileLimit={55}
+                  />
                 </p>
-                <p>{description.slice(0, 98)}...</p>
-                <NavLink to={`/singleproduct/${id}`}>
-                  <Button className="btn">Read More</Button>
+                <NavLink
+                  to={`/singleproduct/${id}`}
+                  className="sm:w-[30%] w-[50%]"
+                >
+                  <Button
+                    // style={{
+                    //   background: colors[0],
+                    // }}
+                    className="!p-[5px] !text-sm rounded-lg w-full sm:!px-4 sm:!py-3"
+                  >
+                    Shop Now
+                  </Button>
                 </NavLink>
               </div>
             </div>
@@ -33,67 +79,6 @@ const ListView = ({ products }) => {
   );
 };
 
-const Wrapper = styled.section`
-  figure {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s linear;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      /* background-color: rgba(0, 0, 0, 0.5); */
-      transition: all 0.2s linear;
-      cursor: pointer;
-    }
-    &:hover::after {
-      width: 100%;
-    }
-    &:hover img {
-      transform: scale(1.2);
-    }
-    img {
-      max-width: 90%;
-      height: 15rem;
-      transition: all 0.2s linear;
-    }
-  }
-
-  .card {
-    border: 0.1rem solid rgb(170 170 170 / 40%);
-
-    .card-data {
-      padding: 0 2rem;
-    }
-
-    .btn {
-      margin: 2rem 0;
-      background-color: rgb(0 0 0 / 0%);
-      border: 0.1rem solid rgb(98 84 243);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: rgb(98 84 243);
-
-      &:hover {
-        background-color: rgb(98 84 243);
-        color: #fff;
-      }
-
-      a {
-        color: rgb(98 84 243);
-        font-size: 1.4rem;
-      }
-    }
-  }
-`;
+const Wrapper = styled.section``;
 
 export default ListView;
