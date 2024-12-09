@@ -4,6 +4,7 @@ import Product from "../Shared/Product";
 import styled from "styled-components";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useProductContext } from "../Context/ProductContext";
+import Progress from "../helper/Progress";
 
 const CustomArrow = ({ className, style, onClick, direction }) => {
   return (
@@ -39,7 +40,7 @@ const CustomArrow = ({ className, style, onClick, direction }) => {
 };
 
 const LatestArrival = () => {
-  const { products } = useProductContext();
+  const { products, isLoading } = useProductContext();
   // console.log(products);
 
   const sliderSettings = {
@@ -122,11 +123,17 @@ const LatestArrival = () => {
         </p>
       </div>
 
-      <Slider {...sliderSettings} className="container mx-auto max-w-7xl">
-        {products.map((product) => (
-          <Product key={product.id} {...product} />
-        ))}
-      </Slider>
+      <div>
+        {isLoading ? (
+          <Progress />
+        ) : (
+          <Slider {...sliderSettings} className="container mx-auto max-w-7xl">
+            {products.map((product) => (
+              <Product key={product.id} {...product} />
+            ))}
+          </Slider>
+        )}``
+      </div>
     </Wrapper>
   );
 };
