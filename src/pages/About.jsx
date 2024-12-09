@@ -4,6 +4,7 @@ import AboutPart2 from "../components/AboutPart2";
 import InstaLink from "../components/InstaLink";
 import AboutLatkan from "../components/AboutLatkan";
 import Team from "../components/AboutTeam";
+import Pictures from "../components/Pictures";
 
 const About = () => {
   return (
@@ -13,6 +14,7 @@ const About = () => {
       <AboutPart2 />
       <Team />
       <InstaLink />
+     <Pictures/>
     </>
   );
 };
