@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import Product from "../Shared/Product";
 import styled from "styled-components";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useProductContext } from "../Context/ProductContext";
 import Progress from "../helper/Progress";
+import { ICONS } from "../assets/Icons/icon";
 
 const CustomArrow = ({ className, style, onClick, direction }) => {
   return (
@@ -20,8 +20,6 @@ const CustomArrow = ({ className, style, onClick, direction }) => {
         justifyContent: "center",
         borderRadius: "50%",
         border: "0.3px solid black",
-        // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        // background: "#F6F8FA",
         height: "40px",
         width: "40px",
         lineHeight: "40px",
@@ -33,7 +31,7 @@ const CustomArrow = ({ className, style, onClick, direction }) => {
       }}
     >
       <span className="text-xl text-text">
-        {direction === "next" ? <IoIosArrowForward /> : <IoIosArrowBack />}
+        {direction === "next" ? <ICONS.FORWARD /> : <ICONS.BACKWARD />}
       </span>
     </div>
   );
@@ -41,7 +39,6 @@ const CustomArrow = ({ className, style, onClick, direction }) => {
 
 const LatestArrival = () => {
   const { products, isLoading } = useProductContext();
-  // console.log(products);
 
   const sliderSettings = {
     // dots: true,
@@ -70,45 +67,6 @@ const LatestArrival = () => {
       },
     ],
   };
-
-  // const products = [
-  //   {
-  //     id: 1,
-  //     image: "https://placehold.co/400x600/png",
-  //     image2: "https://placehold.co/400x600?text=Hello+World",
-  //     title: "Elegant Mirror Work Latkan",
-  //     price: "₹421.00",
-  //     originalPrice: "₹562.00",
-  //     discount: "-25%",
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "https://placehold.co/400x600/png",
-  //     image2: "https://placehold.co/400x600?text=Hello+World",
-  //     title: "Traditional Silk Thread Latkan",
-  //     price: "₹565.00",
-  //     originalPrice: "₹869.00",
-  //     discount: "-35%",
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "https://placehold.co/400x600/png",
-  //     image2: "https://placehold.co/400x600?text=Hello+World",
-  //     title: "Designer Pearl Beaded Latkan",
-  //     price: "₹769.00",
-  //     originalPrice: "₹1099.00",
-  //     discount: "-30%",
-  //   },
-  //   {
-  //     id: 4,
-  //     image: "https://placehold.co/400x600/png",
-  //     image2: "https://placehold.co/400x600?text=Hello+World",
-  //     title: "Handcrafted Tassel Latkan",
-  //     price: "₹559.00",
-  //     originalPrice: "₹799.00",
-  //     discount: "-30%",
-  //   },
-  // ];
 
   return (
     <Wrapper className="px-4 py-8 md:px-12">

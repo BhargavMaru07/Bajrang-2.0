@@ -34,10 +34,10 @@ const AboutLatkan = () => {
         </p>
         <div className="flex items-center justify-center gap-4 md:justify-start">
           <Link to="/shop">
-            <Button className="rounded-md">View Collection</Button>
+            <Button className="!p-3 rounded-md">View Collection</Button>
           </Link>
           <Link to="/shop">
-            <Button className="rounded-md !bg-text">Shop Now</Button>
+            <Button className="rounded-md !bg-text !p-3">Shop Now</Button>
           </Link>
         </div>
       </div>

@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
+import styled from "styled-components";
 import Slider from "react-slick";
+import { ICONS } from "../assets/Icons/icon";
 import slider_1 from "../assets/Banner/slide4.png";
 import slider_2 from "../assets/Banner/slide2.png";
 import slider_3 from "../assets/Banner/slide3.png";
 import Button from "../Styles/Button";
-import styled from "styled-components";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const CustomArrow = ({ className, style, onClick, direction }) => {
   return (
@@ -33,7 +33,7 @@ const CustomArrow = ({ className, style, onClick, direction }) => {
       }}
     >
       <span className="text-xl text-text">
-        {direction === "next" ? <IoIosArrowForward /> : <IoIosArrowBack />}
+        {direction === "next" ? <ICONS.FORWARD /> : <ICONS.BACKWARD />}
       </span>
     </div>
   );

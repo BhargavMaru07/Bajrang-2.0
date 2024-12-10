@@ -1,6 +1,6 @@
 "use client";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo/logo.png";
 
 import { Fragment, useContext, useState } from "react";
 import {
@@ -17,12 +17,9 @@ import {
   TabPanel,
   TabPanels,
 } from "@headlessui/react";
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+
+import { ICONS } from "../assets/Icons/icon";
+
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
@@ -200,7 +197,7 @@ const Navbar = () => {
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="size-6" />
+                <ICONS.XMARK aria-hidden="true" className="size-6" />
               </button>
             </div>
 
@@ -365,7 +362,7 @@ const Navbar = () => {
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
+                <ICONS.BARS aria-hidden="true" className="size-6" />
               </button>
 
               {/* Logo */}
@@ -527,16 +524,13 @@ const Navbar = () => {
                     className="p-2 text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
-                      aria-hidden="true"
-                      className="size-6"
-                    />
+                    <ICONS.SEARCH aria-hidden="true" className="size-6" />
                   </Link>
                 </div>
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
                   <Link to="/cart" className="flex items-center p-2 -m-2 group">
-                    <ShoppingBagIcon
+                    <ICONS.SHOPPINGBAG
                       aria-hidden="true"
                       className="text-gray-400 size-6 shrink-0 group-hover:text-gray-500"
                     />

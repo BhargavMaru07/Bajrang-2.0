@@ -1,33 +1,32 @@
 import React from "react";
-import { FaShippingFast, FaShieldAlt, FaUserClock } from "react-icons/fa";
-import { FaPeopleCarryBox } from "react-icons/fa6";
+import { ICONS } from "../assets/Icons/icon";
 
 const service = [
   {
-    icon: <FaShippingFast size={45} color="#4CAF50" />,
+    icon: <ICONS.SHIPPING size={45} color="#4CAF50" />,
     title: "Free Shipping",
     description:
       "Get free shipping on all Latkan orders, anywhere in the country.",
   },
   {
-    icon: <FaShieldAlt size={45} color="#2196F3" />,
+    icon: <ICONS.SHIELD size={45} color="#2196F3" />,
     title: "Secure Payments",
     description: "Your payments are safe with our trusted and secure gateway.",
   },
   {
-    icon: <FaPeopleCarryBox size={45} color="#FF9800" />,
+    icon: <ICONS.PEOPLE_BOX size={45} color="#FF9800" />,
     title: "Easy Returns",
     description: "Hassle-free returns within 30 days, no questions asked.",
   },
   {
-    icon: <FaUserClock size={45} color="#9C27B0" />,
+    icon: <ICONS.USER_CLOCK size={45} color="#9C27B0" />,
     title: "24/7 Support",
     description:
       "We're here to help you with your queries anytime, day or night.",
   },
 ];
 
-const AboutPart1 = () => {
+const OurValue = () => {
   return (
     <div className="px-4 py-4 mx-auto mt-12 mb-16 max-w-7xl sm:px-6">
       <div className="px-2 py-2 lg:px-4 ">
@@ -60,4 +59,4 @@ const AboutPart1 = () => {
   );
 };
 
-export default AboutPart1;
+export default OurValue;

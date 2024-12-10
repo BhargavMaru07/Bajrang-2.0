@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "../Styles/Button";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo/logo.png";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
+import { ICONS } from "../assets/Icons/icon";
 
 const Footer = () => {
   return (
@@ -83,16 +83,16 @@ const Footer = () => {
 
           <div className="flex items-center justify-center">
             <div className="mx-2 cursor-pointer text-text">
-              <Twitter />
+              <ICONS.TWITTER />
             </div>
             <div className="mx-2 cursor-pointer text-text">
-              <Facebook />
+              <ICONS.FACEBOOK />
             </div>
             <div className="mx-2 cursor-pointer text-text">
-              <Instagram />
+              <ICONS.INSTAGRAM />
             </div>
             <div className="mx-2 cursor-pointer text-text">
-              <LinkedIn />
+              <ICONS.LINKEDIN />
             </div>
           </div>
         </div>
