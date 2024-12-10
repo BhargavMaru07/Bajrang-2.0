@@ -1,8 +1,7 @@
 "use client";
 
+import React, { Fragment, useContext, useState } from "react";
 import logo from "../assets/Logo/logo.png";
-
-import { Fragment, useContext, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,

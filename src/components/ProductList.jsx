@@ -2,6 +2,7 @@ import React from "react";
 import { useFilterContext } from "../Context/FilterContext";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import Pagination from "../Shared/Pagination";
 
 const ProductList = () => {
   const { filter_product, Grid_View } = useFilterContext();
@@ -11,6 +12,7 @@ const ProductList = () => {
     return (
       <>
         <GridView products={filter_product} />
+        <Pagination />
       </>
     );
   }
@@ -18,6 +20,7 @@ const ProductList = () => {
     return (
       <>
         <ListView products={filter_product} />
+        <Pagination />
       </>
     );
   }
