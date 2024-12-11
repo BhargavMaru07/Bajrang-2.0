@@ -3,8 +3,8 @@
 // const Poster = () => {
 //   return (
 //     <section className="mx-auto max-w-7xl">
-//       <div className="p-1 flex flex-wrap items-center justify-center">
-//         <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group">
+//       <div className="flex flex-wrap items-center justify-center p-1">
+//         <div className="relative flex-shrink-0 max-w-xs m-6 overflow-hidden bg-orange-500 rounded-lg shadow-lg group">
 //           <svg
 //             className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
 //             viewBox="0 0 375 283"
@@ -29,9 +29,9 @@
 //               fill="white"
 //             />
 //           </svg>
-//           <div className="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+//           <div className="relative flex items-center justify-center px-10 pt-10 transition-transform group-hover:scale-110">
 //             <div
-//               className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+//               className="absolute bottom-0 left-0 block w-48 h-48 ml-3 -mb-24"
 //               style={{
 //                 background: "radial-gradient(black, transparent 60%)",
 //                 transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
@@ -44,11 +44,11 @@
 //               alt=""
 //             />
 //           </div>
-//           <div className="relative text-white px-6 pb-6 mt-6">
-//             <span className="block opacity-75 -mb-1">Indoor</span>
+//           <div className="relative px-6 pb-6 mt-6 text-white">
+//             <span className="block -mb-1 opacity-75">Indoor</span>
 //             <div className="flex justify-between">
-//               <span className="block font-semibold text-xl">Peace Lily</span>
-//               <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+//               <span className="block text-xl font-semibold">Peace Lily</span>
+//               <span className="flex items-center block px-3 py-2 text-xs font-bold leading-none text-orange-500 bg-white rounded-full">
 //                 $36.00
 //               </span>
 //             </div>
@@ -72,12 +72,12 @@ import React from "react";
 const Poster = () => {
   return (
     <section className="mx-auto max-w-7xl">
-      {/* <div className="p-1 flex flex-wrap items-center justify-center"> */}
-      <div className="px-4 py-2 place-items-center grid w-full gap-5 grid-cols-1 md:grid-cols-2 sm:px-6">
-        <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-lg shadow-lg group flex">
-          <div className="relative w-1/2 flex items-center justify-center group-hover:scale-110 transition-transform">
+      {/* <div className="flex flex-wrap items-center justify-center p-1"> */}
+      <div className="grid w-full grid-cols-1 gap-5 px-4 py-2 place-items-center md:grid-cols-2">
+        <div className="relative flex flex-shrink-0 overflow-hidden bg-orange-500 rounded-lg shadow-lg group">
+          <div className="relative flex items-center justify-center w-1/2 transition-transform group-hover:scale-110">
             <div
-              className="block absolute w-full h-full"
+              className="absolute block w-full h-full"
               style={{
                 background: "radial-gradient(black, transparent 60%)",
                 transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
@@ -90,24 +90,24 @@ const Poster = () => {
               alt="Peace Lily"
             />
           </div>
-          <div className="relative w-1/2 text-white px-6 py-6 flex flex-col justify-center">
-            <span className="block opacity-75 -mb-1 text-sm sm:text-base md:text-lg">
+          <div className="relative flex flex-col justify-center w-1/2 px-6 py-6 text-white">
+            <span className="block -mb-1 text-sm opacity-75 sm:text-base md:text-lg">
               Indoor
             </span>
-            <div className="flex justify-between items-center">
-              <span className="block font-semibold text-lg sm:text-xl md:text-2xl">
+            <div className="flex items-center justify-between">
+              <span className="block text-lg font-semibold sm:text-xl md:text-2xl">
                 Peace Lily
               </span>
-              <span className="block bg-white rounded-full text-orange-500 text-xs sm:text-sm md:text-base font-bold px-3 py-2 leading-none flex items-center">
+              <span className="flex items-center px-3 py-2 text-xs font-bold leading-none text-orange-500 bg-white rounded-full sm:text-sm md:text-base">
                 $36.00
               </span>
             </div>
           </div>
         </div>
-        <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-lg shadow-lg group flex">
-          <div className="relative w-1/2 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div className="relative flex flex-shrink-0 overflow-hidden bg-orange-500 rounded-lg shadow-lg group">
+          <div className="relative flex items-center justify-center w-1/2 transition-transform group-hover:scale-110">
             <div
-              className="block absolute w-full h-full"
+              className="absolute block w-full h-full"
               style={{
                 background: "radial-gradient(black, transparent 60%)",
                 transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
@@ -120,24 +120,24 @@ const Poster = () => {
               alt="Peace Lily"
             />
           </div>
-          <div className="relative w-1/2 text-white px-6 py-6 flex flex-col justify-center">
-            <span className="block opacity-75 -mb-1 text-sm sm:text-base md:text-lg">
+          <div className="relative flex flex-col justify-center w-1/2 px-6 py-6 text-white">
+            <span className="block -mb-1 text-sm opacity-75 sm:text-base md:text-lg">
               Indoor
             </span>
-            <div className="flex justify-between items-center">
-              <span className="block font-semibold text-lg sm:text-xl md:text-2xl">
+            <div className="flex items-center justify-between">
+              <span className="block text-lg font-semibold sm:text-xl md:text-2xl">
                 Peace Lily
               </span>
-              <span className="block bg-white rounded-full text-orange-500 text-xs sm:text-sm md:text-base font-bold px-3 py-2 leading-none flex items-center">
+              <span className="flex items-center px-3 py-2 text-xs font-bold leading-none text-orange-500 bg-white rounded-full sm:text-sm md:text-base">
                 $36.00
               </span>
             </div>
           </div>
         </div>
-        <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-lg shadow-lg group flex">
-          <div className="relative w-1/2 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div className="relative flex flex-shrink-0 overflow-hidden bg-orange-500 rounded-lg shadow-lg group">
+          <div className="relative flex items-center justify-center w-1/2 transition-transform group-hover:scale-110">
             <div
-              className="block absolute w-full h-full"
+              className="absolute block w-full h-full"
               style={{
                 background: "radial-gradient(black, transparent 60%)",
                 transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
@@ -150,24 +150,24 @@ const Poster = () => {
               alt="Peace Lily"
             />
           </div>
-          <div className="relative w-1/2 text-white px-6 py-6 flex flex-col justify-center">
-            <span className="block opacity-75 -mb-1 text-sm sm:text-base md:text-lg">
+          <div className="relative flex flex-col justify-center w-1/2 px-6 py-6 text-white">
+            <span className="block -mb-1 text-sm opacity-75 sm:text-base md:text-lg">
               Indoor
             </span>
-            <div className="flex justify-between items-center">
-              <span className="block font-semibold text-lg sm:text-xl md:text-2xl">
+            <div className="flex items-center justify-between">
+              <span className="block text-lg font-semibold sm:text-xl md:text-2xl">
                 Peace Lily
               </span>
-              <span className="block bg-white rounded-full text-orange-500 text-xs sm:text-sm md:text-base font-bold px-3 py-2 leading-none flex items-center">
+              <span className="flex items-center px-3 py-2 text-xs font-bold leading-none text-orange-500 bg-white rounded-full sm:text-sm md:text-base">
                 $36.00
               </span>
             </div>
           </div>
         </div>
-        <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-lg shadow-lg group flex">
-          <div className="relative w-1/2 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div className="relative flex flex-shrink-0 overflow-hidden bg-orange-500 rounded-lg shadow-lg group">
+          <div className="relative flex items-center justify-center w-1/2 transition-transform group-hover:scale-110">
             <div
-              className="block absolute w-full h-full"
+              className="absolute block w-full h-full"
               style={{
                 background: "radial-gradient(black, transparent 60%)",
                 transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
@@ -180,15 +180,15 @@ const Poster = () => {
               alt="Peace Lily"
             />
           </div>
-          <div className="relative w-1/2 text-white px-6 py-6 flex flex-col justify-center">
-            <span className="block opacity-75 -mb-1 text-sm sm:text-base md:text-lg">
+          <div className="relative flex flex-col justify-center w-1/2 px-6 py-6 text-white">
+            <span className="block -mb-1 text-sm opacity-75 sm:text-base md:text-lg">
               Indoor
             </span>
-            <div className="flex justify-between items-center">
-              <span className="block font-semibold text-lg sm:text-xl md:text-2xl">
+            <div className="flex items-center justify-between">
+              <span className="block text-lg font-semibold sm:text-xl md:text-2xl">
                 Peace Lily
               </span>
-              <span className="block bg-white rounded-full text-orange-500 text-xs sm:text-sm md:text-base font-bold px-3 py-2 leading-none flex items-center">
+              <span className="flex items-center px-3 py-2 text-xs font-bold leading-none text-orange-500 bg-white rounded-full sm:text-sm md:text-base">
                 $36.00
               </span>
             </div>

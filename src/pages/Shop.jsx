@@ -70,25 +70,30 @@ const Shop = () => {
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <div className="px-2 py-3 font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <div key={category.value}>
-                          <input
-                            id={`filter-mobile-${category.value}`}
-                            name={category.id}
-                            value={category.value}
-                            onClick={updateFilterValue}
-                            type="radio"
-                            defaultChecked={category.checked}
-                            className="hidden w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                          />
-                          <label
-                            htmlFor={`filter-mobile-${category.value}`}
-                            className="flex-1 min-w-0 ml-3 text-gray-500 cursor-pointer"
-                          >
-                            {category.label}
-                          </label>
-                        </div>
-                      ))}
+                      {subCategories.map((category) => {
+                        return (
+                          <>
+                            <div key={category.value}>
+                              <input
+                                id={`filter-mobile-${category.value}`}
+                                name={category.id}
+                                value={category.value}
+                                onClick={updateFilterValue}
+                                type="radio"
+                                defaultChecked={category.checked}
+                                className="hidden w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                              />
+                              <label
+                                htmlFor={`filter-mobile-${category.value}`}
+                                className="flex-1 min-w-0 ml-3 text-gray-500 cursor-pointer"
+                              >
+                                {category.label}
+                              </label>
+                            </div>
+                            <hr />
+                          </>
+                        );
+                      })}
                     </div>
 
                     {filters.map((section) => (
