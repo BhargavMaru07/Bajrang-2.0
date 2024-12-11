@@ -9,11 +9,18 @@ export const sortOptions = [
 ];
 
 export const subCategories = [
-  { name: "Hodi", href: "#" },
-  { name: "Fancy", href: "#" },
-  { name: "Jaripatty", href: "#" },
-  { name: "Kalktta Topa", href: "#" },
-  { name: "Spring", href: "#" },
+  { id: "title", value: "all", checked: true, label: "All" },
+  { id: "title", value: "hodi", checked: false, label: "Hodi" },
+  { id: "title", value: "fancy", checked: false, label: "Fancy" },
+  { id: "title", value: "jaripatty", checked: false, label: "Jaripatty" },
+  { id: "title", value: "shivling", checked: false, label: "Shivling" },
+  {
+    id: "title",
+    value: "kalktta topa",
+    checked: false,
+    label: "Kalktta Topa",
+  },
+  { id: "title", value: "spring", checked: false, label: "Spring" },
 ];
 
 export const filters = [
@@ -22,7 +29,6 @@ export const filters = [
     name: "Color",
     options: [
       { value: "all", label: "ALL", checked: true },
-      { value: "#FFF", label: "White", checked: false },
       { value: "#000000", label: "Black", checked: false },
       { value: "#A70F2E", label: "Madder", checked: false },
       { value: "#080812", label: "Rich black", checked: false },
@@ -35,11 +41,19 @@ export const filters = [
     id: "category",
     name: "Category",
     options: [
-      { value: "latkan", label: "Latkan", checked: true },
-      // { value: "sale", label: "Sale", checked: false },
-      // { value: "travel", label: "Travel", checked: false },
-      // { value: "organization", label: "Organization", checked: false },
-      // { value: "accessories", label: "Accessories", checked: false },
+      { value: "all", label: "All", checked: true },
+      { value: "bridal_latkan", label: "Bridal Latkan", checked: false },
+      { value: "fancy_latkan", label: "Fancy Latkan", checked: false },
+      {
+        value: "traditional_latkan",
+        label: "Traditional Latkan",
+        checked: false,
+      },
+      { value: "simple_latkan", label: "Simple Latkan", checked: false },
+      { value: "handmade_latkan", label: "Handmade Latkan", checked: false },
+      { value: "designer_latkan", label: "Designer Latkan", checked: false },
+      { value: "kidswear_latkan", label: "Kidswear Latkan", checked: false },
+      { value: "custom_latkan", label: "Custom Latkan", checked: false },
     ],
   },
   {

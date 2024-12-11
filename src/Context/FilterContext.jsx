@@ -11,6 +11,7 @@ const initialState = {
   List_View: true,
   sortValue: "lowest",
   filters: {
+    title: "all",
     text: "",
     category: "all",
     color: "all",
