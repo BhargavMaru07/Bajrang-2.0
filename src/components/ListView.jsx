@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 import Button from "../Styles/Button";
 import TruncatedTitle from "../helper/TruncatedTitle";
 
-const ListView = ({ products }) => {
+const ListView = ({ products, endPageIndex, startPageIndex }) => {
   return (
     <Wrapper className="py-8 ">
       <div className="container grid gap-12 p-0 sm:px-8">
-        {products.map((curElem) => {
+        {products.slice(startPageIndex, endPageIndex).map((curElem) => {
           const { id, name, image, price, description, colors } = curElem;
           // console.log("Color", colors[0]);
 
