@@ -3,16 +3,16 @@ import styled from "styled-components";
 import Product from "../Shared/Product";
 
 const GridView = ({ products, endPageIndex, startPageIndex }) => {
-  console.log(startPageIndex);
-  console.log(endPageIndex);
+  // console.log(startPageIndex);
+  // console.log(endPageIndex);
 
   // console.log("products :", products);
   return (
     <Wrapper className="flex items-center justify-center p-0 sm:py-8">
       <div className="container grid grid-cols-2 gap-0 sm:gap-4 sm:grid-cols-4">
         {products.slice(startPageIndex, endPageIndex).map((product) => {
-          console.log("startPageIndex :", startPageIndex);
-          console.log("endPageIndex :", endPageIndex);
+          // console.log("startPageIndex :", startPageIndex);
+          // console.log("endPageIndex :", endPageIndex);
 
           return <Product key={product.id} {...product} />;
         })}

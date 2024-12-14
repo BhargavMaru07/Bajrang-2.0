@@ -26,128 +26,131 @@ import { toast } from "react-toastify";
 const navigation = {
   categories: [
     {
-      id: "women",
-      name: "Women",
+      id: "category",
+      name: "Category",
       featured: [
         {
-          name: "New Arrivals",
-          href: "#",
+          name: "Latest Arrivals",
+          path: "/",
           imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg",
+            "https://www.shopolics.com/uploads/images/medium/Set-of-2-Handmade-Decorative-Handing-Beaded-Latkans-with-Petunia-Pom-Pom-0056.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
-          name: "Basic Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg",
+          name: "Popular Products",
+          path: "/",
+          imageSrc: "https://m.media-amazon.com/images/I/81Z9DlqdRCL.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
       ],
       sections: [
         {
-          id: "clothing",
-          name: "Clothing",
+          id: "latkan_category",
+          name: "Latkan Categories",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
+            { name: "Bridal Latkan", href: "#" },
+            { name: "Fancy Latkan", href: "#" },
+            { name: "Simple Latkan", href: "#" },
+            { name: "Custom Latkan", href: "#" },
+            { name: "Handmade Latkan", href: "#" },
+            { name: "Designer Latkan", href: "#" },
+            { name: "Kidswear Latkan", href: "#" },
+            { name: "Traditional Latkan", href: "#" },
           ],
         },
         {
-          id: "accessories",
-          name: "Accessories",
+          id: "latkan_products",
+          name: "Latkan Products",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Hodi Latkan", href: "#" },
+            { name: "Fancy Tassels", href: "#" },
+            { name: "Jaripatty Designs", href: "#" },
+            { name: "Shivling Latkan", href: "#" },
+            { name: "Kalktta Topa", href: "#" },
+            { name: "Spring Tassels", href: "#" },
+            { name: "Metallic Latkan", href: "#" },
           ],
         },
         {
-          id: "brands",
-          name: "Brands",
+          id: "latkan_styles",
+          name: "Latkan Styles",
           items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
-          ],
-        },
-      ],
-    },
-    {
-      id: "men",
-      name: "Men",
-      featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-          imageAlt:
-            "Drawstring top with elastic loop closure and textured interior padding.",
-        },
-        {
-          name: "Artwork Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
-          imageAlt:
-            "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
-        },
-      ],
-      sections: [
-        {
-          id: "clothing",
-          name: "Clothing",
-          items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
+            { name: "Threadwork Latkan", href: "#" },
+            { name: "Beaded Latkan", href: "#" },
+            { name: "Pom-Pom Latkan", href: "#" },
+            { name: "Sequin Latkan", href: "#" },
+            { name: "Tassel Latkan", href: "#" },
+            { name: "Mirror Work Latkan", href: "#" },
+            { name: "Embroidery Latkan", href: "#" },
+            { name: "Pearl Latkan", href: "#" },
           ],
         },
       ],
     },
+    // {
+    //   id: "men",
+    //   name: "Men",
+    //   featured: [
+    //     {
+    //       name: "New Arrivals",
+    //       href: "#",
+    //       imageSrc:
+    //         "https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+    //       imageAlt:
+    //         "Drawstring top with elastic loop closure and textured interior padding.",
+    //     },
+    //     {
+    //       name: "Artwork Tees",
+    //       href: "#",
+    //       imageSrc:
+    //         "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
+    //       imageAlt:
+    //         "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+    //     },
+    //   ],
+    //   sections: [
+    //     {
+    //       id: "clothing",
+    //       name: "Clothing",
+    //       items: [
+    //         { name: "Tops", href: "#" },
+    //         { name: "Pants", href: "#" },
+    //         { name: "Sweaters", href: "#" },
+    //         { name: "T-Shirts", href: "#" },
+    //         { name: "Jackets", href: "#" },
+    //         { name: "Activewear", href: "#" },
+    //         { name: "Browse All", href: "#" },
+    //       ],
+    //     },
+    //     {
+    //       id: "accessories",
+    //       name: "Accessories",
+    //       items: [
+    //         { name: "Watches", href: "#" },
+    //         { name: "Wallets", href: "#" },
+    //         { name: "Bags", href: "#" },
+    //         { name: "Sunglasses", href: "#" },
+    //         { name: "Hats", href: "#" },
+    //         { name: "Belts", href: "#" },
+    //       ],
+    //     },
+    //     {
+    //       id: "brands",
+    //       name: "Brands",
+    //       items: [
+    //         { name: "Re-Arranged", href: "#" },
+    //         { name: "Counterfeit", href: "#" },
+    //         { name: "Full Nelson", href: "#" },
+    //         { name: "My Way", href: "#" },
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
   pages: [
+    { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },
     { name: "About us", path: "/about" },
     { name: "Blogs", path: "/blog" },
@@ -203,16 +206,16 @@ const Navbar = () => {
             {/* Links */}
             <TabGroup className="mt-2">
               <div className="border-b border-gray-200">
-                <TabList className="flex px-4 -mb-px space-x-8">
+                {/* <TabList className="flex px-4 -mb-px space-x-8">
                   {navigation.categories.map((category) => (
                     <Tab
                       key={category.name}
-                      className="flex-1 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-base font-medium text-gray-900 data-[selected]:border-indigo-600 data-[selected]:text-indigo-600"
+                      className="flex-1 text-start whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-base font-medium text-gray-900 data-[selected]:border-indigo-600 data-[selected]:text-indigo-600"
                     >
                       {category.name}
                     </Tab>
                   ))}
-                </TabList>
+                </TabList> */}
               </div>
               <TabPanels as={Fragment}>
                 {navigation.categories.map((category) => (
@@ -228,8 +231,8 @@ const Navbar = () => {
                             src={item.imageSrc}
                             className="object-cover w-full bg-gray-100 rounded-lg aspect-square group-hover:opacity-75"
                           />
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.path}
                             className="block mt-6 font-medium text-gray-900"
                           >
                             <span
@@ -237,14 +240,14 @@ const Navbar = () => {
                               className="absolute inset-0 z-10"
                             />
                             {item.name}
-                          </a>
+                          </Link>
                           <p aria-hidden="true" className="mt-1">
                             Shop now
                           </p>
                         </div>
                       ))}
                     </div>
-                    {/* {category.sections.map((section) => (
+                    {category.sections.map((section) => (
                       <div key={section.name}>
                         <p
                           id={`${category.id}-${section.id}-heading-mobile`}
@@ -269,7 +272,7 @@ const Navbar = () => {
                           ))}
                         </ul>
                       </div>
-                    ))} */}
+                    ))}
                   </TabPanel>
                 ))}
               </TabPanels>
@@ -375,6 +378,15 @@ const Navbar = () => {
               {/* Flyout menus */}
               <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch z-[999]">
                 <div className="flex h-full space-x-8">
+                  {navigation.pages.map((page) => (
+                    <Link
+                      key={page.name}
+                      to={page.path}
+                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                    >
+                      {page.name}
+                    </Link>
+                  ))}
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
@@ -408,7 +420,7 @@ const Navbar = () => {
                                       className="object-cover w-full bg-gray-100 rounded-lg aspect-square group-hover:opacity-75"
                                     />
                                     <Link
-                                      href={item.href}
+                                      to={item.path}
                                       className="block mt-6 font-medium text-gray-900"
                                     >
                                       <span
@@ -457,16 +469,6 @@ const Navbar = () => {
                       </PopoverPanel>
                     </Popover>
                   ))}
-
-                  {navigation.pages.map((page) => (
-                    <Link
-                      key={page.name}
-                      to={page.path}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      {page.name}
-                    </Link>
-                  ))}
                 </div>
               </PopoverGroup>
 
@@ -502,20 +504,6 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* <div className="hidden lg:ml-8 lg:flex">
-                  <a
-                    href="#"
-                    className="flex items-center text-gray-700 hover:text-gray-800"
-                  >
-                    <img
-                      alt=""
-                      src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
-                      className="block w-5 h-auto shrink-0"
-                    />
-                    <span className="block ml-3 text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div> */}
                 {/* Search */}
                 <div className="flex lg:ml-6">
                   <Link

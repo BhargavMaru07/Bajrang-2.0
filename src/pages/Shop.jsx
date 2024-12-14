@@ -10,6 +10,7 @@ import SearchBar from "../helper/Search";
 import Sort from "../Shared/Sort";
 import { useProductContext } from "../Context/ProductContext";
 import Progress from "../helper/Progress";
+import Button from "../Styles/Button";
 
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(" ");
@@ -73,7 +74,7 @@ const Shop = () => {
                       {subCategories.map((category) => {
                         return (
                           <>
-                            <div key={category.value}>
+                            <div key={category.value} className="mb-2">
                               <input
                                 id={`filter-mobile-${category.value}`}
                                 name={category.id}
@@ -90,75 +91,85 @@ const Shop = () => {
                                 {category.label}
                               </label>
                             </div>
-                            <hr />
                           </>
                         );
                       })}
                     </div>
 
-                    {filters.map((section) => (
-                      <Disclosure
-                        as="div"
-                        key={section.id}
-                        className="px-4 py-6 border-t border-gray-200"
-                      >
-                        {({ open }) => (
-                          <>
-                            <h3 className="flow-root -mx-2 -my-3">
-                              <Disclosure.Button className="flex items-center justify-between w-full px-2 py-3 text-gray-400 bg-white hover:text-gray-500">
-                                <span className="font-medium text-gray-900">
-                                  {section.name}
-                                </span>
-                                <span className="flex items-center ml-6">
-                                  {open ? (
-                                    <MinusIcon
-                                      className="w-5 h-5"
-                                      aria-hidden="true"
-                                      onClick={clearFilter}
-                                    />
-                                  ) : (
-                                    <PlusIcon
-                                      className="w-5 h-5"
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
-                                {section.options.map((option, optionIdx) => (
-                                  <div
-                                    key={option.value}
-                                    className="flex items-center"
-                                  >
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}`}
-                                      value={option.value}
-                                      onClick={updateFilterValue}
-                                      type="radio"
-                                      defaultChecked={option.checked}
-                                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                                    />
-                                    <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="flex-1 min-w-0 ml-3 text-gray-500"
-                                    >
-                                      {option.label}
-                                    </label>
-                                    <div
-                                      className={`h-[10px] w-[100px]`}
-                                      style={{ background: option.value }}
-                                    ></div>
+                    {filters.map((section) => {
+                      return (
+                        <>
+                          <Disclosure
+                            as="div"
+                            key={section.id}
+                            className="px-4 py-6 border-t border-gray-200"
+                          >
+                            {({ open }) => (
+                              <>
+                                <h3 className="flow-root -mx-2 -my-3">
+                                  <Disclosure.Button className="flex items-center justify-between w-full px-2 py-3 text-gray-400 bg-white hover:text-gray-500">
+                                    <span className="font-medium text-gray-900">
+                                      {section.name}
+                                    </span>
+                                    <span className="flex items-center ml-6">
+                                      {open ? (
+                                        <MinusIcon
+                                          className="w-5 h-5"
+                                          aria-hidden="true"
+                                          onClick={clearFilter}
+                                        />
+                                      ) : (
+                                        <PlusIcon
+                                          className="w-5 h-5"
+                                          aria-hidden="true"
+                                        />
+                                      )}
+                                    </span>
+                                  </Disclosure.Button>
+                                </h3>
+                                <Disclosure.Panel className="pt-6">
+                                  <div className="space-y-6">
+                                    {section.options.map(
+                                      (option, optionIdx) => (
+                                        <div
+                                          key={option.value}
+                                          className="flex items-center"
+                                        >
+                                          <input
+                                            id={`filter-mobile-${section.id}-${optionIdx}`}
+                                            name={`${section.id}`}
+                                            value={option.value}
+                                            onClick={updateFilterValue}
+                                            type="radio"
+                                            defaultChecked={option.checked}
+                                            className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                          />
+                                          <label
+                                            htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                            className="flex-1 min-w-0 ml-3 text-gray-500"
+                                          >
+                                            {option.label}
+                                          </label>
+                                          <div
+                                            className={`h-[10px] w-[100px]`}
+                                            style={{ background: option.value }}
+                                          ></div>
+                                        </div>
+                                      )
+                                    )}
                                   </div>
-                                ))}
-                              </div>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                    ))}
+                                </Disclosure.Panel>
+                              </>
+                            )}
+                          </Disclosure>
+                        </>
+                      );
+                    })}
+                    <Link>
+                      <Button className="!mt-8 !ml-4" onClick={clearFilter}>
+                        Clear Filters
+                      </Button>
+                    </Link>
                   </form>
                 </Dialog.Panel>
               </Transition.Child>
@@ -273,6 +284,11 @@ const Shop = () => {
                     )}
                   </Disclosure>
                 ))}
+                <Link>
+                  <Button className="!mt-8" onClick={clearFilter}>
+                    Clear Filters
+                  </Button>
+                </Link>
               </form>
 
               {/* Product grid */}
