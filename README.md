@@ -1,6 +1,21 @@
-# Bajrang Latkan ✨
+# Bajrang Latkan ✨👗
 
 **Live Link:** [🔗 https://bajrang-2-0.vercel.app/](https://bajrang-2-0.vercel.app/)
+
+---
+
+## Table of Contents 📚
+- [About Bajrang Latkan](#about-bajrang-latkan)
+- [Features](#features)
+- [Technologies and Tools Used](#technologies-and-tools-used)
+- [Screenshots](#screenshots)
+- [Installation and Setup](#installation-and-setup)
+- [Roadmap](#roadmap)
+- [Future Enhancements](#future-enhancements)
+- [Contributors](#contributors)
+- [Contact](#contact)
+
+---
 
 ## About Bajrang Latkan 🌟
 
@@ -28,6 +43,11 @@ Crafted with precision and high-quality materials, our latkans are designed for 
 
 ## Technologies and Tools Used 🛠️
 
+![React](https://img.shields.io/badge/Frontend-React-blue)  
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)  
+![Node.js](https://img.shields.io/badge/Backend-Node.js-yellow)  
+![Deployment](https://img.shields.io/badge/Deployed-Vercel-black)
+
 ### Frontend:
 - **React.js**: ⚛️ For building the dynamic and interactive user interface.
 
@@ -43,6 +63,14 @@ Crafted with precision and high-quality materials, our latkans are designed for 
 
 ### Deployment:
 - **Vercel**: 🚀 Hosting the frontend for fast and scalable delivery.
+
+---
+
+## Screenshots 📸
+
+![Homepage Screenshot](./src/assets/images/BajrangLatkan.png)  
+![Product Listing Screenshot](./src/assets//images/shop.png)  
+![About Page Screenshot](./src/assets/images/about.png)
 
 ---
 
@@ -89,6 +117,16 @@ Follow these steps to run the project locally:
 
 ---
 
+## Roadmap 🗺️
+
+- [✔] Dynamic Product Listings
+- [✔] Responsive Design
+- [ ] Multi-language Support
+- [ ] Advanced Analytics
+- [ ] Enhanced Payment Gateway
+
+---
+
 ## Future Enhancements 🚀
 
 - Add multi-language support to cater to a broader audience. 🌍
@@ -96,11 +134,13 @@ Follow these steps to run the project locally:
 - Include more secure payment gateways for international users. 💳
 - Expand product categories with user recommendations. 🎯
 
----
+--
 
-## License 📜
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+## Contributors 🤝
+
+- **[Mayur Kapadi](https://github.com/mkkapadi12)**: Lead Developer  
+- **[Bhargav Maru](https://github.com/bhargavmaru07)**: Developer  
 
 ---
 
