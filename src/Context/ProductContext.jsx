@@ -41,11 +41,14 @@ const ProductProvider = ({ children }) => {
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
     try {
+      // Fetch data from API
       const res = await axios.get(url);
-      const singleProduct = await res.data;
-      // const singleProduct = url;
 
-      dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct });
+      // Ensure the response data is valid
+      const singleProduct = res.data;
+      // console.log(singleProduct);
+
+      dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct[0] });
     } catch (error) {
       dispatch({ type: "SET_SINGLE_ERROR" });
     }

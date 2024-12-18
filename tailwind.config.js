@@ -31,6 +31,9 @@ export default {
       zIndex: {
         99: "99",
       },
+      gridTemplateRows: {
+        "[auto,auto,1fr]": "auto auto 1fr",
+      },
     },
   },
   plugins: [],

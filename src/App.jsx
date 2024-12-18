@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
+import ProductOverview from "./pages/ProductOverview";
 // import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
@@ -23,6 +24,7 @@ import Profile from "./pages/Profile";
 import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
 import Navbar from "./components/Navbar";
+import SearchProduct from "./pages/SearchProduct";
 
 const App = () => {
   const theme = {
@@ -66,12 +68,9 @@ const App = () => {
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/blog" element={<Blog />} />
-            <Route exact path="/gallery" element={<Gallery />} />
-            {/* <Route
-              exact
-              path="/singleproduct/:id"
-              element={<SingleProduct />}
-            /> */}
+            <Route exact path="/blog" element={<Blog />} />
+            <Route exact path="/search" element={<SearchProduct />} />
+            <Route exact path="/singleproduct/:id" element={<ProductOverview />} />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route
