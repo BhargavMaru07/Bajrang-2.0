@@ -14,8 +14,15 @@ import {
   FaPalette,
   FaStar,
   FaCog,
+  FaRegHeart,
+  FaMinus,
+  FaPlus,
+  FaHome,
 } from "react-icons/fa";
+
 import { FaPeopleCarryBox } from "react-icons/fa6";
+import { MdDeleteForever } from "react-icons/md";
+import { IoBagHandle } from "react-icons/io5";
 
 export const ICONS = {
   BARS: Bars3Icon,
@@ -36,4 +43,10 @@ export const ICONS = {
   STAR: FaStar,
   PALETTE: FaPalette,
   SETTING: FaCog,
+  DELETE: MdDeleteForever,
+  BAG: IoBagHandle,
+  HEART: FaRegHeart,
+  PLUS: FaPlus,
+  MINUS: FaMinus,
+  HOME: FaHome,
 };

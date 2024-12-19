@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const Product = (Product) => {
   // console.log(Product);
 
-  const { image, name, price, colors, category, id } = Product;
+  const { image, name, price, colors, category, id, MRP } = Product;
   // console.log(name);
 
   return (
@@ -40,7 +40,7 @@ const Product = (Product) => {
                 {<CurrencyFormate price={price} />}
               </span>
               <span className="ml-2 text-sm text-gray-400 line-through">
-                {<CurrencyFormate price={price} />}
+                {<CurrencyFormate price={MRP} />}
               </span>
             </div>
             <div className="flex items-center justify-between">

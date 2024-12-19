@@ -1,17 +1,17 @@
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const { id, color, amount, product } = action.payload;
-      //   console.log("product :", product);
+      const { id, colors, amount, product } = action.payload;
+      // console.log("product :", colors);
       let existingProduct = state.cart.find(
-        (curEle) => curEle.id === id + color
+        (curEle) => curEle.id === id + colors[0]
       );
 
       // console.log("existingProduct :", existingProduct);
 
       if (existingProduct) {
         let updatedProduct = state.cart.map((curElem) => {
-          if (curElem.id === id + color) {
+          if (curElem.id === id + colors[0]) {
             let newAmount = curElem.amount + amount;
 
             // console.log(newAmount);
@@ -36,14 +36,18 @@ const reducer = (state, action) => {
         };
       } else {
         let CartProduct = {
-          id: id + color,
+          id: id + colors[0],
           name: product.name,
-          color,
+          color: colors[0],
           amount,
+          MRP: product.MRP,
+          discount: product.discount,
           image: product.image[0].url,
           price: product.price,
-          max: product.stock,
+          max: product.quantity,
         };
+
+        // console.log(CartProduct);
 
         return {
           ...state,
@@ -99,7 +103,7 @@ const reducer = (state, action) => {
       let updatedItem = state.cart.filter(
         (curItem) => curItem.id !== action.payload
       );
-      console.log(updatedItem);
+      // console.log(updatedItem);
 
       return {
         ...state,
@@ -139,24 +143,31 @@ const reducer = (state, action) => {
     // This code is simplify by above code.
 
     case "CART_TOAL_PRICE_ITEM":
-      let { total_item, total_price } = state.cart.reduce(
-        (accumulator, curEle) => {
-          let { price, amount } = curEle;
+      let { paying_amount, total_item, total_price, total_discount } =
+        state.cart.reduce(
+          (accumulator, curEle) => {
+            let { amount, discount, MRP, price } = curEle;
 
-          accumulator.total_item += amount;
-          accumulator.total_price += amount * price;
+            accumulator.total_item += amount;
+            accumulator.paying_amount += price * amount;
+            accumulator.total_price += amount * MRP;
+            accumulator.total_discount += discount * amount;
 
-          return accumulator;
-        },
-        {
-          total_item: 0,
-          total_price: 0,
-        }
-      );
+            return accumulator;
+          },
+          {
+            total_item: 0,
+            total_price: 0,
+            paying_amount: 0,
+            total_discount: 0,
+          }
+        );
       return {
         ...state,
         total_item: total_item,
         total_price: total_price,
+        paying_amount: paying_amount,
+        total_discount: total_discount,
       };
 
     default:

@@ -38,7 +38,7 @@ const Images = ({ image }) => {
             <img
               src={img.url}
               alt={img.filename || "Image"}
-              className="object-contain w-full rounded-lg h-96"
+              className="object-contain mx-auto rounded-lg h-96"
             />
           </div>
         ))}
@@ -53,6 +53,10 @@ const Wrapper = styled.section`
   .slick-dots {
     position: relative;
     bottom: 0;
+    gap: 1.8rem;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .slick-next {
@@ -68,7 +72,8 @@ const Wrapper = styled.section`
   }
 
   .slick-dots li {
-    width: auto;
+    width: 50px;
     height: auto;
+    margin: 0 !important;
   }
 `;

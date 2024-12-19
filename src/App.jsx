@@ -38,6 +38,7 @@ const App = () => {
       card_bg: "#b0a69d",
       footer_bg: "#0a1435",
       head: "#E2218F",
+      desc : "#8DC6A3",
       btn: "rgb(98,84,243)",
       hr: "#fffff",
       border: "rgba(98, 84, 243, 0.5)",
@@ -70,7 +71,11 @@ const App = () => {
             <Route exact path="/blog" element={<Blog />} />
             <Route exact path="/blog" element={<Blog />} />
             <Route exact path="/search" element={<SearchProduct />} />
-            <Route exact path="/singleproduct/:id" element={<ProductOverview />} />
+            <Route
+              exact
+              path="/singleproduct/:id"
+              element={<ProductOverview />}
+            />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route

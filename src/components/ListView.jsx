@@ -10,7 +10,7 @@ const ListView = ({ products, endPageIndex, startPageIndex }) => {
     <Wrapper className="py-8 ">
       <div className="container grid gap-12 p-0 sm:px-8">
         {products.slice(startPageIndex, endPageIndex).map((curElem) => {
-          const { id, name, image, price, description, colors } = curElem;
+          const { id, name, image, price, description, colors,MRP } = curElem;
           // console.log("Color", colors[0]);
 
           return (
@@ -39,7 +39,7 @@ const ListView = ({ products, endPageIndex, startPageIndex }) => {
                     {<CurrencyFormate price={price} />}
                   </span>
                   <span className="ml-4 text-sm line-through text-text">
-                    {<CurrencyFormate price={price} />}
+                    {<CurrencyFormate price={MRP} />}
                   </span>
                 </div>
                 <div className="w-5 h-5 rounded-full md:w-6 md:h-6 border-[#C7C7C7] border p-0.5 flex items-center justify-center">

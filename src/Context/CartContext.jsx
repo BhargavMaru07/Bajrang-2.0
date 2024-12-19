@@ -1,33 +1,24 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/CartReducer";
+import { getCartData, setCartData } from "../helper/localStorage";
 
 const cartContext = createContext();
 
-// const getlocalData = () => {
-//   let localCartData = localStorage.getItem('mayurCart');
-//   // if (localCartData === "") {
-//   //   return [];
-//   // } else {
-//   //   return JSON.parse(localCartData);
-//   // }
-//   const parseData = JSON.parse(localCartData);
-//   if (!Array.isArray(parseData)) return [];
-//   return parseData;
-// };
-
 const initialState = {
-  cart: [],
-  //   cart: getlocalData(),
+  // cart: [],
+  cart: getCartData(),
   total_item: 0,
   total_price: 0,
-  shipping_fee: 50000,
+  total_discount: 0,
+  paying_amount: 0,
+  shipping_fee: 500,
 };
 
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCart = (id, color, amount, product) => {
-    dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
+  const addToCart = (id, colors, amount, product) => {
+    dispatch({ type: "ADD_TO_CART", payload: { id, colors, amount, product } });
   };
 
   const setIncrement = (id) => {
@@ -48,7 +39,7 @@ const CartContextProvider = ({ children }) => {
     // dispatch({ type: "CART_TOTAL_ITEM" });
     // dispatch({ type: "CART_TOTAL_PRICE" });
     dispatch({ type: "CART_TOAL_PRICE_ITEM" });
-    // localStorage.setItem("mayurCart", JSON.stringify(state.cart));
+    setCartData(state.cart);
   }, [state.cart]);
 
   const clearCart = () => {

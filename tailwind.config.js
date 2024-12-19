@@ -15,6 +15,7 @@ export default {
         bg: "#F6F8FA",
         footer_bg: "#0a1435",
         head: "#E2218F",
+        desc: "#8DC6A3",
         btn: "rgb(98,84,243)",
         hr: "#fffff",
         border: "rgba(98, 84, 243, 0.5)",
