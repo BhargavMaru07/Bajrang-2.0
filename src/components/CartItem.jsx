@@ -55,7 +55,7 @@ const CartItem = ({
           />
         </div>
       </div>
-      <div className="absolute flex items-center justify-center w-5 h-5 p-5 border rounded-lg sm:right-2 bg-bg bottom-2 sm:top-2 right-2">
+      <div className="absolute flex items-center justify-center w-5 h-5 p-5 border rounded-lg sm:right-2 bg-bg bottom-16 sm:top-2 right-2">
         <button
           onClick={() => removeItem(id)}
           className="text-2xl text-btn hover:text-btn"

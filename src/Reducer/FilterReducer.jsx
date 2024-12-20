@@ -2,10 +2,8 @@ const FilterReducer = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
       let priceArr = action.payload.map((curElem) => curElem.price);
-      //   console.log("priceArr :", priceArr);
-
       let maxPrice = Math.max(...priceArr);
-      // console.log("maxPrice :", maxPrice);
+
       return {
         ...state,
         filter_product: [...action.payload],
@@ -30,11 +28,6 @@ const FilterReducer = (state, action) => {
       };
 
     case "SET_SORT_VALUE":
-      // const userSortValue = document.getElementById("sort");
-      // const SortValue =
-      //   userSortValue.options[userSortValue.selectedIndex].value;
-      // console.log("SortValue   :", SortValue);
-
       return {
         ...state,
         sortValue: action.payload,
@@ -44,8 +37,6 @@ const FilterReducer = (state, action) => {
       let newSortData;
       const { filter_product, sortValue } = state;
       let tempSortProduct = filter_product;
-      // console.log("filter_product :", filter_product);
-      // console.log("tempSortProduct :", tempSortProduct);
 
       const sortingProducts = (a, b) => {
         //sorting by lowest price
@@ -70,7 +61,6 @@ const FilterReducer = (state, action) => {
       };
 
       newSortData = tempSortProduct.sort(sortingProducts);
-      // console.log("newSortData :", newSortData);
 
       return {
         ...state,
@@ -81,7 +71,6 @@ const FilterReducer = (state, action) => {
 
     case "UPDATE_FILTER_VALUE":
       const { name, value } = action.payload;
-      // console.log(value);
       return {
         ...state,
         filters: {

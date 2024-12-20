@@ -2,19 +2,14 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       const { id, colors, amount, product } = action.payload;
-      // console.log("product :", colors);
       let existingProduct = state.cart.find(
         (curEle) => curEle.id === id + colors[0]
       );
-
-      // console.log("existingProduct :", existingProduct);
 
       if (existingProduct) {
         let updatedProduct = state.cart.map((curElem) => {
           if (curElem.id === id + colors[0]) {
             let newAmount = curElem.amount + amount;
-
-            // console.log(newAmount);
 
             if (newAmount >= curElem.max) {
               newAmount = curElem.max;
@@ -46,8 +41,6 @@ const reducer = (state, action) => {
           price: product.price,
           max: product.quantity,
         };
-
-        // console.log(CartProduct);
 
         return {
           ...state,
@@ -103,7 +96,6 @@ const reducer = (state, action) => {
       let updatedItem = state.cart.filter(
         (curItem) => curItem.id !== action.payload
       );
-      // console.log(updatedItem);
 
       return {
         ...state,

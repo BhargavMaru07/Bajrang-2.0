@@ -33,12 +33,9 @@ const CartContextProvider = ({ children }) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
   };
 
-  //set localStorage data
-
   useEffect(() => {
-    // dispatch({ type: "CART_TOTAL_ITEM" });
-    // dispatch({ type: "CART_TOTAL_PRICE" });
     dispatch({ type: "CART_TOAL_PRICE_ITEM" });
+    //set localStorage data
     setCartData(state.cart);
   }, [state.cart]);
 

@@ -13,7 +13,6 @@ const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
 
   const { id, colors, quantity } = product;
-  // console.log(quantity);
   //   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 

@@ -23,7 +23,6 @@ const initialState = {
 
 const FilterContextProvider = ({ children }) => {
   const { products } = useProductContext();
-  //   console.log("products :", products);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -41,7 +40,6 @@ const FilterContextProvider = ({ children }) => {
 
   const sorting = (event) => {
     var userValue = event.target.value;
-    // console.log(userValue);
     dispatch({ type: "SET_SORT_VALUE", payload: userValue });
   };
 
@@ -50,8 +48,6 @@ const FilterContextProvider = ({ children }) => {
   const updateFilterValue = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-    // console.log(name + ":" + value);
-
     return dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
   };
 
@@ -62,7 +58,6 @@ const FilterContextProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "SORTING_DATA" });
-    // console.log("Sorting");
   }, [products, state.sortValue]);
 
   useEffect(() => {

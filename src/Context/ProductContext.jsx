@@ -4,7 +4,6 @@ import reducer from "../Reducer/ProductReducer";
 
 const ProductContext = createContext();
 const API = `https://productionapi.up.railway.app/api/products`;
-// const API = "http://localhost:8000/api/products";
 
 const initialState = {
   isError: false,
@@ -31,7 +30,7 @@ const ProductProvider = ({ children }) => {
       }
 
       // Log products for debugging
-      // console.log("Fetched Products:", products.Products[0]);
+      // console.log("Fetched Products:", products.Products);
 
       dispatch({ type: "SET_API_DATA", payload: products.Products });
     } catch (error) {
@@ -46,7 +45,6 @@ const ProductProvider = ({ children }) => {
 
       // Ensure the response data is valid
       const singleProduct = res.data;
-      // console.log(singleProduct);
 
       dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct[0] });
     } catch (error) {

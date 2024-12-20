@@ -41,7 +41,6 @@ const AboutLatkan = () => {
           </Link>
         </div>
       </div>
-      {/* <div className="md:w-[27%]"> */}
       <div className="grid grid-cols-2 gap-4 lg:w-[27%] sm:w-[50%]">
         <div>
           <img
@@ -65,7 +64,6 @@ const AboutLatkan = () => {
           />
         </div>
       </div>
-      {/* </div> */}
     </section>
   );
 };

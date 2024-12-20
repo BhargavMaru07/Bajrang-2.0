@@ -26,7 +26,6 @@ const reducer = (state, action) => {
       };
 
     case "SET_SINGLE_API_DATA":
-      // console.log(action.payload);
       return {
         ...state,
         isSingleLoading: false,
