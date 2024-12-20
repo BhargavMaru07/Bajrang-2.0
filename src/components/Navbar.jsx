@@ -22,6 +22,8 @@ import { ICONS } from "../assets/Icons/icon";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { useCartContext } from "../Context/CartContext";
+import { Badge } from "@mui/material";
 
 const navigation = {
   categories: [
@@ -159,6 +161,7 @@ const navigation = {
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const { cart } = useCartContext();
   const [open, setOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -328,20 +331,6 @@ const Navbar = () => {
                 </>
               )}
             </div>
-
-            {/* <div className="px-4 py-6 border-t border-gray-200">
-              <a href="#" className="flex items-center p-2 -m-2">
-                <img
-                  alt=""
-                  src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
-                  className="block w-5 h-auto shrink-0"
-                />
-                <span className="block ml-3 text-base font-medium text-gray-900">
-                  CAD
-                </span>
-                <span className="sr-only">, change currency</span>
-              </a>
-            </div> */}
           </DialogPanel>
         </div>
       </Dialog>
@@ -517,13 +506,20 @@ const Navbar = () => {
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
                   <Link to="/cart" className="flex items-center p-2 -m-2 group">
-                    <ICONS.SHOPPINGBAG
-                      aria-hidden="true"
-                      className="text-gray-400 size-6 shrink-0 group-hover:text-gray-500"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
+                    <Badge
+                      className=""
+                      badgeContent={cart.length == 0 ? "0" : cart.length}
+                      color="primary"
+                    >
+                      <ICONS.CART
+                        aria-hidden="true"
+                        className="text-gray-400 size-6 shrink-0 group-hover:text-gray-500"
+                      />
+                    </Badge>
+
+                    {/* <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                      {cart.length}
+                    </span> */}
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>

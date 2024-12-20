@@ -23,6 +23,7 @@ import {
 import { FaPeopleCarryBox } from "react-icons/fa6";
 import { MdDeleteForever } from "react-icons/md";
 import { IoBagHandle } from "react-icons/io5";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const ICONS = {
   BARS: Bars3Icon,
@@ -49,4 +50,5 @@ export const ICONS = {
   PLUS: FaPlus,
   MINUS: FaMinus,
   HOME: FaHome,
+  CART: AiOutlineShoppingCart,
 };
