@@ -1,6 +1,7 @@
 import React from "react";
 import login from "../assets/Auth/login.gif";
-import RegisterForm from "../Shared/RegisterForm";
+// import RegisterForm from "../Shared/RegisterForm";
+import RegisterForm2 from "../Shared/RegisterForm2";
 
 const Login = () => {
   return (
@@ -10,7 +11,7 @@ const Login = () => {
           <img src={login} alt="login" />
         </div>
         <div className="flex items-center justify-center ">
-          <RegisterForm />
+          <RegisterForm2 />
         </div>
       </div>
     </div>

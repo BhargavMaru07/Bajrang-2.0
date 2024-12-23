@@ -54,7 +54,7 @@ const RegisterForm = () => {
               id="name"
               required
               placeholder="John Doe"
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             <label htmlFor="email" className="py-2 text-text">
               Email
@@ -65,7 +65,7 @@ const RegisterForm = () => {
               id="email"
               required
               placeholder="user@xyz.com"
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             <label htmlFor="password" className="py-2 text-text">
               Password
@@ -76,7 +76,7 @@ const RegisterForm = () => {
               id="password"
               placeholder="●●●●●●●●●●"
               required
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             <label htmlFor="password" className="py-2 text-text">
               Confirm Password
@@ -87,7 +87,7 @@ const RegisterForm = () => {
               id="confirmpassword"
               placeholder="●●●●●●●●●●"
               required
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             {errorMsg && (
               <div className="mt-2 text-center">
