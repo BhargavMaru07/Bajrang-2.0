@@ -2,32 +2,44 @@ import React from "react";
 import welcome from "../assets/Auth/welcome.jpg";
 import { Facebook, GitHub, Google, Instagram } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Styles/Button";
+import { toast } from "react-toastify";
+import { useAuthContext } from "../Context/AuthContextModified";
 
 const LoginForm2 = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm();
 
+  const { storeTokenInLS } = useAuthContext();
+  const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     try {
       console.log(data);
-      //   const response = await fetch("/api/user", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(data),
-      //   });
-      //   console.log(response);
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const res_data = await response.json();
+        // console.log("Json Data :", res_data);
+        storeTokenInLS(res_data.token);
         reset();
+        toast.success("Login Successfully !");
+        navigate("/");
+      }
+      console.log(response);
     } catch (error) {
-      console.error("Can't post user data", error);
+      console.error("Login Error", error);
     }
   };
 

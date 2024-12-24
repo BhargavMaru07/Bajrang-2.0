@@ -1,14 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const ConnectDB = require("./Database/connect");
-const path = require("path")
+const path = require("path");
 const app = express();
 const cors = require("cors");
 //server port
 const Port = process.env.PORT || 8001;
 //routes
 const auth_route = require("./routes/auth-route");
-const blog_route = require("./routes/blog-route")
+const blog_route = require("./routes/blog-route");
 
 //cors
 app.use(
@@ -20,10 +20,10 @@ app.use(
 );
 //middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
-app.use(express.static(path.resolve("./public/uploads")))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.resolve("./public/uploads")));
 
-app.get("/", (req, res) => res.send("Hello"));
+app.get("/", (req, res) => res.send("Hello This is Server !"));
 
 app.use("/api/auth", auth_route);
 app.use("/api/blog", blog_route);

@@ -9,4 +9,7 @@ router.route("/").get(authControllers.home);
 //Register Route :
 router.route("/register").post(authControllers.register);
 
+//Login Route :
+router.route("/login").post(authControllers.login);
+
 module.exports = router;

@@ -1,7 +1,7 @@
 const express = require("express");
 const BLOG = require("../models/blog-model");
 const multer = require("multer");
-const path = require("path")
+const path = require("path");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
   return res.end("blog page");
 });
 
-router.post("/add-new",upload.single("coverImage"), async (req, res) => {
+router.post("/add-new", upload.single("coverImage"), async (req, res) => {
   let { title, body } = req.body;
 
   let new_blog = await BLOG.create({
@@ -32,7 +32,7 @@ router.post("/add-new",upload.single("coverImage"), async (req, res) => {
 
   console.log(new_blog);
   return res.send({
-    "msg":"Blog is created"
+    msg: "Blog is created",
   });
 });
 

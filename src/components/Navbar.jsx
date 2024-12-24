@@ -20,7 +20,7 @@ import {
 import { ICONS } from "../assets/Icons/icon";
 
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Context/AuthContext";
+import { useAuthContext } from "../Context/AuthContextModified";
 import { toast } from "react-toastify";
 import { useCartContext } from "../Context/CartContext";
 import { Badge } from "@mui/material";
@@ -160,21 +160,21 @@ const navigation = {
 };
 
 const Navbar = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { isLoggedIn } = useAuthContext();
   const { cart } = useCartContext();
   const [open, setOpen] = useState(false);
 
-  const handleSignOut = () => {
-    logout()
-      .then(() => {
-        // Sign-out successful.
-        toast.success("Logout Successfully");
-      })
-      .catch((error) => {
-        // An error happened.
-        toast.error(error.message);
-      });
-  };
+  // const handleSignOut = () => {
+  //   logout()
+  //     .then(() => {
+  //       // Sign-out successful.
+  //       toast.success("Logout Successfully");
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //       toast.error(error.message);
+  //     });
+  // };
 
   return (
     <div className="bg-white">
@@ -296,12 +296,11 @@ const Navbar = () => {
             </div>
 
             <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-              {user ? (
+              {isLoggedIn ? (
                 <>
                   <div className="flow-root">
                     <Link
-                      to="/"
-                      onClick={handleSignOut}
+                      to="/logout"
                       className="block p-2 -m-2 font-medium text-gray-900"
                     >
                       Sign out
@@ -463,10 +462,10 @@ const Navbar = () => {
 
               <div className="flex items-center m-0">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {user ? (
+                  {isLoggedIn ? (
                     <Link
-                      to="/"
-                      onClick={handleSignOut}
+                      to="/logout"
+                      // onClick={handleSignOut}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       Sign out

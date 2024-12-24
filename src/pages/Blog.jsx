@@ -51,23 +51,23 @@ export default function Blog() {
     <div className="container px-4 mx-auto max-w-7xl">
       <form onSubmit={handleSubmit}>
         <div className="space-y-12">
-          <div className="border-b border-gray-900/10 pb-12">
-            <h1 className="font-semibold text-gray-900 text-2xl">Blog</h1>
-            <p className="mt-1 text-sm/6 text-gray-600">
+          <div className="pb-12 border-b border-gray-900/10">
+            <h1 className="text-2xl font-semibold text-gray-900">Blog</h1>
+            <p className="mt-1 text-gray-600 text-sm/6">
               This information will be displayed publicly, so be careful what
               you share.
             </p>
 
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="grid grid-cols-1 mt-10 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-4">
                 <label
                   htmlFor="title"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block font-medium text-gray-900 text-sm/6"
                 >
                   Title :
                 </label>
                 <div className="mt-2">
-                  <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="flex items-center pl-3 bg-white rounded-md outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                     <input
                       value={data.title}
                       onChange={(e) =>
@@ -86,7 +86,7 @@ export default function Blog() {
               <div className="col-span-full">
                 <label
                   htmlFor="body"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block font-medium text-gray-900 text-sm/6"
                 >
                   Content :
                 </label>
@@ -100,7 +100,7 @@ export default function Blog() {
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
-                <p className="mt-3 text-sm/6 text-gray-600">
+                <p className="mt-3 text-gray-600 text-sm/6">
                   Write a few sentences about the blog.
                 </p>
               </div>
@@ -108,20 +108,20 @@ export default function Blog() {
               <div className="col-span-full">
                 <label
                   htmlFor="cover-photo"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block font-medium text-gray-900 text-sm/6"
                 >
                   Cover photo
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
                   <div className="text-center">
                     <PhotoIcon
                       aria-hidden="true"
-                      className="mx-auto size-12 text-gray-300"
+                      className="mx-auto text-gray-300 size-12"
                     />
-                    <div className="mt-4 flex text-sm/6 text-gray-600">
+                    <div className="flex mt-4 text-gray-600 text-sm/6">
                       <label
                         htmlFor="file-upload"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        className="relative font-semibold text-indigo-600 bg-white rounded-md cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
@@ -134,7 +134,7 @@ export default function Blog() {
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
-                    <p className="text-xs/5 text-gray-600">
+                    <p className="text-gray-600 text-xs/5">
                       PNG, JPG, GIF up to 10MB
                     </p>
                   </div>
@@ -144,7 +144,7 @@ export default function Blog() {
               <div>
                 <button
                   type="submit"
-                  className="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700"
+                  className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
                 >
                   Submit
                 </button>

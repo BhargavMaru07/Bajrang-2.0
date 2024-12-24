@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import App from "./App.jsx";
-import { AuthProvider } from "./Context/AuthContext";
+import { AuthProvider } from "./Context/AuthContextModified.jsx";
 import { ProductProvider } from "./Context/ProductContext";
 import { FilterContextProvider } from "./Context/FilterContext";
 import { CartContextProvider } from "./Context/CartContext.jsx";

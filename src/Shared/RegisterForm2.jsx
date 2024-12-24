@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import welcome from "../assets/Auth/welcome.jpg";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../Context/AuthContextModified";
 
 const RegisterForm2 = () => {
   const {
@@ -14,6 +15,7 @@ const RegisterForm2 = () => {
     formState: { errors },
   } = useForm();
 
+  const { storeTokenInLS } = useAuthContext();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -25,10 +27,17 @@ const RegisterForm2 = () => {
         },
         body: JSON.stringify(data),
       });
+
+      if (response.ok) {
+        const res_data = await response.json();
+        // console.log("Json Data :", res_data);
+        storeTokenInLS(res_data.token);
+
+        reset();
+        toast.success("Registration Successfully !");
+        navigate("/login");
+      }
       console.log(response);
-      reset();
-      toast.success("Registration Successfully !");
-      navigate("/login");
     } catch (error) {
       console.error("Can't post user data", error);
       const errorMessage = error.message;
