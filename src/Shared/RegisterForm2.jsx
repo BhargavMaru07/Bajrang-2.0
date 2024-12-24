@@ -20,7 +20,7 @@ const RegisterForm2 = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("https://bajrang-2-0.vercel.app/api/auth/register", {
+      const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
