@@ -21,9 +21,11 @@ const register = async (req, res) => {
     // If email does not exist, create the user
     const newUser = await USER.create(user);
 
-    return res
-      .status(201)
-      .json({ message: "User data saved successfully!", user: newUser });
+    return res.status(201).json({
+      msg: "Registration successfully!",
+      token: await newUser.generateToken(),
+      userId: newUser._id.toString(),
+    });
   } catch (error) {
     console.error("Error!", error);
     return res.status(500).json({ message: "Internal server error." });
