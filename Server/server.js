@@ -13,7 +13,7 @@ const blog_route = require("./routes/blog-route");
 //cors
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true,
   })
