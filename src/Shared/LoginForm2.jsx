@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "../Styles/Button";
-import { Link, useNavigate } from "react-router-dom";
 import welcome from "../assets/Auth/welcome.jpg";
+import { Facebook, GitHub, Google, Instagram } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import Button from "../Styles/Button";
 
-const RegisterForm2 = () => {
+const LoginForm2 = () => {
   const {
     register,
     handleSubmit,
@@ -14,25 +14,20 @@ const RegisterForm2 = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      console.log(response);
-      reset();
-      toast.success("Registration Successfully !");
-      navigate("/login");
+      console.log(data);
+      //   const response = await fetch("/api/user", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(data),
+      //   });
+      //   console.log(response);
+        reset();
     } catch (error) {
       console.error("Can't post user data", error);
-      const errorMessage = error.message;
-      toast.error(errorMessage);
     }
   };
 
@@ -42,31 +37,11 @@ const RegisterForm2 = () => {
         <div className="flex items-center justify-center">
           <img src={welcome} alt="welcome" className="w-[300px]" />
         </div>
-        <div className="p-6">
+        <div className="p-6 pt-1">
           <form
-            onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-3"
+            onSubmit={handleSubmit(onSubmit)}
           >
-            <div>
-              <label htmlFor="name" className="py-2 text-text">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                {...register("name", { required: "Name is required" })}
-                placeholder="John Doe"
-                className={`w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring ${
-                  errors.name ? "border-red-500" : ""
-                }`}
-              />
-              {errors.name && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.name.message}
-                </p>
-              )}
-            </div>
             <div>
               <label htmlFor="email" className="py-2 text-text">
                 Email
@@ -119,43 +94,57 @@ const RegisterForm2 = () => {
                 </p>
               )}
             </div>
-            <div>
-              <label htmlFor="password" className="py-2 text-text">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                name="confirmpassword"
-                id="confirmpassword"
-                {...register("confirmPassword", {
-                  required: "Confirm Password is required",
-                  validate: (value) =>
-                    value === watch("password") || "Passwords do not match",
-                })}
-                placeholder="●●●●●●●●●●"
-                className={`w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring ${
-                  errors.name ? "border-red-500" : ""
-                }`}
-              />
-              {errors.confirmPassword && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.confirmPassword.message}
-                </p>
-              )}
+            <div className="mt-3 text-end">
+              <Link to="/resetpassword" className="hover:text-btn">
+                Forget Password?
+              </Link>
             </div>
-
             <Button className="w-full">
-              <input type="submit" value="Sign Up" />
+              <input type="submit" value="Login" />
             </Button>
             <p className="mt-3 text-center text-text">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link
-                to="/login"
+                to="/register"
                 className="cursor-pointer text-btn hover:underline"
               >
-                Login
+                Register
               </Link>
             </p>
+            <div className="flex items-center justify-center">
+              <span className="p-1 text-sm font-bold rounded-full text-text">
+                OR
+              </span>
+            </div>
+            <div className="text-center">
+              <h2>Login with Social Media</h2>
+              <div className="flex items-center justify-center p-2">
+                <Link
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
+                  //   onClick={handleRegister}
+                >
+                  <Google />
+                </Link>
+                <Link
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
+                  //   onClick={handleRegister}
+                >
+                  <Facebook />
+                </Link>
+                <Link
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
+                  //   onClick={handleRegister}
+                >
+                  <GitHub />
+                </Link>
+                <Link
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
+                  //   onClick={handleRegister}
+                >
+                  <Instagram />
+                </Link>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -163,4 +152,4 @@ const RegisterForm2 = () => {
   );
 };
 
-export default RegisterForm2;
+export default LoginForm2;
