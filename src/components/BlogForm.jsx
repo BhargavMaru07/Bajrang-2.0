@@ -32,29 +32,30 @@ const BlogForm = () => {
       formData.append("coverImage", file);
     }
 
-    https: fetch("https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+    // https://bajrang-2-0-server.vercel.app/api/blog/add-new
+      fetch(" https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
+        method: "POST",
+        body: formData,
       })
-      .then((newBlog) => {
-        console.log("Blog and file submitted successfully.");
-        console.log("New Blog :", newBlog);
-        toast.success("Blog Added !");
-        // addBlogToState(newBlog); // Add the new blog to context state
-        setData({ title: "", body: "" });
-        setFile(null); // Reset the file input
-        navigate("/blog"); //redirect to blog page
-        window.location.reload(); // Reload the page to fetch the updated blogs
-      })
-      .catch((error) => {
-        console.error("Error submitting the blog:", error);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((newBlog) => {
+          console.log("Blog and file submitted successfully.");
+          console.log("New Blog :", newBlog);
+          toast.success("Blog Added !");
+          // addBlogToState(newBlog); // Add the new blog to context state
+          setData({ title: "", body: "" });
+          setFile(null); // Reset the file input
+          navigate("/blog"); //redirect to blog page
+          window.location.reload(); // Reload the page to fetch the updated blogs
+        })
+        .catch((error) => {
+          console.error("Error submitting the blog:", error);
+        });
   };
 
   return (
