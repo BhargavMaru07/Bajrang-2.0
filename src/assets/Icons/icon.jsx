@@ -22,13 +22,13 @@ import {
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
 import { MdAccountCircle, MdDeleteForever, MdPayment } from "react-icons/md";
-import { IoBagHandle } from "react-icons/io5";
+import { IoBagHandle, IoBagHandleOutline, IoLogOutOutline } from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const ICONS = {
   BARS: Bars3Icon,
   SEARCH: MagnifyingGlassIcon,
-  SHOPPINGBAG: ShoppingBagIcon,
+  SHOPPINGBAG: IoBagHandleOutline,
   XMARK: XMarkIcon,
   FORWARD: IoIosArrowForward,
   BACKWARD: IoIosArrowBack,
@@ -53,4 +53,5 @@ export const ICONS = {
   CART: AiOutlineShoppingCart,
   ACCOUNT: MdAccountCircle,
   PAYMENT: MdPayment,
+  LOGOUT :IoLogOutOutline
 };

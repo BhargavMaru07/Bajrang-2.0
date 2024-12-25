@@ -6,6 +6,10 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
   Popover,
   PopoverButton,
   PopoverGroup,
@@ -21,9 +25,9 @@ import { ICONS } from "../assets/Icons/icon";
 
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../Context/AuthContextModified";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { useCartContext } from "../Context/CartContext";
-import { Badge } from "@mui/material";
+// import { Badge } from "@mui/material";
 
 const navigation = {
   categories: [
@@ -160,7 +164,7 @@ const navigation = {
 };
 
 const Navbar = () => {
-  const { isLoggedIn } = useAuthContext();
+  const { isLoggedIn, user } = useAuthContext();
   const { cart } = useCartContext();
   const [open, setOpen] = useState(false);
 
@@ -265,12 +269,12 @@ const Navbar = () => {
                         >
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              <a
+                              <Link
                                 href={item.href}
                                 className="block p-2 -m-2 text-gray-500"
                               >
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -439,12 +443,12 @@ const Navbar = () => {
                                     >
                                       {section.items.map((item) => (
                                         <li key={item.name} className="flex">
-                                          <a
+                                          <Link
                                             href={item.href}
                                             className="hover:text-gray-800"
                                           >
                                             {item.name}
-                                          </a>
+                                          </Link>
                                         </li>
                                       ))}
                                     </ul>
@@ -461,6 +465,7 @@ const Navbar = () => {
               </PopoverGroup>
 
               <div className="flex items-center m-0">
+                {/*
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {isLoggedIn ? (
                     <Link
@@ -490,10 +495,9 @@ const Navbar = () => {
                       </Link>
                     </>
                   )}
-                </div>
-
+                </div> */}
                 {/* Search */}
-                <div className="flex lg:ml-6">
+                <div className="flex rounded-full lg:ml-6 bg-bg">
                   <Link
                     to="/search"
                     className="p-2 text-gray-400 hover:text-gray-500"
@@ -502,8 +506,101 @@ const Navbar = () => {
                     <ICONS.SEARCH aria-hidden="true" className="size-6" />
                   </Link>
                 </div>
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <MenuButton className="relative flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        alt=""
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        className="rounded-full size-8"
+                      />
+                    </MenuButton>
+                  </div>
+                  <MenuItems
+                    transition
+                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in cursor-pointer"
+                  >
+                    {isLoggedIn ? (
+                      <>
+                        <MenuItem>
+                          <div className="data-[focus]:bg-gray-100 data-[focus]:outline-none">
+                            <Link
+                              to="/profile"
+                              className="block px-4 py-2 text-sm text-text data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                            >
+                              Hello, <br />
+                              {user.name}
+                            </Link>
+                            <hr />
+                          </div>
+                        </MenuItem>
+                        <MenuItem>
+                          <div className="text-text data-[focus]:bg-gray-100 data-[focus]:outline-none flex items-center justify-between">
+                            <Link
+                              to="/profile"
+                              className="block px-4 py-2 text-sm "
+                            >
+                              My Profile
+                            </Link>
+                            <ICONS.ACCOUNT size={25} className="mr-3" />
+                          </div>
+                        </MenuItem>
+                        <MenuItem>
+                          <div className="text-text data-[focus]:bg-gray-100 data-[focus]:outline-none flex items-center justify-between">
+                            <Link
+                              to="/cart"
+                              className="block px-4 py-2 text-sm text-text data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                            >
+                              My Cart
+                            </Link>
+                            <ICONS.CART size={25} className="mr-3" />
+                          </div>
+                        </MenuItem>
+                        <MenuItem>
+                          <div className="text-text data-[focus]:bg-gray-100 data-[focus]:outline-none flex items-center justify-between">
+                            <Link
+                              to="/orders"
+                              className="block px-4 py-2 text-sm text-text data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                            >
+                              My Orders
+                            </Link>
+                            <ICONS.SHOPPINGBAG size={25} className="mr-3" />
+                          </div>
+                        </MenuItem>
+                        <MenuItem>
+                          <div className="text-text data-[focus]:bg-gray-100 data-[focus]:outline-none flex items-center justify-between">
+                            <Link
+                              to="/logout"
+                              className="block px-4 py-2 text-sm text-text data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                            >
+                              Sign out
+                            </Link>
+                            <ICONS.LOGOUT size={25} className="mr-3" />
+                          </div>
+                        </MenuItem>
+                      </>
+                    ) : (
+                      <>
+                        <MenuItem>
+                          <div className="data-[focus]:bg-gray-100 data-[focus]:outline-none">
+                            <Link
+                              to="/login"
+                              className="block px-4 py-2 text-sm text-gray-700 "
+                            >
+                              Log In
+                            </Link>
+                          </div>
+                        </MenuItem>
+                      </>
+                    )}
+                  </MenuItems>
+                </Menu>
+
                 {/* Cart */}
-                <div className="flow-root ml-4 lg:ml-6">
+                {/* <div className="flow-root ml-4 lg:ml-6">
                   <Link to="/cart" className="flex items-center p-2 -m-2 group">
                     <Badge
                       className=""
@@ -519,9 +616,9 @@ const Navbar = () => {
                     {/* <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
                       {cart.length}
                     </span> */}
-                    <span className="sr-only">items in cart, view bag</span>
-                  </Link>
-                </div>
+                <span className="sr-only">items in cart, view bag</span>
+                {/*} </Link>
+                </div> */}
               </div>
             </div>
           </div>
