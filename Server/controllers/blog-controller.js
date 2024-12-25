@@ -14,17 +14,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
 //Get All the blogs
 const getAllBlog = async (req, res) => {
- try {
-   const blogs = await BLOG.find({});
-   return res.status(200).json(blogs);
- } catch (error) {
-   return res.status(500).json({ error: "Failed to fetch blogs" });
- }
+  try {
+    const blogs = await BLOG.find({});
+    return res.status(200).json(blogs);
+  } catch (error) {
+    return res.status(500).json({ error: "Failed to fetch blogs" });
+  }
 };
-
 
 // Add New Blog...
 const addBlog = async (req, res) => {
@@ -39,7 +37,6 @@ const addBlog = async (req, res) => {
   console.log(new_blog);
   return res.redirect(`/api/blog/`);
 };
-
 
 module.exports = {
   getAllBlog,

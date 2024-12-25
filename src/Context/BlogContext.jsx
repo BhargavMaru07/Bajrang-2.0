@@ -1,39 +1,39 @@
 import axios from "axios";
-import {createContext, useContext, useEffect, useState} from "react"
-
+import { createContext, useContext, useEffect, useState } from "react";
 
 const BlogContext = createContext();
 const API = "http://localhost:5001/api/blog/";
 
-const BlogProvider = ({children})=>{
+const BlogProvider = ({ children }) => {
+  const [blogs, setBlogs] = useState([]);
 
-   const [blogs, setBlogs] = useState([]);
+  const getBlogs = async () => {
+    try {
+      const response = await axios.get(API);
+      setBlogs(response.data);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
 
-   const getBlogs = async () => {
-     try {
-       const response = await axios.get(API);
-       console.log(response.data);
-       setBlogs(response.data);
-     } catch (error) {
-       console.error("Error fetching blogs:", error);
-     }
-   };
+  const addBlogToState = (newBlog) => {
+    setBlogs((prevBlogs) => [newBlog, ...prevBlogs]);
+  };
 
-    useEffect(()=>{
-        getBlogs()
-    },[])
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
-    return(
-        <BlogContext.Provider value={{blogs}}>
-            {children}
-        </BlogContext.Provider>
-    )
-}
+  return (
+    <BlogContext.Provider value={{ blogs, addBlogToState }}>
+      {children}
+    </BlogContext.Provider>
+  );
+};
 
-//custom hook 
+// Custom hook
+const useBlogContext = () => {
+  return useContext(BlogContext);
+};
 
-const useBlogContext = ()=>{
-    return useContext(BlogContext)
-}
-
-export {BlogProvider,useBlogContext}
+export { BlogProvider, useBlogContext };

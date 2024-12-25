@@ -3,15 +3,17 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
-
+import { useBlogContext } from "../Context/BlogContext";
+import { toast } from "react-toastify";
 
 const BlogForm = () => {
   const [data, setData] = useState({
     title: "",
     body: "",
   });
-  
-  const navigate = useNavigate()
+  const { addBlogToState } = useBlogContext();
+
+  const navigate = useNavigate();
   //handling file
   const [file, setFile] = useState(null);
 
@@ -40,11 +42,15 @@ const BlogForm = () => {
         }
         return response.json();
       })
-      .then(() => {
+      .then((newBlog) => {
         console.log("Blog and file submitted successfully.");
+        console.log("New Blog :", newBlog);
+        toast.success("Blog Added !");
+        addBlogToState(newBlog); // Add the new blog to context state
         setData({ title: "", body: "" });
         setFile(null); // Reset the file input
-        navigate("/blog")  //redirect to blog page 
+        navigate("/blog"); //redirect to blog page
+        window.location.reload(); // Reload the page to fetch the updated blogs
       })
       .catch((error) => {
         console.error("Error submitting the blog:", error);
@@ -146,12 +152,12 @@ const BlogForm = () => {
               </div>
 
               <div>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
-                  >
-                    Submit
-                  </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>
