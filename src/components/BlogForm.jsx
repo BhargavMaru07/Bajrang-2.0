@@ -1,14 +1,17 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
+
 
 const BlogForm = () => {
   const [data, setData] = useState({
     title: "",
     body: "",
   });
-
+  
+  const navigate = useNavigate()
   //handling file
   const [file, setFile] = useState(null);
 
@@ -41,6 +44,7 @@ const BlogForm = () => {
         console.log("Blog and file submitted successfully.");
         setData({ title: "", body: "" });
         setFile(null); // Reset the file input
+        navigate("/blog")  //redirect to blog page 
       })
       .catch((error) => {
         console.error("Error submitting the blog:", error);
@@ -142,12 +146,12 @@ const BlogForm = () => {
               </div>
 
               <div>
-                <button
-                  type="submit"
-                  className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
-                >
-                  Submit
-                </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                  >
+                    Submit
+                  </button>
               </div>
             </div>
           </div>
@@ -155,7 +159,6 @@ const BlogForm = () => {
       </form>
     </div>
   );
-}
-
+};
 
 export default BlogForm;

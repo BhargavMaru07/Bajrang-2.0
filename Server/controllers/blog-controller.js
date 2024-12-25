@@ -17,7 +17,12 @@ const upload = multer({ storage });
 
 //Get All the blogs
 const getAllBlog = async (req, res) => {
-  return res.end("blog page");
+ try {
+   const blogs = await BLOG.find({});
+   return res.status(200).json(blogs);
+ } catch (error) {
+   return res.status(500).json({ error: "Failed to fetch blogs" });
+ }
 };
 
 
@@ -32,7 +37,7 @@ const addBlog = async (req, res) => {
   });
 
   console.log(new_blog);
-  return res.redirect(`/api/blog/${new_blog._id}`);
+  return res.redirect(`/api/blog/`);
 };
 
 

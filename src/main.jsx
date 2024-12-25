@@ -9,20 +9,23 @@ import { AuthProvider } from "./Context/AuthContextModified.jsx";
 import { ProductProvider } from "./Context/ProductContext";
 import { FilterContextProvider } from "./Context/FilterContext";
 import { CartContextProvider } from "./Context/CartContext.jsx";
+import {BlogProvider} from "./Context/BlogContext.jsx"
 // import { UserProvider } from "./Context/UserContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     {/* <UserProvider> */}
-    <AuthProvider>
-      <ProductProvider>
-        <FilterContextProvider>
-          <CartContextProvider>
-            <App />
-          </CartContextProvider>
-        </FilterContextProvider>
-      </ProductProvider>
-    </AuthProvider>
+    <BlogProvider>
+      <AuthProvider>
+        <ProductProvider>
+          <FilterContextProvider>
+            <CartContextProvider>
+              <App />
+            </CartContextProvider>
+          </FilterContextProvider>
+        </ProductProvider>
+      </AuthProvider>
+    </BlogProvider>
     {/* </UserProvider> */}
   </StrictMode>
 );
