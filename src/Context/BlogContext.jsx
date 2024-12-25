@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const BlogContext = createContext();
-const API = "https://bajrang-2-0-server.vercel.app/api/blog/add-new";
+const API = "https://bajrang-2-0-server.vercel.app/api/blog";
 
 const BlogProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
