@@ -19,7 +19,7 @@ const Footer = () => {
                 <Link>Return Policy</Link>
               </div>
               <div>
-                <Link>FAQs</Link>
+                <Link to="/help">Help Center</Link>
               </div>
               <div>
                 <Link to="/profile">Account</Link>

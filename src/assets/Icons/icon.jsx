@@ -21,7 +21,7 @@ import {
 } from "react-icons/fa";
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
-import { MdDeleteForever } from "react-icons/md";
+import { MdAccountCircle, MdDeleteForever, MdPayment } from "react-icons/md";
 import { IoBagHandle } from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
@@ -51,4 +51,6 @@ export const ICONS = {
   MINUS: FaMinus,
   HOME: FaHome,
   CART: AiOutlineShoppingCart,
+  ACCOUNT: MdAccountCircle,
+  PAYMENT: MdPayment,
 };

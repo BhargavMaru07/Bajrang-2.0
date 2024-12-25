@@ -38,5 +38,5 @@ const addBlog = async (req, res) => {
 
 module.exports = {
   getAllBlog,
- addBlog: [upload.single("coverImage"), addBlog],
+  addBlog: [upload.single("coverImage"), addBlog],
 };

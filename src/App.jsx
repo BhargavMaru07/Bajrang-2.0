@@ -19,6 +19,7 @@ import Blog from "./pages/Blog";
 import Profile from "./pages/Profile";
 import Gallery from "./pages/Gallery";
 import Logout from "./Auth/Logout";
+import Help from "./pages/Help";
 
 //Component
 import Footer from "./components/Footer";
@@ -47,9 +48,10 @@ const App = () => {
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/blog" element={<Blog />} />
+            <Route exact path="/help" element={<Help />} />
             <Route exact path="/search" element={<SearchProduct />} />
             <Route exact path="/blog/add-new" element={<BlogForm />} />
-            
+
             <Route
               exact
               path="/singleproduct/:id"
