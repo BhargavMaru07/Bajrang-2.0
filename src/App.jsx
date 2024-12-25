@@ -23,6 +23,7 @@ import Logout from "./Auth/Logout";
 //Component
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import BlogForm from "./components/BlogForm";
 //Auth
 import PrivateRoute from "./Private/PrivateRoute";
 import Register from "./Auth/Register";
@@ -47,6 +48,8 @@ const App = () => {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/blog" element={<Blog />} />
             <Route exact path="/search" element={<SearchProduct />} />
+            <Route exact path="/blog/add-new" element={<BlogForm />} />
+            
             <Route
               exact
               path="/singleproduct/:id"
