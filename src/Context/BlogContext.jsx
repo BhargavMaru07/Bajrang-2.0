@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const BlogContext = createContext();
-const API = "http://localhost:5001/api/blog/";
+const API = "https://bajrang-2-0-server.vercel.app/api/blog/add-new";
 
 const BlogProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
@@ -16,16 +16,16 @@ const BlogProvider = ({ children }) => {
     }
   };
 
-  const addBlogToState = (newBlog) => {
-    setBlogs((prevBlogs) => [newBlog, ...prevBlogs]);
-  };
+  // const addBlogToState = (newBlog) => {
+  //   setBlogs((prevBlogs) => [newBlog, ...prevBlogs]);
+  // };
 
   useEffect(() => {
     getBlogs();
   }, []);
 
   return (
-    <BlogContext.Provider value={{ blogs, addBlogToState }}>
+    <BlogContext.Provider value={{ blogs }}>
       {children}
     </BlogContext.Provider>
   );

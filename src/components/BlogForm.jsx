@@ -11,7 +11,7 @@ const BlogForm = () => {
     title: "",
     body: "",
   });
-  const { addBlogToState } = useBlogContext();
+  // const { addBlogToState } = useBlogContext();
 
   const navigate = useNavigate();
   //handling file
@@ -32,7 +32,7 @@ const BlogForm = () => {
       formData.append("coverImage", file);
     }
 
-    fetch("http://localhost:5001/api/blog/add-new", {
+    https: fetch("https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
       method: "POST",
       body: formData,
     })
@@ -46,7 +46,7 @@ const BlogForm = () => {
         console.log("Blog and file submitted successfully.");
         console.log("New Blog :", newBlog);
         toast.success("Blog Added !");
-        addBlogToState(newBlog); // Add the new blog to context state
+        // addBlogToState(newBlog); // Add the new blog to context state
         setData({ title: "", body: "" });
         setFile(null); // Reset the file input
         navigate("/blog"); //redirect to blog page
