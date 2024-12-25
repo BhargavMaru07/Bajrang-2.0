@@ -25,6 +25,7 @@ function Blog() {
             <p>{blog.body}</p>
             <img
               src={`/Server/public${blog.coverImage}`}
+              // src={blog.coverImage}
               alt={blog.title}
               className="object-cover w-full h-40 mt-2 rounded-md"
             />

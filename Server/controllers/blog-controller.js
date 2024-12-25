@@ -26,16 +26,23 @@ const getAllBlog = async (req, res) => {
 
 // Add New Blog...
 const addBlog = async (req, res) => {
-  let { title, body } = req.body;
+  try {
+    let { title, body } = req.body;
 
-  let new_blog = await BLOG.create({
-    title,
-    body,
-    coverImage: `/uploads/${req.file.filename}`,
-  });
+    let new_blog = await BLOG.create({
+      title,
+      body,
+      // coverImage,
+      coverImage: `/uploads/${req.file.filename}`,
+    });
 
-  console.log(new_blog);
-  return res.redirect(`/api/blog/`);
+    return res.status(201).json({ msg: "Blog Created !", Blog: new_blog });
+  } catch (error) {
+    return res.status(400).json({ msg: error });
+  }
+
+  // console.log(new_blog);
+  // return res.redirect(`/api/blog/`);
 };
 
 module.exports = {

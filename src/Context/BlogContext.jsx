@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const BlogContext = createContext();
 const API = "https://bajrang-2-0-server.vercel.app/api/blog";
+// const API = "http://localhost:5001/api/blog";
 
 const BlogProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
@@ -25,9 +26,7 @@ const BlogProvider = ({ children }) => {
   }, []);
 
   return (
-    <BlogContext.Provider value={{ blogs }}>
-      {children}
-    </BlogContext.Provider>
+    <BlogContext.Provider value={{ blogs }}>{children}</BlogContext.Provider>
   );
 };
 

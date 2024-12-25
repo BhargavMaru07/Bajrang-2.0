@@ -20,13 +20,16 @@ const RegisterForm2 = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("https://bajrang-2-0-server.vercel.app/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://bajrang-2-0-server.vercel.app/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         const res_data = await response.json();
@@ -37,7 +40,7 @@ const RegisterForm2 = () => {
         toast.success("Registration Successfully !");
         navigate("/login");
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error("Can't post user data", error);
       const errorMessage = error.message;

@@ -1,5 +1,4 @@
 const USER = require("../models/user-model");
-const bcrypt = require("bcryptjs");
 
 //Home Auth route Controller :
 const home = (req, res) => {
@@ -30,7 +29,6 @@ const register = async (req, res) => {
       userId: newUser._id.toString(),
     });
   } catch (error) {
-    console.error("Error!", error);
     return res.status(500).json({ message: "Internal server error." });
   }
 };
@@ -60,9 +58,19 @@ const login = async (req, res) => {
       return res.status(400).json({ msg: "Invalid Credentials !" });
     }
   } catch (error) {
-    console.error("Error!", error);
     return res.status(500).json({ message: "Internal server error." });
   }
 };
 
-module.exports = { home, register, login };
+//User Auth route Controller :
+
+const user = async (req, res) => {
+  try {
+    const userData = req.user;
+    return res.status(200).json({ userData });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+module.exports = { home, register, login, user };

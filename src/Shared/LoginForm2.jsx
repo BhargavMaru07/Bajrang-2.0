@@ -20,7 +20,7 @@ const LoginForm2 = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      // console.log(data);
       const response = await fetch("https://bajrang-2-0-server.vercel.app/api/auth/login", {
         method: "POST",
         headers: {
@@ -37,7 +37,7 @@ const LoginForm2 = () => {
         toast.success("Login Successfully !");
         navigate("/");
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error("Login Error", error);
     }
