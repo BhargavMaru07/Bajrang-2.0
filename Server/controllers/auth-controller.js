@@ -22,6 +22,8 @@ const register = async (req, res) => {
 
     // If email does not exist, create the user
     const newUser = await USER.create(user);
+    console.log("THIS IS NEW USER",newUser);
+
 
     return res.status(201).json({
       msg: "Registration successfully!",

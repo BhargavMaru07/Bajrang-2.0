@@ -13,9 +13,11 @@ const BlogSchema = new mongoose.Schema(
     coverImage: {
       type: String,
     },
+    name:{
+      type:String,
+    },
     createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
     },
   },
   { timestamps: true }

@@ -8,4 +8,7 @@ router.get("/", blogController.getAllBlog);
 //Add new blog
 router.post("/add-new", blogController.addBlog);
 
+//show single  blog
+router.get("/:id", blogController.getSingleBlog);
+
 module.exports = router;

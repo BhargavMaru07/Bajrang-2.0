@@ -27,8 +27,8 @@ function Blog() {
           style={{ borderColor: "#6254F3" }}
         />
         <div className="flex-col w-full">
-          {blogs.map((blog, index) => (
-            <div key={index}>
+          {blogs.map((blog) => (
+            <div key={blog._id}>
               <BlogCard blog={blog}></BlogCard>
             </div>
           ))}

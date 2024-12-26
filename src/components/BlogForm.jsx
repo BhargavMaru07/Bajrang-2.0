@@ -5,13 +5,17 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useBlogContext } from "../Context/BlogContext";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../Context/AuthContextModified";
 
 const BlogForm = () => {
+
+  const { user } = useAuthContext()
+
   const [data, setData] = useState({
     title: "",
     body: "",
+    user
   });
-  // const { addBlogToState } = useBlogContext();
 
   const navigate = useNavigate();
   //handling file
@@ -28,34 +32,31 @@ const BlogForm = () => {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("body", data.body);
+    formData.append("name", user.name);
+    formData.append("createdBy", user._id);
     if (file) {
       formData.append("coverImage", file);
     }
 
+    //FOR PRODUCTION..
     // https://bajrang-2-0-server.vercel.app/api/blog/add-new
       fetch("http://localhost:5001/api/blog/add-new", {
         method: "POST",
         body: formData,
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((newBlog) => {
-          console.log("Blog and file submitted successfully.");
-          console.log("New Blog :", newBlog);
-          toast.success("Blog Added !");
-          // addBlogToState(newBlog); // Add the new blog to context state
-          setData({ title: "", body: "" });
-          setFile(null); // Reset the file input
-          navigate("/blog"); //redirect to blog page
-          window.location.reload(); // Reload the page to fetch the updated blogs
-        })
-        .catch((error) => {
-          console.error("Error submitting the blog:", error);
-        });
+      .then((newBlog) => {
+        console.log("Blog and file submitted successfully.");
+        console.log("New Blog :", newBlog);
+        toast.success("Blog Added !");
+        // addBlogToState(newBlog); // Add the new blog to context state
+        setData({ title: "", body: "" });
+        setFile(null); // Reset the file input
+        navigate("/blog"); //redirect to blog page
+        window.location.reload(); // Reload the page to fetch the updated blogs
+      })
+      .catch((error) => {
+        console.error("Error submitting the blog:", error);
+      });
   };
 
   return (

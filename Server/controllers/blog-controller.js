@@ -1,6 +1,7 @@
 const BLOG = require("../models/blog-model");
 const multer = require("multer");
 const path = require("path");
+const USER = require("../models/user-model");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -27,25 +28,43 @@ const getAllBlog = async (req, res) => {
 // Add New Blog...
 const addBlog = async (req, res) => {
   try {
-    let { title, body } = req.body;
+    let { title, body, name, createdBy } = req.body;
 
     let new_blog = await BLOG.create({
       title,
       body,
-      // coverImage,
+      name,
+      createdBy,
       coverImage: `/uploads/${req.file.filename}`,
     });
+
+    console.log(new_blog);
 
     return res.status(201).json({ msg: "Blog Created !", Blog: new_blog });
   } catch (error) {
     return res.status(400).json({ msg: error });
   }
+};
 
-  // console.log(new_blog);
-  // return res.redirect(`/api/blog/`);
+//get single blog
+
+const getSingleBlog = async (req, res) => {
+  try {
+    const blog = await BLOG.findById(req.params.id);
+
+    // If blog not found
+    if (!blog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+
+    return res.status(200).json(blog);
+  } catch (error) {
+    return res.status(500).json({ error: "Failed to fetch blog" });
+  }
 };
 
 module.exports = {
   getAllBlog,
   addBlog: [upload.single("coverImage"), addBlog],
+  getSingleBlog,
 };
