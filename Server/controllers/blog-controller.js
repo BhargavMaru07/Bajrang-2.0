@@ -2,6 +2,7 @@ const BLOG = require("../models/blog-model");
 const multer = require("multer");
 const path = require("path");
 const USER = require("../models/user-model");
+const COMMENT = require("../models/comment_model");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -63,8 +64,29 @@ const getSingleBlog = async (req, res) => {
   }
 };
 
+
+
+//ADD COMMENT...
+
+const addComment = async (req,res)=>{
+  console.log(req.body);
+    try {
+      let new_comment = await COMMENT.create({
+        content: req.body.comment,
+        createdBy: req.body.createdBy,
+        blogId: req.params.blogId,
+      });
+      console.log(new_comment);
+
+      return res.status(201).json({ msg: "Comment Created !"});
+    } catch (error) {
+      return res.status(400).json({ msg: error });
+    }
+}
+
 module.exports = {
   getAllBlog,
   addBlog: [upload.single("coverImage"), addBlog],
   getSingleBlog,
+  addComment,
 };

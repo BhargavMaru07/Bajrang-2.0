@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useBlogContext } from "../Context/BlogContext";
 import { useParams } from "react-router-dom";
+import CommentForm from "../components/CommentForm";
 
 const BlogPage = () => {
   const { blog, getSingleBlog } = useBlogContext();
@@ -14,17 +15,25 @@ const BlogPage = () => {
   }, [id]);
 
   return (
-    <div>
-      {blog ? (
-        <div>
-          <h1>{blog.title}</h1>
-          <p>{blog.body}</p>
-          <img src={blog.coverImage} alt="coverImage" />
-        </div>
-      ) : (
-        <p>Loading blog...</p>
-      )}
-    </div>
+    <>
+      <div>
+        {blog ? (
+          <div>
+            <h1>{blog.title}</h1>
+            <p>{blog.body}</p>
+            <img src={blog.coverImage} alt="coverImage" />
+          </div>
+        ) : (
+          <p>Loading blog...</p>
+        )}
+      </div>
+      <div>
+        <CommentForm/>
+      </div>
+      <div>
+        <h1>All Comment </h1>
+      </div>
+    </>
   );
 };
 

@@ -11,4 +11,7 @@ router.post("/add-new", blogController.addBlog);
 //show single  blog
 router.get("/:id", blogController.getSingleBlog);
 
+//add comment
+router.post("/comment/:blogId", blogController.addComment);
+
 module.exports = router;
