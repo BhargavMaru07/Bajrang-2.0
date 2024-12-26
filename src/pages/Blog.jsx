@@ -1,36 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useBlogContext } from "../Context/BlogContext";
+import { BorderColor } from "@mui/icons-material";
+import BlogCard from "../components/BlogCard";
 
 function Blog() {
   const { blogs } = useBlogContext();
   return (
     <>
-      <div>Hello Blog!</div>
-      <div>
-        <Link to="/blog/add-new">
-          <button className="px-4 py-2 text-white bg-blue-500 rounded-md ">
-            {" "}
-            Add Blog
-          </button>
-        </Link>
-      </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((blog, index) => (
-          <div
-            key={index}
-            className="p-4 border rounded-md shadow-md bg-gray-50"
-          >
-            <h2 className="text-xl font-semibold">{blog.title}</h2>
-            <p>{blog.body}</p>
-            <img
-              src={`/Server/public${blog.coverImage}`}
-              // src={blog.coverImage}
-              alt={blog.title}
-              className="object-cover w-full h-40 mt-2 rounded-md"
-            />
-          </div>
-        ))}
+      <div className="px-10">
+        <div className="mt-10">
+          <Link to="/blog/add-new" className="flex gap-2 items-center">
+            <button className="text-white bg-transparent rounded-full">
+              {" "}
+              <img
+                src="/src/assets/Icons/addBlog.png"
+                alt="Add Blog"
+                className="w-10 h-10"
+              />
+            </button>
+            <p className="opacity-50">Keep up with the latest in any topic</p>
+          </Link>
+        </div>
+        <hr
+          className="border-t-2 mt-5 mb-10 "
+          style={{ borderColor: "#6254F3" }}
+        />
+        <div className="flex-col w-full">
+          {blogs.map((blog, index) => (
+            <div key={index}>
+              <BlogCard blog={blog}></BlogCard>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

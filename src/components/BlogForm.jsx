@@ -33,7 +33,7 @@ const BlogForm = () => {
     }
 
     // https://bajrang-2-0-server.vercel.app/api/blog/add-new
-      fetch(" https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
+      fetch("http://localhost:5001/api/blog/add-new", {
         method: "POST",
         body: formData,
       })
