@@ -14,7 +14,8 @@ const Comment = () => {
   }, [id]);
 
   if (!comments || comments.length === 0) {
-    return <p>No comments available</p>;
+    //style this para...
+    return <p>No comments available</p> 
   }
 
   return (
@@ -28,7 +29,10 @@ const Comment = () => {
           />
 
           <div className="flex flex-col">
-            <p className="text-sm font-semibold">{comment.createdAt}</p>
+            <p className="text-sm font-semibold">
+              {" "}
+              {new Date(comment.createdAt).toLocaleDateString("en-GB")}
+            </p>
             <p className="text-sm font-semibold">{comment.createdBy.name}</p>
             <p className="text-sm text-gray-700">{comment.content}</p>
           </div>
