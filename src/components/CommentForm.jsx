@@ -26,6 +26,7 @@ function CommentForm() {
       .then((newComment) => {
         // toast.success("Comment Added !");
         setComment("");
+        window.location.reload()
       })
       .catch((error) => {
         console.error("Error submitting the comment:", error);

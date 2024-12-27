@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useBlogContext } from "../Context/BlogContext";
 import { useParams } from "react-router-dom";
 import CommentForm from "../components/CommentForm";
+import Comment from "../components/Comment";
 
 const BlogPage = () => {
   const { blog, getSingleBlog } = useBlogContext();
@@ -32,6 +33,7 @@ const BlogPage = () => {
       </div>
       <div>
         <h1>All Comment </h1>
+        <Comment/>
       </div>
     </>
   );

@@ -84,9 +84,30 @@ const addComment = async (req,res)=>{
     }
 }
 
+
+//GET ALL COMMENTS OF A BLOG
+
+let getAllComments = async (req,res)=>{
+    try {
+      // let comments = await COMMENT.find({ blogId: req.params.blogId });
+      let comments = await COMMENT.find({ blogId: req.params.blogId }).populate("createdBy")
+      console.log(comments);
+
+      // If comments not found
+      if (!comments) {
+        return res.status(404).json({ error: "comments not found" });
+      }
+
+      return res.status(200).json(comments);
+    } catch (error) {
+      return res.status(500).json({ error: "Failed to fetch comments" });
+    }
+}
+
 module.exports = {
   getAllBlog,
   addBlog: [upload.single("coverImage"), addBlog],
   getSingleBlog,
   addComment,
+  getAllComments,
 };

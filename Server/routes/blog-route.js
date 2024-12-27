@@ -14,4 +14,7 @@ router.get("/:id", blogController.getSingleBlog);
 //add comment
 router.post("/comment/:blogId", blogController.addComment);
 
+//get Comments of blog
+router.get("/comment/:blogId", blogController.getAllComments);
+
 module.exports = router;
