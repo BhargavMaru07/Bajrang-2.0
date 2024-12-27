@@ -1,0 +1,13 @@
+.my-masonry-grid {
+    display: flex;
+    margin-left: -30px; /* Adjust to match your gap */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 10px; /* Adjust to match your gap */
+    background-clip: padding-box;
+  }
+  .my-masonry-grid_column > div {
+    margin-bottom: 10px; /* Adjust to match your gap */
+  }
+  

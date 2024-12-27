@@ -8,7 +8,7 @@ function CommentForm() {
 
   const { user } = useAuthContext();
 
-  const  handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log(user);
@@ -26,7 +26,7 @@ function CommentForm() {
       .then((newComment) => {
         // toast.success("Comment Added !");
         setComment("");
-        window.location.reload()
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error submitting the comment:", error);
@@ -34,20 +34,25 @@ function CommentForm() {
   };
 
   return (
-    <div>
+    <div className="relative">
       <form onSubmit={handleSubmit}>
-        <div className="w-100 flex bg-gray-100 px-2 py-2 text-sm rounded-lg ml-14">
-          <input
-            type="text"
-            value={comment}
+        <div className="w-full h-24 flex gap-2 bg-gray-100 px-2 py-2 text-sm rounded-lg">
+          <img
+            className="rounded-full size-8"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt="profile pic"
+          />
+          <textarea
+            className="w-full bg-transparent focus:outline-none mt-2"
             placeholder="Add a comment..."
             onChange={(e) => setComment(e.target.value)}
-            className="w-full bg-transparent focus:outline-none"
-          />
+            value={comment}  
+          ></textarea>
+          
           <button
             type="submit"
-            className="px-2 w-1/8 text-sm font-semibold hover:scale-105 duration-200"
-            style={{ color: "#6254F3" }}
+            className="px-10 h-10 w-1/8 rounded-lg text-sm text-white font-semibold absolute bottom-0 right-0 m-2 hover:scale-105 duration-200"
+            style={{ backgroundColor: "#6254F3" }}
           >
             Post
           </button>

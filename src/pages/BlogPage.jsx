@@ -17,23 +17,46 @@ const BlogPage = () => {
 
   return (
     <>
-      <div>
-        {blog ? (
+      <div className="px-10 text-black">
+        <div>
+          {blog ? (
+            <div>
+              <p className="font-bold">
+                By <span style={{ color: "#6254F3" }}>{blog.name}</span>{" "}
+                <span className="font-normal opacity-70">
+                  {new Date(blog.createdAt).toLocaleDateString("en-GB")}
+                </span>
+              </p>
+              <div className="flex bg-gray-300 justify-center p-2">
+                <h1 className="text-2xl">{blog.title}</h1>
+              </div>
+              <div className="w-full flex justify-center mt-2 mb-2">
+                <img
+                  src={`/Server/public${blog.coverImage}`}
+                  alt="coverImage"
+                  className="h-fit rounded-2xl"
+                />
+              </div>
+              <div className="p-10">
+                <p className="font-bold mb-2">Description:</p>
+                <p>{blog.body}</p>
+              </div>
+            </div>
+          ) : (
+            <p>Loading blog...</p>
+          )}
+        </div>
+        <div className="mx-5">
           <div>
-            <h1>{blog.title}</h1>
-            <p>{blog.body}</p>
-            <img src={blog.coverImage} alt="coverImage" />
+            <p className="opacity-70">
+              Want to say something? Add your thoughts here!
+            </p>
+            <CommentForm />
           </div>
-        ) : (
-          <p>Loading blog...</p>
-        )}
-      </div>
-      <div>
-        <CommentForm/>
-      </div>
-      <div>
-        <h1>All Comment </h1>
-        <Comment/>
+          <div>
+            <Comment />
+          </div>
+        </div>
       </div>
     </>
   );

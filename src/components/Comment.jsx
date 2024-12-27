@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useBlogContext } from "../Context/BlogContext";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const Comment = () => {
   let { id } = useParams();
@@ -15,11 +17,11 @@ const Comment = () => {
 
   if (!comments || comments.length === 0) {
     //style this para...
-    return <p>No comments available</p> 
+    return <p>No comments available</p>;
   }
 
   return (
-    <div>
+    <div className="ml-10">
       {comments.map((comment, index) => (
         <div key={index} className="flex gap-4 items-start py-2">
           <img
@@ -29,15 +31,20 @@ const Comment = () => {
           />
 
           <div className="flex flex-col">
-            <p className="text-sm font-semibold">
-              {" "}
-              {new Date(comment.createdAt).toLocaleDateString("en-GB")}
-            </p>
-            <p className="text-sm font-semibold">{comment.createdBy.name}</p>
+            <div className="flex gap-2">
+              <p className="text-sm font-semibold">{comment.createdBy.name}</p>
+              <p className="text-sm opacity-70">
+                {" "}
+                {new Date(comment.createdAt).toLocaleDateString("en-GB")}
+              </p>
+            </div>
             <p className="text-sm text-gray-700">{comment.content}</p>
           </div>
           <div className="ml-auto">
-            <button>Like</button>
+            <div className="flex gap-4">
+              <FontAwesomeIcon icon={faHeart} />
+              <img src="/src/assets/Icons/trash.png" alt="delete" className="w-4 h-5" />
+            </div>
           </div>
         </div>
       ))}
