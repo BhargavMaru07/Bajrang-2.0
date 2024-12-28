@@ -43,7 +43,7 @@ const addBlog = async (req, res) => {
 
     return res.status(201).json({ msg: "Blog Created !", Blog: new_blog });
   } catch (error) {
-    return res.status(400).json({ msg: error });
+    return res.status(400).json({ msg: "Internal Server Error !" });
   }
 };
 

@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import noImage from "../assets/images/NoBlogImage.jpg";
 
 function BlogCard({ blog }) {
+  // console.log(blog);
+
   return (
     <div className="flex flex-col justify-between w-full h-auto overflow-hidden border rounded-lg">
       <div className="sm:h-[70%] p-4 w-full h-auto">
         <img
-          src={`/Server/public${blog.coverImage}`}
+          // src={`/Server/public${blog.coverImage}`}
+          src={noImage}
           alt={blog.title}
           className="object-fill w-full h-full rounded-lg"
         />
@@ -29,7 +33,9 @@ function BlogCard({ blog }) {
                 className="object-cover rounded-full h-9 w-9"
               />
               <div>
-                <p className="font-medium text-gray-800 capitalize">{blog.name}</p>
+                <p className="font-medium text-gray-800 capitalize">
+                  {blog.name}
+                </p>
               </div>
             </div>
           </div>

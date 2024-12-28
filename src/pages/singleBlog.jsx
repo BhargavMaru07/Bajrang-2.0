@@ -6,6 +6,7 @@ import Comment from "../components/Comment";
 import Progress from "../helper/Progress";
 import Navigate from "../Shared/Navigate";
 import { useAuthContext } from "../Context/AuthContextModified";
+import noImage from "../assets/images/NoBlogImage.jpg";
 
 const SingleBlog = () => {
   const { blog, getSingleBlog } = useBlogContext();
@@ -42,7 +43,8 @@ const SingleBlog = () => {
               <div className="flex justify-center w-full mt-2 mb-2 ">
                 <div>
                   <img
-                    src={`/Server/public${blog.coverImage}`}
+                    src={noImage}
+                    // src={`/Server/public${blog.coverImage}`}
                     alt="coverImage"
                     className="h-fit rounded-2xl sm:w-full w-[90%] mx-auto"
                   />
