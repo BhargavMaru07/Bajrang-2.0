@@ -34,7 +34,7 @@ const BlogForm = () => {
     formData.append("name", user.name);
     formData.append("createdBy", user._id);
     if (file) {
-      formData.append("coverImage", file);
+      formData.append("coverImage", "");
     }
 
     //FOR PRODUCTION..

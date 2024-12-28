@@ -40,7 +40,7 @@ const addBlog = async (req, res) => {
       // coverImage: `/uploads/${req.file.filename}`,
     });
 
-    console.log(new_blog);
+    // console.log(new_blog);
 
     return res.status(201).json({ msg: "Blog Created !", Blog: new_blog });
   } catch (error) {
