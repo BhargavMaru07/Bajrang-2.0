@@ -1,8 +1,15 @@
 import React from "react";
 import EmptyAddress from "../components/EmptyAddress";
 import Modal from "../components/Modal";
+import { useAddressContext } from "../Context/AddressContext";
+import { ICONS } from "../assets/Icons/icon";
+
 
 const Address = () => {
+  let { addresses } = useAddressContext();
+
+  console.log(addresses);
+
   return (
     <div className="container px-6 py-2 mx-auto mt-10 mb-8 max-w-7xl sm:px-9 ">
       <div className="flex flex-wrap items-center justify-between gap-4">
