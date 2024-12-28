@@ -36,7 +36,8 @@ const addBlog = async (req, res) => {
       body,
       name,
       createdBy,
-      coverImage: `/uploads/${req.file.filename}`,
+      coverImage: "",
+      // coverImage: `/uploads/${req.file.filename}`,
     });
 
     console.log(new_blog);
