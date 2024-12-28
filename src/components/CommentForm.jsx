@@ -13,7 +13,7 @@ function CommentForm() {
     e.preventDefault();
 
     if (user) {
-      fetch(`http://localhost:5001/api/blog/comment/${id}`, {
+      fetch(`https://bajrang-2-0-server.vercel.app/api/blog/comment/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -43,7 +43,7 @@
 
 //   return (
 //     <>
-//       <div className="text-center rounded-lg text-white font-bold">
+//       <div className="font-bold text-center text-white rounded-lg">
 //         <button
 //           type="button"
 //           onClick={openModal}
@@ -68,8 +68,8 @@
 //             <div className="fixed inset-0 bg-black bg-opacity-50" />
 //           </Transition.Child>
 
-//           <div className="fixed inset-0 overflow-y-auto z-30">
-//             <div className="flex min-h-full items-center justify-center p-4 text-center m-8 z-50">
+//           <div className="fixed inset-0 z-30 overflow-y-auto">
+//             <div className="z-50 flex items-center justify-center min-h-full p-4 m-8 text-center">
 //               <Transition.Child
 //                 as={Fragment}
 //                 enter="ease-out duration-300"
@@ -79,20 +79,20 @@
 //                 leaveFrom="opacity-100"
 //                 leaveTo="opacity-0"
 //               >
-//                 <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-//                   <div className="flex justify-between items-center mb-4">
+//                 <Dialog.Panel className="w-full max-w-lg p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+//                   <div className="flex items-center justify-between mb-4">
 //                     <h2 className="text-2xl font-semibold text-gray-800">
 //                       Add Address
 //                     </h2>
 //                     <button
 //                       onClick={closeModal}
-//                       className="text-gray-500 hover:text-gray-700 rounded-full p-2 bg-slate-300"
+//                       className="p-2 text-gray-500 rounded-full hover:text-gray-700 bg-slate-300"
 //                     >
 //                       <ICONS.CROSS size={20} color="#1B3030" />
 //                     </button>
 //                   </div>
 //                   <form onSubmit={handleFormSubmit}>
-//                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+//                     <div className="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
 //                       <div>
 //                         <label className="block text-sm font-medium text-gray-700">
 //                           Full Name
@@ -104,7 +104,7 @@
 //                             setData({ ...data, fullName: e.target.value })
 //                           }
 //                           placeholder="Enter Full Name"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -119,7 +119,7 @@
 //                             setData({ ...data, phoneNumber: e.target.value })
 //                           }
 //                           placeholder="+91 Enter Phone Number"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -134,7 +134,7 @@
 //                             setData({ ...data, houseNumber: e.target.value })
 //                           }
 //                           placeholder="Block / House / Building"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -149,7 +149,7 @@
 //                           }
 //                           type="text"
 //                           placeholder="Road / Area Colony"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -164,7 +164,7 @@
 //                           }
 //                           type="text"
 //                           placeholder="Enter City"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -179,7 +179,7 @@
 //                           }
 //                           type="text"
 //                           placeholder="Enter State"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -194,7 +194,7 @@
 //                           }
 //                           type="text"
 //                           placeholder="Enter Pincode"
-//                           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+//                           className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
 //                           required
 //                         />
 //                       </div>
@@ -203,7 +203,7 @@
 //                       <label className="inline-flex items-center">
 //                         <input
 //                           type="checkbox"
-//                           className="form-checkbox h-5 w-5 text-blue-600"
+//                           className="w-5 h-5 text-blue-600 form-checkbox"
 //                           checked={data.isDefaultAddress}
 //                            onChange={(e) =>
 //                             setData({ ...data, isDefaultAddress: e.target.checked })
@@ -215,10 +215,10 @@
 //                       </label>
 //                     </div>
 //                     <div className="mb-4">
-//                       <label className="block text-sm font-medium text-gray-700 mb-2">
+//                       <label className="block mb-2 text-sm font-medium text-gray-700">
 //                         Address Type
 //                       </label>
-//                       <div className="flex space-x-2 space-y-1 flex-wrap">
+//                       <div className="flex flex-wrap space-x-2 space-y-1">
 //                         {["HOME", "OFFICE", "OTHERS"].map((type) => (
 //                           <button
 //                             type="button"
@@ -238,7 +238,7 @@
 //                     <div className="flex justify-end">
 //                       <button
 //                         type="submit"
-//                         className="px-6 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
+//                         className="px-6 py-2 text-white bg-pink-500 rounded-md hover:bg-pink-600"
 //                       >
 //                         Save
 //                       </button>
@@ -299,11 +299,10 @@ const Modal = () => {
   };
 
   const onSubmit = (data) => {
-
-     if (!user || !user._id) {
-       toast.error("User not authenticated!");
-       return;
-     }
+    if (!user || !user._id) {
+      toast.error("User not authenticated!");
+      return;
+    }
 
     fetch("http://localhost:5001/api/address", {
       method: "POST",
@@ -325,7 +324,7 @@ const Modal = () => {
 
   return (
     <>
-      <div className="text-center rounded-lg text-white font-bold">
+      <div className="font-bold text-center text-white rounded-lg">
         <button
           type="button"
           onClick={openModal}
@@ -350,8 +349,8 @@ const Modal = () => {
             <div className="fixed inset-0 bg-black bg-opacity-50" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto z-30">
-            <div className="flex min-h-full items-center justify-center p-4 text-center m-8 z-50">
+          <div className="fixed inset-0 z-30 overflow-y-auto">
+            <div className="z-50 flex items-center justify-center min-h-full p-4 m-8 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -361,20 +360,20 @@ const Modal = () => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="flex justify-between items-center mb-4">
+                <Dialog.Panel className="w-full max-w-lg p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                  <div className="flex items-center justify-between mb-4">
                     <h2 className="text-2xl font-semibold text-gray-800">
                       Add Address
                     </h2>
                     <button
                       onClick={closeModal}
-                      className="text-gray-500 hover:text-gray-700 rounded-full p-2 bg-slate-300"
+                      className="p-2 text-gray-500 rounded-full hover:text-gray-700 bg-slate-300"
                     >
                       <ICONS.CROSS size={20} color="#1B3030" />
                     </button>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div className="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
                       <div>
                         <label className="block text-sm font-medium text-gray-700">
                           Full Name
@@ -389,10 +388,10 @@ const Modal = () => {
                             },
                           })}
                           placeholder="Enter Full Name"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.fullName && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.fullName.message}
                           </p>
                         )}
@@ -411,10 +410,10 @@ const Modal = () => {
                             },
                           })}
                           placeholder="Enter Phone Number"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.phoneNumber && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.phoneNumber.message}
                           </p>
                         )}
@@ -429,10 +428,10 @@ const Modal = () => {
                             required: "House Number is required",
                           })}
                           placeholder="Block / House / Building"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.houseNumber && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.houseNumber.message}
                           </p>
                         )}
@@ -447,10 +446,10 @@ const Modal = () => {
                             required: "Area is required",
                           })}
                           placeholder="Road / Area Colony"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.area && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.area.message}
                           </p>
                         )}
@@ -469,10 +468,10 @@ const Modal = () => {
                             },
                           })}
                           placeholder="Enter City"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.city && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.city.message}
                           </p>
                         )}
@@ -491,10 +490,10 @@ const Modal = () => {
                             },
                           })}
                           placeholder="Enter State"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.state && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.state.message}
                           </p>
                         )}
@@ -513,10 +512,10 @@ const Modal = () => {
                             },
                           })}
                           placeholder="Enter Pincode"
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+                          className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.pincode && (
-                          <p className="text-red-500 text-sm mt-1">
+                          <p className="mt-1 text-sm text-red-500">
                             {errors.pincode.message}
                           </p>
                         )}
@@ -526,7 +525,7 @@ const Modal = () => {
                       <label className="inline-flex items-center">
                         <input
                           type="checkbox"
-                          className="form-checkbox h-5 w-5 text-blue-600"
+                          className="w-5 h-5 text-blue-600 form-checkbox"
                           {...register("isDefaultAddress")}
                         />
                         <span className="ml-2 text-gray-700">
@@ -535,14 +534,14 @@ const Modal = () => {
                       </label>
                     </div>
                     <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         Address Type
                       </label>
                       <Controller
                         name="selectedType"
                         control={control}
                         render={({ field }) => (
-                          <div className="flex space-x-2 space-y-1 flex-wrap">
+                          <div className="flex flex-wrap space-x-2 space-y-1">
                             {["HOME", "OFFICE", "OTHERS"].map((type) => (
                               <button
                                 type="button"
