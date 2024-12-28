@@ -49,7 +49,7 @@ const BlogProvider = ({ children }) => {
     try {
       const response = await axios.get(`${API}/comment/${id}`);
       setComments(response.data);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error("Error fetching Comments:", error);
     }

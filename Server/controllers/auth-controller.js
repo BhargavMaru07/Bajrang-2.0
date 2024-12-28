@@ -22,8 +22,7 @@ const register = async (req, res) => {
 
     // If email does not exist, create the user
     const newUser = await USER.create(user);
-    console.log("THIS IS NEW USER",newUser);
-
+    console.log("THIS IS NEW USER", newUser);
 
     return res.status(201).json({
       msg: "Registration successfully!",
@@ -75,4 +74,37 @@ const user = async (req, res) => {
   }
 };
 
-module.exports = { home, register, login, user };
+//Profile Route :
+
+const profile = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    // console.log(_id);
+
+    const updated_data = req.body;
+    // console.log("user form data:", updated_data);
+
+    // Validate input
+    if (!_id) {
+      return res.status(400).json({ message: "User ID is required." });
+    }
+
+    // Update the user
+    const user = await USER.findByIdAndUpdate(
+      _id,
+      updated_data
+      // { new: true } // This option returns the updated document
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    return res.status(200).json({ message: "User updated successfully", user });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+module.exports = { home, register, login, user, profile };

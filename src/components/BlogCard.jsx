@@ -3,36 +3,40 @@ import { Link } from "react-router-dom";
 
 function BlogCard({ blog }) {
   return (
-    <div className="bg-white w-auto shadow-md rounded-lg overflow-hidden transition-all duration-300">
-      <img
-        src={`/Server/public${blog.coverImage}`}
-        alt={blog.title}
-        className="w-full h-auto object-cover"
-      />
-      <div className="p-4 relative">
-        <p className="text-sm text-gray-500 opacity-50">
+    <div className="flex flex-col justify-between w-full h-auto overflow-hidden border rounded-lg">
+      <div className="sm:h-[70%] p-4 w-full h-auto">
+        <img
+          src={`/Server/public${blog.coverImage}`}
+          alt={blog.title}
+          className="object-fill w-full h-full rounded-lg"
+        />
+      </div>
+      <div className="relative p-2 sm:p-4">
+        <p className="flex justify-between mb-2 text-sm text-text">
+          <span>create at :</span>
           {new Date(blog.createdAt).toLocaleDateString("en-GB")}
         </p>
-        <h2 className="text-lg font-semibold text-gray-800 mb-2">
-          {blog.title}
+        <h2 className="flex justify-start gap-4 mb-2 text-xl font-semibold capitalize text-text">
+          <span>Title :</span> {blog.title}
         </h2>
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-3">
               <img
-                src={blog.profileImage}
+                // src={blog.profileImage}
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt="profile pic"
-                className="w-10 h-10 rounded-full object-cover"
+                className="object-cover rounded-full h-9 w-9"
               />
               <div>
-                <p className="font-medium text-gray-800">{blog.name}</p>
+                <p className="font-medium text-gray-800 capitalize">{blog.name}</p>
               </div>
             </div>
           </div>
-          <div className="absolute bottom-4 right-2 rounded-lg" style={{backgroundColor:"#6254F3"}}>
+          <div className="absolute rounded-lg bottom-4 right-2 bg-btn">
             <Link to={`/blog/${blog._id}`}>
-              <button className="px-3 py-2 rounded-lg font-serif text-white duration-300 hover:text-black text-sm">
-                Read More
+              <button className="px-3 py-2 text-sm font-medium text-white rounded-lg">
+                View Blog
               </button>
             </Link>
           </div>

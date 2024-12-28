@@ -9,7 +9,7 @@ const Navigate = ({ name,item }) => {
       <nav aria-label="Breadcrumb" className="mb-4">
         <ol
           role="list"
-          className="flex items-center max-w-2xl px-4 mx-auto space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
+          className="flex items-center px-4 mx-auto space-x-2 sm:px-6 lg:max-w-7xl"
         >
           <li>
             <Link to="/" className="text-sm font-medium text-gray-900">

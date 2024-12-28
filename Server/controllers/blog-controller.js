@@ -64,45 +64,44 @@ const getSingleBlog = async (req, res) => {
   }
 };
 
-
-
 //ADD COMMENT...
 
-const addComment = async (req,res)=>{
-  console.log(req.body);
-    try {
-      let new_comment = await COMMENT.create({
-        content: req.body.comment,
-        createdBy: req.body.createdBy,
-        blogId: req.params.blogId,
-      });
-      console.log(new_comment);
+const addComment = async (req, res) => {
+  // console.log(req.body);
+  try {
+    let new_comment = await COMMENT.create({
+      content: req.body.comment,
+      createdBy: req.body.createdBy,
+      blogId: req.params.blogId,
+    });
+    // console.log(new_comment);
 
-      return res.status(201).json({ msg: "Comment Created !"});
-    } catch (error) {
-      return res.status(400).json({ msg: error });
-    }
-}
-
+    return res.status(201).json({ msg: "Comment Created !" });
+  } catch (error) {
+    return res.status(400).json({ msg: error });
+  }
+};
 
 //GET ALL COMMENTS OF A BLOG
 
-let getAllComments = async (req,res)=>{
-    try {
-      // let comments = await COMMENT.find({ blogId: req.params.blogId });
-      let comments = await COMMENT.find({ blogId: req.params.blogId }).populate("createdBy")
-      console.log(comments);
+let getAllComments = async (req, res) => {
+  try {
+    // let comments = await COMMENT.find({ blogId: req.params.blogId });
+    let comments = await COMMENT.find({ blogId: req.params.blogId }).populate(
+      "createdBy"
+    );
+    // console.log(comments);
 
-      // If comments not found
-      if (!comments) {
-        return res.status(404).json({ error: "comments not found" });
-      }
-
-      return res.status(200).json(comments);
-    } catch (error) {
-      return res.status(500).json({ error: "Failed to fetch comments" });
+    // If comments not found
+    if (!comments) {
+      return res.status(404).json({ error: "comments not found" });
     }
-}
+
+    return res.status(200).json(comments);
+  } catch (error) {
+    return res.status(500).json({ error: "Failed to fetch comments" });
+  }
+};
 
 module.exports = {
   getAllBlog,

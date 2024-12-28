@@ -9,14 +9,28 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 
+  firstName: {
+    type: String,
+    // required: true,
+  },
+
+  lastName: {
+    type: String,
+    // required: true,
+  },
+
   email: {
     type: String,
     required: true,
   },
 
-  profileImage:{
-    type:String,
-    default:"/src/assets/images/profile-01.png"
+  phone: {
+    type: Number,
+  },
+
+  profileImage: {
+    type: String,
+    default: "/src/assets/images/profile-01.png",
   },
 
   password: {
@@ -28,11 +42,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   role: {
     type: String,
     enum: ["USER", "ADMIN"],
     default: "USER",
   },
+
   createdAt: {
     type: Date,
     default: Date.now(),

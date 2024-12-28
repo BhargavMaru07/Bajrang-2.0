@@ -1,57 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useBlogContext } from "../Context/BlogContext";
-import BlogCard from "../components/BlogCard";
 import { useAuthContext } from "../Context/AuthContextModified";
-import Masonry from "react-masonry-css";
-import "./Blog.css";
+import BlogCard from "../components/BlogCard";
+import Button from "../Styles/Button";
+import { ICONS } from "../assets/Icons/icon";
 
-function Blog() {
-  const { isLoggedIn } = useAuthContext();
+const Blog = () => {
+  const { isLoggedIn, user } = useAuthContext();
   const { blogs } = useBlogContext();
-
-  const breakpointColumns = {
-    default: 4,
-    1100: 3,
-    768: 2,
-    625: 1,
-  };
 
   return (
     <>
-      <div className="px-10">
+      <div className="mx-auto max-w-7xl">
         {isLoggedIn ? (
-          <div className="mt-10">
-            <Link to="/blog/add-new" className="flex gap-2 items-center">
-              <button className="text-white bg-transparent rounded-full">
-                <img
-                  src="/src/assets/Icons/addBlog.png"
-                  alt="Add Blog"
-                  className="w-10 h-10"
-                />
-              </button>
-              <p className="opacity-50">Keep up with the latest in any topic</p>
-            </Link>
+          <div className="mx-4">
+            <div className="flex items-center justify-between">
+              <p className="text-text">
+                Welcome back !{" "}
+                <span className="text-xl underline cursor-pointer text-btn">{user.name}</span>
+                <br /> You're all set—start sharing your ideas and post your
+                blog now!
+              </p>
+              <Link to="/blog/add-new">
+                <span className="flex items-center justify-center p-2 border rounded-full bg-bg text-btn">
+                  <ICONS.PLUS size={25} />
+                </span>
+              </Link>
+            </div>
           </div>
         ) : (
-          <div>Please Login</div>
+          <div className="flex flex-col justify-start gap-2 mx-4 sm:items-center sm:justify-between sm:flex-row">
+            <p>
+              Log in now to unleash your creativity and share your blog with the
+              world !!
+            </p>
+            <Link to="/login">
+              <button className="text-red-500 hover:underline">Log in</button>
+            </Link>
+          </div>
         )}
-        <hr
-          className="border-t-2 mt-5 mb-10"
-          style={{ borderColor: "#6254F3" }}
-        />
-        <Masonry
-          breakpointCols={breakpointColumns}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
+
+        <hr className="mt-5 mb-10 border-t-2 border-[#6254F3] mx-4" />
+        <div className="grid grid-cols-1 gap-5 mx-auto md:grid-cols-3 lg:grid-cols-4 max-w-7xl sm:grid-cols-2">
           {blogs.map((blog) => (
             <BlogCard key={blog._id} blog={blog} />
           ))}
-        </Masonry>
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default Blog;

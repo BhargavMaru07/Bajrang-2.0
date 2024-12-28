@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -37,6 +38,30 @@ const AuthProvider = ({ children }) => {
       userLogout(); // Logout if authentication fails
     }
   };
+  const profileUpdate = async (data) => {
+    try {
+      if (data) {
+      }
+      const res = await axios.patch(
+        "http://localhost:5001/api/auth/user/profile",
+        data, // Pass the data as the request body
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        }
+      );
+
+      toast.success("User updated successfully");
+      return res.data; // Return the response data
+    } catch (error) {
+      console.error(
+        "Error updating profile:",
+        error.response?.data || error.message
+      );
+      throw error; // Propagate the error for further handling
+    }
+  };
 
   // Effect to fetch user data whenever the token changes
   useEffect(() => {
@@ -58,6 +83,8 @@ const AuthProvider = ({ children }) => {
         userLogout,
         isLoggedIn,
         user,
+        token,
+        profileUpdate,
       }}
     >
       {children}

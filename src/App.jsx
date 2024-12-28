@@ -20,7 +20,7 @@ import Profile from "./pages/Profile";
 import Gallery from "./pages/Gallery";
 import Logout from "./Auth/Logout";
 import Help from "./pages/Help";
-import BlogPage from "./pages/BlogPage";
+import SingleBlog from "./pages/singleBlog";
 
 //Component
 import Footer from "./components/Footer";
@@ -52,7 +52,7 @@ const App = () => {
             <Route exact path="/help" element={<Help />} />
             <Route exact path="/search" element={<SearchProduct />} />
             <Route exact path="/blog/add-new" element={<BlogForm />} />
-            <Route exact path="/blog/:id" element={<BlogPage />} />
+            <Route exact path="/blog/:id" element={<SingleBlog />} />
 
             <Route
               exact
@@ -60,7 +60,15 @@ const App = () => {
               element={<ProductOverview />}
             />
             <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/profile" element={<Profile />} />
+            <Route
+              exact
+              path="/profile/"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
             <Route
               exact
               path="/cart"
