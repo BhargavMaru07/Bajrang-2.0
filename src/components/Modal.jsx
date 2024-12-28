@@ -315,7 +315,7 @@ const Modal = () => {
         reset();
         closeModal();
         toast.success("Address Added!");
-        // window.location.reload(); // Optional
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error on Address creation:", error);

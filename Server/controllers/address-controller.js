@@ -1,3 +1,4 @@
+
 const ADDRESS = require("../models/address_model");
 
 
@@ -43,15 +44,21 @@ const addAddress = async (req,res)=>{
 
 
 //GetAddress
-
-let getAddress = async (req,res)=>{
+const getAddress = async (req, res) => {
   try {
-    let address = await ADDRESS.find({createdBy:req.body._id})
+    const { createdBy } = req.query; 
+    if (!createdBy) {
+      return res.status(400).json({ msg: "Missing createdBy in query" });
+    }
+    const address = await ADDRESS.find({ createdBy });
+    console.log(address);
     return res.status(200).json(address);
   } catch (error) {
-    
+    return res.status(400).json({ msg: "Error in getAddress" });
   }
-}
+};
+
+
 
 module.exports = {
   addAddress,

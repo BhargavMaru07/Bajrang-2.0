@@ -9,7 +9,8 @@ import { AuthProvider } from "./Context/AuthContextModified.jsx";
 import { ProductProvider } from "./Context/ProductContext";
 import { FilterContextProvider } from "./Context/FilterContext";
 import { CartContextProvider } from "./Context/CartContext.jsx";
-import {BlogProvider} from "./Context/BlogContext.jsx"
+import { BlogProvider } from "./Context/BlogContext.jsx";
+import { AddressProvider } from "./Context/AddressContext.jsx";
 // import { UserProvider } from "./Context/UserContext";
 
 createRoot(document.getElementById("root")).render(
@@ -17,13 +18,15 @@ createRoot(document.getElementById("root")).render(
     {/* <UserProvider> */}
     <BlogProvider>
       <AuthProvider>
-        <ProductProvider>
-          <FilterContextProvider>
-            <CartContextProvider>
-              <App />
-            </CartContextProvider>
-          </FilterContextProvider>
-        </ProductProvider>
+        <AddressProvider>
+          <ProductProvider>
+            <FilterContextProvider>
+              <CartContextProvider>
+                <App />
+              </CartContextProvider>
+            </FilterContextProvider>
+          </ProductProvider>
+        </AddressProvider>
       </AuthProvider>
     </BlogProvider>
     {/* </UserProvider> */}

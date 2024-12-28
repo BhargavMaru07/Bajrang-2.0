@@ -19,7 +19,8 @@ import {
   FaPlus,
   FaHome,
   FaMapMarkedAlt,
-  FaTimes
+  FaTimes,
+  FaPenSquare
 } from "react-icons/fa";
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
@@ -58,4 +59,5 @@ export const ICONS = {
   LOGOUT: IoLogOutOutline,
   LOCATION: FaMapMarkedAlt,
   CROSS: FaTimes,
+  EDIT: FaPenSquare,
 };
