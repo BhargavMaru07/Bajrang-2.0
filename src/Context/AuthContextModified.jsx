@@ -26,11 +26,14 @@ const AuthProvider = ({ children }) => {
   const userAuthentication = async () => {
     if (!token) return; // Skip if no token is available
     try {
-      const res = await axios.get("http://localhost:5001/api/auth/user", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        "https://bajrang-2-0-server.vercel.app/api/auth/user",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const userInfo = res.data;
       setUser(userInfo.userData); // Update user state
     } catch (error) {
@@ -43,7 +46,7 @@ const AuthProvider = ({ children }) => {
       if (data) {
       }
       const res = await axios.patch(
-        "http://localhost:5001/api/auth/user/profile",
+        "https://bajrang-2-0-server.vercel.app/api/auth/user/profile",
         data, // Pass the data as the request body
         {
           headers: {

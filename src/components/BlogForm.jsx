@@ -8,13 +8,12 @@ import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
 
 const BlogForm = () => {
-
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
 
   const [data, setData] = useState({
     title: "",
     body: "",
-    user
+    user,
   });
 
   const navigate = useNavigate();
@@ -40,10 +39,10 @@ const BlogForm = () => {
 
     //FOR PRODUCTION..
     // https://bajrang-2-0-server.vercel.app/api/blog/add-new
-      fetch("http://localhost:5001/api/blog/add-new", {
-        method: "POST",
-        body: formData,
-      })
+    fetch("https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
+      method: "POST",
+      body: formData,
+    })
       .then((newBlog) => {
         console.log("Blog and file submitted successfully.");
         console.log("New Blog :", newBlog);

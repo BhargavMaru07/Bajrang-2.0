@@ -4,19 +4,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 const BlogContext = createContext();
 
 //FOR PRODUCTION
-// const API =  "https://bajrang-2-0-server.vercel.app/api/blog"
+const API = "https://bajrang-2-0-server.vercel.app/api/blog";
 
 //FOR NORMAL USE
-const API = "http://localhost:5001/api/blog"
+// const API = "http://localhost:5001/api/blog"
 
 const BlogProvider = ({ children }) => {
   //For All Blogs
   const [blogs, setBlogs] = useState([]);
   //For Single Blog
   const [blog, setBlog] = useState(null);
-  //For Comments 
-  const [comments,setComments] = useState(null);
-
+  //For Comments
+  const [comments, setComments] = useState(null);
 
   //GET ALL BLOGS
   const getBlogs = async () => {
@@ -32,8 +31,6 @@ const BlogProvider = ({ children }) => {
   //   setBlogs((prevBlogs) => [newBlog, ...prevBlogs]);
   // };
 
-
-
   //GET SINGLE BLOG
   const getSingleBlog = async (id) => {
     try {
@@ -45,7 +42,7 @@ const BlogProvider = ({ children }) => {
     }
   };
 
-  const getAllComments = async (id)=>{
+  const getAllComments = async (id) => {
     try {
       const response = await axios.get(`${API}/comment/${id}`);
       setComments(response.data);
@@ -53,8 +50,7 @@ const BlogProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching Comments:", error);
     }
-  }
-
+  };
 
   useEffect(() => {
     getBlogs();
