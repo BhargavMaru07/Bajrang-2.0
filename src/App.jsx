@@ -21,6 +21,7 @@ import Gallery from "./pages/Gallery";
 import Logout from "./Auth/Logout";
 import Help from "./pages/Help";
 import SingleBlog from "./pages/singleBlog";
+import Address from "./pages/Address";
 
 //Component
 import Footer from "./components/Footer";
@@ -53,6 +54,7 @@ const App = () => {
             <Route exact path="/search" element={<SearchProduct />} />
             <Route exact path="/blog/add-new" element={<BlogForm />} />
             <Route exact path="/blog/:id" element={<SingleBlog />} />
+            <Route exact path="/address" element={<Address />} />
 
             <Route
               exact

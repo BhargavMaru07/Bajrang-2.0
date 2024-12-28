@@ -18,6 +18,8 @@ import {
   FaMinus,
   FaPlus,
   FaHome,
+  FaMapMarkedAlt,
+  FaTimes
 } from "react-icons/fa";
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
@@ -53,5 +55,7 @@ export const ICONS = {
   CART: AiOutlineShoppingCart,
   ACCOUNT: MdAccountCircle,
   PAYMENT: MdPayment,
-  LOGOUT :IoLogOutOutline
+  LOGOUT: IoLogOutOutline,
+  LOCATION: FaMapMarkedAlt,
+  CROSS: FaTimes,
 };
