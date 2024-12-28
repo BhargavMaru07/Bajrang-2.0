@@ -184,14 +184,18 @@ const Profile = () => {
           <div className="pt-4 mt-8 border-t">
             <h2 className="text-lg font-semibold">Account Information</h2>
             <div className="flex items-center justify-between mt-4 space-x-2">
+              {/* change path according route */}
               <button className="flex items-center justify-center flex-1 px-4 py-2 text-green-600 bg-green-100 rounded-md shadow hover:bg-green-200">
-                My Orders
+                <Link to={"/"}>My Orders</Link>
               </button>
+
               <button className="flex items-center justify-center flex-1 px-4 py-2 text-green-600 bg-green-100 rounded-md shadow hover:bg-green-200">
-                Address
+                <Link to={"/address"}>Address</Link>
               </button>
+
+              {/* change path according route */}
               <button className="flex items-center justify-center flex-1 px-4 py-2 text-green-600 bg-green-100 rounded-md shadow hover:bg-green-200">
-                My Wishlists
+                <Link to={"/"}> My Wishlists</Link>
               </button>
             </div>
           </div>
