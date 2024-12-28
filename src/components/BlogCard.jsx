@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import noImage from "../assets/images/NoBlogImage.jpg";
+import TruncatedTitle from "../helper/TruncatedTitle";
 
 function BlogCard({ blog }) {
   // console.log(blog);
@@ -21,7 +22,8 @@ function BlogCard({ blog }) {
           {new Date(blog.createdAt).toLocaleDateString("en-GB")}
         </p>
         <h2 className="flex justify-start gap-4 mb-2 text-xl font-semibold capitalize text-text">
-          <span>Title :</span> {blog.title}
+          <span>Title :</span>
+          <TruncatedTitle name={blog.title} />
         </h2>
         <div className="flex items-center justify-between">
           <div>

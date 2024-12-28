@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const TruncatedTitle = ({ name, desktopLimit, mobileLimit }) => {
+const TruncatedTitle = ({ name, desktopLimit = 12, mobileLimit = 23 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [truncatedTitle, setTruncatedTitle] = useState("");
 
