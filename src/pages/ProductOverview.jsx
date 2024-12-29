@@ -49,7 +49,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const API = "https://productionapi.up.railway.app/api/singleproduct";
+const API = "https://latkanproductapi.vercel.app/api/singleproduct";
 
 const ProductOverview = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);

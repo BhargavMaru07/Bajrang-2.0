@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/ProductReducer";
 
 const ProductContext = createContext();
-const API = `https://productionapi.up.railway.app/api/products`;
+const API = `https://latkanproductapi.vercel.app/api/products`;
 
 const initialState = {
   isError: false,
@@ -15,7 +15,7 @@ const initialState = {
 };
 
 const ProductProvider = ({ children }) => {
-const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
