@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { useProductContext } from "../Context/ProductContext";
 import Images from "../Shared/Images";
 import CurrencyFormate from "../helper/CurrencyFormate";
 import AddToCart from "../components/AddToCart";
 import { ICONS } from "../assets/Icons/icon";
 import Navigate from "../Shared/Navigate";
+import { useWishListContext } from "../Context/WishListContext";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -43,17 +44,18 @@ const product = {
     { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
   ],
 };
-const reviews = { href: "#", average: 4, totalCount: 117 };
+// const reviews = { href: "#", average: 4, totalCount: 117 };
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 const API = "https://latkanproductapi.vercel.app/api/singleproduct";
 
 const ProductOverview = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const { getSingleProduct, singleProduct } = useProductContext();
+  const { addToWishList, wishList, removeToWishList } = useWishListContext();
 
   const {
     name,
@@ -72,6 +74,13 @@ const ProductOverview = () => {
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   }, [id]);
+
+  // Check if the product is already in the wishlist
+  const isProductInWishlist = wishList.some((item) => item.id === id);
+
+  const handleWishlistToggle = () => {
+    addToWishList(singleProduct);
+  };
 
   return (
     <div className="mx-auto bg-white max-w-7xl">
@@ -100,9 +109,23 @@ const ProductOverview = () => {
                 </span>
               </div>
               <div className="flex items-center justify-center p-4 rounded-full cursor-pointer bg-bg">
-                <span className="text-2xl cursor-pointer text-btn">
-                  <ICONS.HEART />
-                </span>
+                <button>
+                  {isProductInWishlist ? (
+                    <span
+                      onClick={() => removeToWishList(id)}
+                      className="text-2xl cursor-pointer text-btn"
+                    >
+                      <ICONS.FULLHEART />
+                    </span>
+                  ) : (
+                    <span
+                      onClick={() => handleWishlistToggle(singleProduct)}
+                      className="text-2xl cursor-pointer text-btn"
+                    >
+                      <ICONS.HEART />
+                    </span>
+                  )}
+                </button>
               </div>
             </div>
 

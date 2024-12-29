@@ -201,7 +201,7 @@ const Profile = () => {
 
               {/* change path according route */}
               <Link
-                to={"/"}
+                to="/wishlist"
                 className="flex items-center justify-center flex-1 px-4 py-2 text-green-600 bg-green-100 rounded-md shadow hover:bg-green-200"
               >
                 <button>My Wishlists</button>

@@ -32,6 +32,7 @@ import PrivateRoute from "./Private/PrivateRoute";
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
+import WishList from "./pages/WishList";
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
             <Route exact path="/blog/add-new" element={<BlogForm />} />
             <Route exact path="/blog/:id" element={<SingleBlog />} />
             <Route exact path="/address" element={<Address />} />
+            <Route exact path="/wishlist" element={<WishList />} />
 
             <Route
               exact

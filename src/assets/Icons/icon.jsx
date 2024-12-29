@@ -20,12 +20,17 @@ import {
   FaHome,
   FaMapMarkedAlt,
   FaTimes,
-  FaPenSquare
+  FaPenSquare,
+  FaHeart,
 } from "react-icons/fa";
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
 import { MdAccountCircle, MdDeleteForever, MdPayment } from "react-icons/md";
-import { IoBagHandle, IoBagHandleOutline, IoLogOutOutline } from "react-icons/io5";
+import {
+  IoBagHandle,
+  IoBagHandleOutline,
+  IoLogOutOutline,
+} from "react-icons/io5";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const ICONS = {
@@ -50,6 +55,7 @@ export const ICONS = {
   DELETE: MdDeleteForever,
   BAG: IoBagHandle,
   HEART: FaRegHeart,
+  FULLHEART: FaHeart,
   PLUS: FaPlus,
   MINUS: FaMinus,
   HOME: FaHome,
