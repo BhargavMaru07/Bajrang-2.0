@@ -57,6 +57,7 @@ const App = () => {
             <Route exact path="/blog/:id" element={<SingleBlog />} />
             <Route exact path="/address" element={<Address />} />
             <Route exact path="/wishlist" element={<WishList />} />
+            
 
             <Route
               exact
