@@ -33,6 +33,7 @@ import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
 import WishList from "./pages/WishList";
+import Myorder from "./pages/myorder";
 
 const App = () => {
   return (
@@ -57,7 +58,11 @@ const App = () => {
             <Route exact path="/blog/:id" element={<SingleBlog />} />
             <Route exact path="/address" element={<Address />} />
             <Route exact path="/wishlist" element={<WishList />} />
+<<<<<<< Updated upstream
             
+=======
+            <Route exact path="/myorder" element={<Myorder />} />
+>>>>>>> Stashed changes
 
             <Route
               exact
