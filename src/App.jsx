@@ -58,11 +58,7 @@ const App = () => {
             <Route exact path="/blog/:id" element={<SingleBlog />} />
             <Route exact path="/address" element={<Address />} />
             <Route exact path="/wishlist" element={<WishList />} />
-<<<<<<< Updated upstream
-            
-=======
             <Route exact path="/myorder" element={<Myorder />} />
->>>>>>> Stashed changes
 
             <Route
               exact
