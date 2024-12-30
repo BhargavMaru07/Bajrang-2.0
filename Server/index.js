@@ -8,6 +8,7 @@ const cors = require("cors");
 const Port = process.env.PORT || 8001;
 //routes
 const auth_route = require("./routes/auth-route");
+const admin_route = require("./routes/admin-route");
 const blog_route = require("./routes/blog-route");
 const address_route = require("./routes/address-route");
 
@@ -27,6 +28,7 @@ app.use(express.static(path.resolve("./public/uploads")));
 app.get("/", (req, res) => res.send("Hello This is Server !"));
 
 app.use("/api/auth", auth_route);
+app.use("/api/admin", admin_route);
 app.use("/api/blog", blog_route);
 app.use("/api/address", address_route);
 

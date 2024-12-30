@@ -16,7 +16,10 @@ const AddressProvider = ({ children }) => {
       });
       setAddresses(response.data);
     } catch (error) {
-      console.error("Error fetching addresses:", error.response?.data || error.message);
+      console.error(
+        "Error fetching addresses:",
+        error.response?.data || error.message
+      );
     }
   };
 
@@ -38,4 +41,3 @@ const useAddressContext = () => {
 };
 
 export { AddressProvider, useAddressContext };
-

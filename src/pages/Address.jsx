@@ -4,7 +4,6 @@ import Modal from "../components/Modal";
 import { useAddressContext } from "../Context/AddressContext";
 import { ICONS } from "../assets/Icons/icon";
 
-
 const Address = () => {
   let { addresses } = useAddressContext();
 
