@@ -6,4 +6,6 @@ router.post("/", addressController.addAddress);
 
 router.get("/", addressController.getAddress);
 
+router.put("/:id", addressController.updateAddress);
+
 module.exports = router;

@@ -50,7 +50,24 @@ const getAddress = async (req, res) => {
   }
 };
 
+
+//update Address...
+const updateAddress = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body.data;
+
+    const address = await ADDRESS.findByIdAndUpdate(id, data, { new: true });
+    if (!address) return res.status(404).json({ msg: "Address not found" });
+
+    res.status(200).json({ msg: "Address updated successfully", address });
+  } catch (error) {
+    res.status(400).json({ msg: "Failed to update address", error });
+  }
+};
+
 module.exports = {
   addAddress,
   getAddress,
+  updateAddress,
 };
