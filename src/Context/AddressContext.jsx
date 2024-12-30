@@ -11,9 +11,12 @@ const AddressProvider = ({ children }) => {
   const getAddress = async () => {
     try {
       if (!user || !user._id) return;
-      const response = await axios.get("http://localhost:5001/api/address", {
-        params: { createdBy: user._id },
-      });
+      const response = await axios.get(
+        "https://bajrang-2-0-server.vercel.app/api/address",
+        {
+          params: { createdBy: user._id },
+        }
+      );
       setAddresses(response.data);
     } catch (error) {
       console.error(

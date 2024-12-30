@@ -23,38 +23,41 @@ const Address = () => {
         </div>
         <Modal editAddress={editAddress} setEditAddress={setEditAddress} />
       </div>
-      {!addresses.length > 0 ? (
+      {addresses.length === 0 ? (
         <EmptyAddress />
       ) : (
         <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6 mt-4">Your Addresses</h2>
+          <h2 className="mt-4 mb-6 text-2xl font-bold">Your Addresses</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {addresses.map((address) => (
               <div
                 key={address._id}
-                className="bg-white border border-gray-200 rounded-lg  p-6 shadow-md hover:shadow-lg transition-all hover:scale-105 duration-300 ease-in-out flex flex-col justify-between"
+                className="flex flex-col justify-between p-6 transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:scale-105"
               >
                 <div>
                   <h2 className="text-lg font-semibold text-gray-800">
                     {address.fullName}
                   </h2>
                   <p className="text-sm text-gray-500">{address.phoneNumber}</p>
-                  <p className="text-sm text-gray-700 mt-2">
+                  <p className="mt-2 text-sm text-gray-700">
                     {address.houseNumber}, {address.area}
                   </p>
-                  <p className="text-sm text-gray-700 mt-1">
+                  <p className="mt-1 text-sm text-gray-700">
                     {address.city}, {address.state} - {address.pincode}
                   </p>
                 </div>
-                <div className="flex justify-end mt-4">
+                <div className="flex items-center justify-between mt-4">
+                  <p className="relative bottom-0 text-text">
+                    {address.selectedType}
+                  </p>
                   <button
                     onClick={() => handleEdit(address)}
-                    className="bg-yellow-50 hover:bg-yellow-100 p-2 rounded-full transition-colors duration-200 flex items-center justify-center"
+                    className="flex items-center justify-center p-2 transition-colors duration-200 rounded-full bg-yellow-50 hover:bg-yellow-100"
                     title="Edit Address"
                   >
                     <ICONS.EDIT
                       size={20}
-                      className="text-yellow-600 hover:text-yellow-700 transition-colors duration-200"
+                      className="text-yellow-600 transition-colors duration-200 hover:text-yellow-700"
                     />
                   </button>
                 </div>

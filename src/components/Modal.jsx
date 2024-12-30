@@ -256,7 +256,6 @@
 
 // export default Modal;
 
-
 //***************FORM USING REACT-HOOK-FORM********************************* */
 
 import React, { useState, Fragment, useEffect } from "react";
@@ -308,8 +307,8 @@ const Modal = ({ editAddress, setEditAddress }) => {
 
   const onSubmit = (data) => {
     const apiUrl = editAddress
-      ? `http://localhost:5001/api/address/${editAddress._id}`
-      : "http://localhost:5001/api/address";
+      ? `https://bajrang-2-0-server.vercel.app/api/address/${editAddress._id}`
+      : "https://bajrang-2-0-server.vercel.app/api/address";
 
     const method = editAddress ? "PUT" : "POST";
 
