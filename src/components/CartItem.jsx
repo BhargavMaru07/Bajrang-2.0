@@ -26,16 +26,16 @@ const CartItem = ({
           alt={name}
           className="object-contain w-32 h-auto rounded-md"
         />
-        <div>
+        <div className="relative sm:static">
           <h2 className="mb-1 text-lg font-semibold">{name}</h2>
-          <p className="flex items-center justify-center gap-2 mb-1 text-gray-500">
+          <p className="flex items-center gap-2 mb-1 text-gray-500 sm:justify-center">
             <span className="text-xl text-black">
               <CurrencyFormate price={price} />
             </span>
             <span className="text-gray-400 line-through">
               <CurrencyFormate price={MRP} />
             </span>
-            <span className="px-1 text-white bg-green-500 rounded">
+            <span className="absolute px-1 text-white bg-green-500 rounded right-1 top-1 sm:static">
               - {discount}.00%
             </span>
           </p>
@@ -56,10 +56,7 @@ const CartItem = ({
         </div>
       </div>
       <div className="absolute flex items-center justify-center w-5 h-5 sm:p-5 border rounded-lg sm:right-2 bg-[#EF4444] bottom-16 sm:top-2 right-2 p-4">
-        <button
-          onClick={() => removeItem(id)}
-          className="text-2xl text-white"
-        >
+        <button onClick={() => removeItem(id)} className="text-2xl text-white">
           <ICONS.DELETE />
         </button>
       </div>

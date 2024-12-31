@@ -63,7 +63,7 @@ const ProductOverview = () => {
     description,
     image,
     colors,
-    highlights = [],
+    highlight,
     quantity,
     MRP,
     discount,
@@ -96,7 +96,7 @@ const ProductOverview = () => {
           </div>
 
           {/* Column 2: Product Info */}
-          <div className="flex flex-col px-2 sm:col-span-2">
+          <div className="flex flex-col px-4 sm:col-span-2">
             <h1 className="mt-4 text-2xl font-semibold sm:text-3xl">{name}</h1>
             <p className="mt-4 sm:text-2xl text-text">{description}</p>
             <div className="flex items-center justify-between gap-4 mt-2">
@@ -212,20 +212,23 @@ const ProductOverview = () => {
             <AddToCart product={singleProduct} />
 
             {/* Highlights */}
-            <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
-              <ul className="pl-4 mt-4 space-y-2 text-sm text-gray-600 list-disc">
+            <div
+              className="my-10"
+              dangerouslySetInnerHTML={{ __html: highlight }}
+            >
+              {/* <h3 className="text-sm font-medium text-gray-900">Highlights</h3> */}
+              {/* <ul className="pl-4 mt-4 space-y-2 text-sm text-gray-600 list-disc">
                 {highlights.map((highlight, index) => (
                   <li key={index}>{highlight}</li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
 
             {/* Details */}
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <h3 className="text-sm font-medium text-gray-900">Details</h3>
               <p className="mt-4 text-sm text-gray-600">{description}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
