@@ -26,6 +26,20 @@ const AddressProvider = ({ children }) => {
     }
   };
 
+  const deleteUserAddress = async (address) => {
+    try {
+      await axios.delete(`http://localhost:5001/api/address/${address._id}`);
+      setAddresses((prevAddresses) =>
+        prevAddresses.filter((item) => item._id !== address._id)
+      );
+    } catch (error) {
+      console.error(
+        "Error in Deleting addresses:",
+        error.response?.data || error.message
+      );
+    }
+  };
+
   useEffect(() => {
     if (user) {
       getAddress();
@@ -33,7 +47,9 @@ const AddressProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AddressContext.Provider value={{ addresses, getAddress }}>
+    <AddressContext.Provider
+      value={{ addresses, getAddress, deleteUserAddress }}
+    >
       {children}
     </AddressContext.Provider>
   );

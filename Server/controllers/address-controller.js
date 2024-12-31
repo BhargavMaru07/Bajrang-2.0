@@ -65,8 +65,25 @@ const updateAddress = async (req, res) => {
   }
 };
 
+const deleteAddress = async (req,res)=>{
+    try {
+      const {id} = req.params;
+
+      const deletedAddress = await ADDRESS.findOneAndDelete({ _id: id });
+      if (!deletedAddress) {
+        return res.status(404).json({ msg: "Address not found" });
+      }
+      res
+        .status(200)
+        .json({ msg: "Address deleted successfully", address: deletedAddress });
+    } catch (error) {
+      res.status(400).json({ msg: "Failed to update address", error });
+    }
+}
+
 module.exports = {
   addAddress,
   getAddress,
   updateAddress,
+  deleteAddress,
 };

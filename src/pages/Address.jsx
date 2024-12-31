@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EmptyAddress from "../components/EmptyAddress";
 import Modal from "../components/Modal";
 import { useAddressContext } from "../Context/AddressContext";
 import { ICONS } from "../assets/Icons/icon";
 
 const Address = () => {
-  const { addresses } = useAddressContext();
+
+  const { addresses, deleteUserAddress } = useAddressContext();
   const [editAddress, setEditAddress] = useState(null);
 
   const handleEdit = (address) => {
     setEditAddress(address);
   };
 
+  const handleDelete = async (address) => {
+    const confirmed = window.confirm(
+      "Are you sure, you want to delete this address?"
+    );
+    if (confirmed) {
+      await deleteUserAddress(address);
+    }
+  };
+
+ 
   return (
     <div className="container px-6 py-2 mx-auto mt-10 mb-8 max-w-7xl sm:px-9 ">
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -50,16 +61,28 @@ const Address = () => {
                   <p className="relative bottom-0 text-text">
                     {address.selectedType}
                   </p>
-                  <button
-                    onClick={() => handleEdit(address)}
-                    className="flex items-center justify-center p-2 transition-colors duration-200 rounded-full bg-yellow-50 hover:bg-yellow-100"
-                    title="Edit Address"
-                  >
-                    <ICONS.EDIT
-                      size={20}
-                      className="text-yellow-600 transition-colors duration-200 hover:text-yellow-700"
-                    />
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEdit(address)}
+                      className="flex items-center justify-center p-2 transition-colors duration-200 rounded-full bg-yellow-50 hover:bg-yellow-100"
+                      title="Edit Address"
+                    >
+                      <ICONS.EDIT
+                        size={20}
+                        className="text-yellow-600 transition-colors duration-200 hover:text-yellow-700"
+                      />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(address)}
+                      className="flex items-center justify-center p-2 transition-colors duration-200 rounded-full bg-red-50 hover:bg-red-100"
+                      title="Edit Address"
+                    >
+                      <ICONS.DELETE
+                        size={18}
+                        className="text-red-600 transition-colors duration-200 hover:text-red-700"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
