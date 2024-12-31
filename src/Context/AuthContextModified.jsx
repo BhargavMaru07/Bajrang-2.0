@@ -9,6 +9,8 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(""); // Initialize with null to indicate no user initially
   const isLoggedIn = !!token;
 
+  const authorizationToken = `Bearer ${token}`;
+
   // Store token in Local Storage and update state
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
@@ -30,7 +32,7 @@ const AuthProvider = ({ children }) => {
         "https://bajrang-2-0-server.vercel.app/api/auth/user",
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: authorizationToken,
           },
         }
       );
@@ -43,14 +45,12 @@ const AuthProvider = ({ children }) => {
   };
   const profileUpdate = async (data) => {
     try {
-      if (data) {
-      }
       const res = await axios.patch(
         "https://bajrang-2-0-server.vercel.app/api/auth/user/profile",
         data, // Pass the data as the request body
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
+            Authorization: authorizationToken, // Include the token in the headers
           },
         }
       );
@@ -87,6 +87,7 @@ const AuthProvider = ({ children }) => {
         isLoggedIn,
         user,
         token,
+        authorizationToken,
         profileUpdate,
       }}
     >

@@ -33,7 +33,8 @@ import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
 import WishList from "./pages/WishList";
-import Myorder from "./pages/myorder";
+import MyOrders from "./pages/MyOrders";
+import Admin from "./pages/Admin";
 
 const App = () => {
   return (
@@ -58,7 +59,8 @@ const App = () => {
             <Route exact path="/blog/:id" element={<SingleBlog />} />
             <Route exact path="/address" element={<Address />} />
             <Route exact path="/wishlist" element={<WishList />} />
-            <Route exact path="/myorder" element={<Myorder />} />
+            <Route exact path="/myorder" element={<MyOrders />} />
+            <Route exact path="/admin/users" element={<Admin />} />
 
             <Route
               exact

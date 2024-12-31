@@ -12,6 +12,7 @@ import { CartContextProvider } from "./Context/CartContext.jsx";
 import { BlogProvider } from "./Context/BlogContext.jsx";
 import { AddressProvider } from "./Context/AddressContext.jsx";
 import { WishListContextProvider } from "./Context/WishListContext.jsx";
+import { AdminProvider } from "./Context/AdminContext.jsx";
 // import { UserProvider } from "./Context/UserContext";
 
 createRoot(document.getElementById("root")).render(
@@ -19,17 +20,19 @@ createRoot(document.getElementById("root")).render(
     {/* <UserProvider> */}
     <BlogProvider>
       <AuthProvider>
-        <AddressProvider>
-          <ProductProvider>
-            <FilterContextProvider>
-              <CartContextProvider>
-                <WishListContextProvider>
-                  <App />
-                </WishListContextProvider>
-              </CartContextProvider>
-            </FilterContextProvider>
-          </ProductProvider>
-        </AddressProvider>
+        <AdminProvider>
+          <AddressProvider>
+            <ProductProvider>
+              <FilterContextProvider>
+                <CartContextProvider>
+                  <WishListContextProvider>
+                    <App />
+                  </WishListContextProvider>
+                </CartContextProvider>
+              </FilterContextProvider>
+            </ProductProvider>
+          </AddressProvider>
+        </AdminProvider>
       </AuthProvider>
     </BlogProvider>
     {/* </UserProvider> */}
