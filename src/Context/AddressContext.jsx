@@ -28,7 +28,9 @@ const AddressProvider = ({ children }) => {
 
   const deleteUserAddress = async (address) => {
     try {
-      await axios.delete(`http://localhost:5001/api/address/${address._id}`);
+      await axios.delete(
+        `https://bajrang-2-0-server.vercel.app/api/address/${address._id}`
+      );
       setAddresses((prevAddresses) =>
         prevAddresses.filter((item) => item._id !== address._id)
       );
