@@ -68,6 +68,6 @@ export const ICONS = {
   LOCATION: FaMapMarkedAlt,
   CROSS: FaTimes,
   EDIT: FaPenSquare,
-  DELETE: FaTrash,
+  DELETEICON: FaTrash,
   USERS : FaUsers
 };

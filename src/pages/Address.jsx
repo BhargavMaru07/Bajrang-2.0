@@ -77,7 +77,7 @@ const Address = () => {
                       className="flex items-center justify-center p-2 transition-colors duration-200 rounded-full bg-red-50 hover:bg-red-100"
                       title="Edit Address"
                     >
-                      <ICONS.DELETE
+                      <ICONS.DELETEICON
                         size={18}
                         className="text-red-600 transition-colors duration-200 hover:text-red-700"
                       />
