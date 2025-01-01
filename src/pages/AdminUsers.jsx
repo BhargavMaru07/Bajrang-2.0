@@ -2,7 +2,7 @@ import React from "react";
 import Progress from "../helper/Progress";
 import { useAdminContext } from "../Context/AdminContext";
 
-const Admin = () => {
+const AdminUsers = () => {
   const { users, isLoading } = useAdminContext();
   if (isLoading) {
     return <Progress />;
@@ -17,4 +17,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminUsers;

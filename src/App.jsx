@@ -34,7 +34,10 @@ import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
 import WishList from "./pages/WishList";
 import MyOrders from "./pages/MyOrders";
-import Admin from "./pages/Admin";
+import AdminLayout from "./Layouts/AdminLayout";
+import AdminUsers from "./pages/AdminUsers";
+import AdminProducts from "./pages/AdminProducts";
+import AdminSettngs from "./pages/AdminSettngs";
 
 const App = () => {
   return (
@@ -60,7 +63,13 @@ const App = () => {
             <Route exact path="/address" element={<Address />} />
             <Route exact path="/wishlist" element={<WishList />} />
             <Route exact path="/myorder" element={<MyOrders />} />
-            <Route exact path="/admin/users" element={<Admin />} />
+
+            {/* Admin Routes  */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route path="general" element={<AdminSettngs />} />
+              <Route path="users" element={<AdminUsers />} />
+              <Route path="products" element={<AdminProducts />} />
+            </Route>
 
             <Route
               exact

@@ -23,6 +23,7 @@ import {
   FaPenSquare,
   FaHeart,
   FaTrash,
+  FaUsers,
 } from "react-icons/fa";
 
 import { FaPeopleCarryBox } from "react-icons/fa6";
@@ -68,4 +69,5 @@ export const ICONS = {
   CROSS: FaTimes,
   EDIT: FaPenSquare,
   DELETE: FaTrash,
+  USERS : FaUsers
 };
