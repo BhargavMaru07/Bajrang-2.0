@@ -68,7 +68,7 @@ const AdminUsers = () => {
             />
           </div>
 
-          <div className="hidden sm:flex items-center space-x-2">
+          <div className="items-center hidden space-x-2 sm:flex">
             <button className="flex items-center px-4 py-2 text-white transition-colors duration-200 bg-blue-600 rounded hover:text-gray-300">
               <ICONS.USERS
                 size={20}
@@ -105,7 +105,10 @@ const AdminUsers = () => {
                   ))}
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody
+                className="bg-white divide-y divide-gray-200"
+                key={users.id}
+              >
                 {filteredUsers.length > 0 ? (
                   filteredUsers.map((user) => (
                     <tr key={user.id}>

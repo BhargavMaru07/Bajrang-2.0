@@ -36,7 +36,7 @@ const AdminProvider = ({ children }) => {
         }
 
         // Log products for debugging
-        console.log("All users:", allusers);
+        // console.log("All users:", allusers);
 
         dispatch({ type: "SET_ADMIN_USERS", payload: allusers });
         dispatch({ type: "SET_ADMIN_ONLY", payload: allusers });
@@ -50,7 +50,7 @@ const AdminProvider = ({ children }) => {
 
   useEffect(() => {
     getAllUser(API);
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <AdminContext.Provider value={{ ...state }}>

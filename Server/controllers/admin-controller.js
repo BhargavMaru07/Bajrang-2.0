@@ -1,6 +1,6 @@
 const USER = require("../models/user-model");
 
-//Access of all users data :
+//Access of all users data by admin
 const getAllUsers = async (req, res) => {
   try {
     const users = await USER.find({}).select({
@@ -16,6 +16,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+//delete user by admin
 const deleteUser = async (req, res) => {
   let { id } = req.params;
   try {

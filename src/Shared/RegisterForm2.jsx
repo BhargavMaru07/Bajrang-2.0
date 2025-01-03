@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "../Styles/Button";
 import { Link, useNavigate } from "react-router-dom";
 import welcome from "../assets/Auth/welcome.jpg";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
+import { sendEmail } from "../helper/sendemail";
 
 const RegisterForm2 = () => {
+  const form = useRef();
   const {
     register,
     handleSubmit,
@@ -30,6 +32,7 @@ const RegisterForm2 = () => {
           body: JSON.stringify(data),
         }
       );
+      sendEmail(form);
 
       if (response.ok) {
         const res_data = await response.json();
@@ -56,6 +59,7 @@ const RegisterForm2 = () => {
         </div>
         <div className="p-6">
           <form
+            ref={form}
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-3"
           >
