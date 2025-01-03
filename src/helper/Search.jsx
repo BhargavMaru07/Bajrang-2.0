@@ -7,17 +7,17 @@ const SearchBar = () => {
     updateFilterValue,
   } = useFilterContext();
   return (
-    <form className="max-w-md sm:w-9/12" onSubmit={(e) => e.preventDefault()}>
+    <form className="w-full md:w-[40%]" onSubmit={(e) => e.preventDefault()}>
       <label
         htmlFor="default-search"
-        className="sr-only mb-2 text-sm font-medium text-gray-900"
+        className="mb-2 text-sm font-medium text-gray-900 sr-only"
       >
         Search
       </label>
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+        <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
           <svg
-            className="h-4 w-4 text-gray-500 dark:text-gray-400"
+            className="w-4 h-4 text-gray-500 dark:text-gray-400"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,7 +37,7 @@ const SearchBar = () => {
           id="default-search"
           name="text"
           value={text.toLowerCase()}
-          className="block w-full rounded-lg border border-btn bg-gray-50 p-3 ps-10 text-sm text-gray-900 outline-none"
+          className="block w-full px-3 py-2 text-sm text-gray-900 border rounded-lg outline-none border-btn bg-gray-50 ps-10"
           placeholder="Search Hodi, Spring..."
           onChange={updateFilterValue}
           required

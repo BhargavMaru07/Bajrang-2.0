@@ -7,10 +7,10 @@ import TruncatedTitle from "../helper/TruncatedTitle";
 
 const ListView = ({ products, endPageIndex, startPageIndex }) => {
   return (
-    <Wrapper className="py-8 ">
+    <Wrapper className="">
       <div className="container grid gap-12 p-0 sm:px-8">
         {products.slice(startPageIndex, endPageIndex).map((curElem) => {
-          const { id, name, image, price, description, colors,MRP } = curElem;
+          const { id, name, image, price, description, colors, MRP } = curElem;
           // console.log("Color", colors[0]);
 
           return (

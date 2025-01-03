@@ -34,16 +34,38 @@ const Profile = () => {
       <div className="grid grid-cols-12 p-0 mx-auto sm:p-0 max-w-7xl">
         <div className="hidden p-6 lg:col-span-4 md:block md:col-span-5 xl:col-span-3">
           <div className="flex flex-col gap-4">
-            <Link to="/profile">
-              <div className="p-4 font-medium rounded-xl bg-bg text-[18px] border">
-                Profile
-              </div>
-            </Link>
-            <Link to="/blog">
-              <div className="p-4 rounded-xl bg-bg text-[18px] border">
-                Blog
-              </div>
-            </Link>
+            {user.role === "ADMIN" ? (
+              <>
+                <Link to="/profile">
+                  <div className="p-4 font-medium rounded-xl bg-bg text-[18px] border">
+                    Profile
+                  </div>
+                </Link>
+                <Link to="/admin/general">
+                  <div className="p-4 font-medium rounded-xl bg-bg text-[18px] border">
+                    Admin Page
+                  </div>
+                </Link>
+                <Link to="/blog">
+                  <div className="p-4 rounded-xl bg-bg text-[18px] border">
+                    Blog
+                  </div>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/profile">
+                  <div className="p-4 font-medium rounded-xl bg-bg text-[18px] border">
+                    Profile
+                  </div>
+                </Link>
+                <Link to="/blog">
+                  <div className="p-4 rounded-xl bg-bg text-[18px] border">
+                    Blog
+                  </div>
+                </Link>
+              </>
+            )}
           </div>
         </div>
         <div className="col-span-12 p-6 bg-white rounded-lg lg:col-span-8 md:col-span-7 xl:col-span-9">

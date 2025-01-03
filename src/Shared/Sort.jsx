@@ -8,6 +8,7 @@ import {
 import { sortOptions } from "../Data";
 import { useFilterContext } from "../Context/FilterContext";
 import { Menu, Transition } from "@headlessui/react";
+import { ICONS } from "../assets/Icons/icon";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -67,33 +68,33 @@ const Sort = ({ setMobileFiltersOpen }) => {
         type="button"
         className={
           Grid_View
-            ? "-m-2 ml-5 bg-bg p-2 text-text sm:ml-7"
-            : "-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+            ? "-m-2 ml-5 bg-btn p-2 text-white sm:ml-7 rounded"
+            : "-m-2 ml-5 p-2 text-text sm:ml-7"
         }
         onClick={setGridView}
       >
         <span className="sr-only">View grid</span>
-        <Squares2X2Icon className="w-5 h-5" aria-hidden="true" />
+        <ICONS.GRID className="w-5 h-5" aria-hidden="true" />
       </button>
       <button
         type="button"
         className={
           !Grid_View
-            ? "-m-2 ml-5 bg-bg p-2 text-text sm:ml-7"
-            : "-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+            ? "-m-2 ml-5 bg-btn p-2 text-white sm:ml-7 rounded"
+            : "-m-2 ml-5 p-2 text-text sm:ml-7"
         }
         onClick={setListView}
       >
         <span className="sr-only">View List</span>
-        <Bars3Icon className="w-5 h-5" aria-hidden="true" />
+        <ICONS.BARS className="w-5 h-5" aria-hidden="true" />
       </button>
       <button
         type="button"
-        className="p-2 ml-4 -m-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+        className="p-2 ml-4 -m-2 rounded text-text hover:bg-text sm:ml-6 lg:hidden hover:text-white"
         onClick={() => setMobileFiltersOpen(true)}
       >
         <span className="sr-only">Filters</span>
-        <FunnelIcon className="w-5 h-5" aria-hidden="true" />
+        <ICONS.FILTER className="w-5 h-5" aria-hidden="true" />
       </button>
     </div>
   );

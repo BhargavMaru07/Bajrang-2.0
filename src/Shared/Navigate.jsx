@@ -6,10 +6,10 @@ const Navigate = ({ name,item }) => {
   return (
     <>
       {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="mb-4">
+      <nav aria-label="Breadcrumb" className="mb-6">
         <ol
           role="list"
-          className="flex items-center px-4 mx-auto space-x-2 sm:px-6 lg:max-w-7xl"
+          className="flex items-center px-4 mx-auto space-x-2 md:px-6 sm:px-0 lg:max-w-7xl lg:px-0"
         >
           <li>
             <Link to="/" className="text-sm font-medium text-gray-900">

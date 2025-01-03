@@ -362,8 +362,8 @@ const Modal = ({ editAddress, setEditAddress }) => {
             <div className="fixed inset-0 bg-black bg-opacity-50" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-30 overflow-y-auto">
-            <div className="z-40 flex items-center justify-center min-h-full p-4 m-8 text-center">
+          <div className="fixed inset-0 overflow-y-auto !z-99">
+            <div className="flex items-center justify-center min-h-full p-1 text-center z-99 sm:p-4 sm:m-8">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"

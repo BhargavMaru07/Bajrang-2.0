@@ -13,6 +13,17 @@ const reducer = (state, action) => {
         users: action.payload,
       };
 
+    case "SET_ADMIN_ONLY":
+      const allUser = action.payload;
+      const adminOnly = allUser.filter((user) => {
+        return user.role === "ADMIN";
+      });
+
+      return {
+        ...state,
+        adminsInfo: adminOnly,
+      };
+
     case "API_ERROR":
       return {
         ...state,

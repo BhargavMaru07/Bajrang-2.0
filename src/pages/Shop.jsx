@@ -11,6 +11,7 @@ import Sort from "../Shared/Sort";
 import { useProductContext } from "../Context/ProductContext";
 import Progress from "../helper/Progress";
 import Button from "../Styles/Button";
+import Navigate from "../Shared/Navigate";
 
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(" ");
@@ -23,6 +24,7 @@ const Shop = () => {
 
   return (
     <div className="bg-white">
+      <Navigate name={"Products"} item={"Latkans"} />
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -86,7 +88,7 @@ const Shop = () => {
                               />
                               <label
                                 htmlFor={`filter-mobile-${category.value}`}
-                                className="flex-1 min-w-0 ml-3 text-gray-500 cursor-pointer"
+                                className="flex-1 min-w-0 ml-2 cursor-pointer text-text"
                               >
                                 {category.label}
                               </label>
@@ -177,20 +179,24 @@ const Shop = () => {
           </Dialog>
         </Transition.Root>
 
-        <main className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-8 pt-24 pb-6 border-b border-gray-200 lg:flex-row">
-            <div className="lg:w-3/12">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-                Products
-              </h1>
-            </div>
+        <main className="px-4 mx-auto max-w-7xl md:px-6 lg:px-0">
+          <div className="w-full">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight">Products</h1>
+            <p className="mb-6 text-text">
+              Vibrant and durable latkan products for every occasion, designed
+              to enhance elegance and creativity. From intricate bridal lehenga
+              latkans to trendy saree tassels, we bring style and charm to your
+              outfits with quality and practicality.
+            </p>
+          </div>
+          <div className="flex flex-col-reverse items-end justify-between gap-8 pb-4 my-4 border-b border-gray-200 md:items-center md:flex-row">
             <SearchBar />
-            <div className="flex flex-col items-center justify-center gap-8 sm:w-1/4 sm:flex-row">
+            <div className="flex flex-col items-center justify-end gap-8 sm:w-1/4 sm:flex-row">
               <Sort setMobileFiltersOpen={setMobileFiltersOpen} />
             </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="pt-6 pb-24">
+          <section aria-labelledby="products-heading" className="mt-8">
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
@@ -213,7 +219,7 @@ const Shop = () => {
                       />
                       <label
                         htmlFor={`filter-mobile-${category.value}`}
-                        className="flex-1 min-w-0 ml-3 text-gray-500 cursor-pointer"
+                        className="flex-1 min-w-0 cursor-pointer text-text"
                       >
                         {category.label}
                       </label>

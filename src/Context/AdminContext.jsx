@@ -11,6 +11,7 @@ const initialState = {
   users: [],
   isError: false,
   isLoading: false,
+  adminsInfo: [],
 };
 
 const AdminProvider = ({ children }) => {
@@ -38,6 +39,7 @@ const AdminProvider = ({ children }) => {
         console.log("All users:", allusers);
 
         dispatch({ type: "SET_ADMIN_USERS", payload: allusers });
+        dispatch({ type: "SET_ADMIN_ONLY", payload: allusers });
       } else {
         console.log("User is not log in OR User is not Admin");
       }
