@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Progress from "../helper/Progress";
 import { useAdminContext } from "../Context/AdminContext";
 import { ICONS } from "../assets/Icons/icon";
 
 const AdminUsers = () => {
-  const { users, isLoading } = useAdminContext();
+  const { users: initialUsers, isLoading } = useAdminContext();
 
+  const [users, setUsers] = useState(initialUsers);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(searchTerm);
+
+  useEffect(() => {
+    setUsers(initialUsers);
+  }, [initialUsers]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
+  };
+
+  const handleDelete = (userId) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
+
+      fetch(`https://bajrang-2-0-server.vercel.app/api/admin/${userId}`, {
+        method: "DELETE",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to delete user");
+          }
+        })
+        .catch((error) => {
+          console.error("Error deleting user:", error);
+        });
+    }
   };
 
   const filteredUsers = users.filter((user) => {
@@ -59,7 +81,6 @@ const AdminUsers = () => {
         </div>
 
         <div className="bg-white rounded shadow">
-          {/* Make table scrollable on smaller screens */}
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
@@ -86,8 +107,8 @@ const AdminUsers = () => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {filteredUsers.length > 0 ? (
-                  filteredUsers.map((user, index) => (
-                    <tr key={index}>
+                  filteredUsers.map((user) => (
+                    <tr key={user.id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <input className="form-checkbox" type="checkbox" />
                       </td>
@@ -111,7 +132,12 @@ const AdminUsers = () => {
                         <button className="text-blue-500">Edit</button>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <button className="text-red-500">Delete</button>
+                        <button
+                          className="text-red-500"
+                          onClick={() => handleDelete(user._id)}
+                        >
+                          Delete
+                        </button>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {user.createdAt.toString().slice(0, 10)}

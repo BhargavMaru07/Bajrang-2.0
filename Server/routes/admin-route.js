@@ -9,4 +9,5 @@ router
   .route("/users")
   .get(authMiddleware, adminMiddleware, adminControllers.getAllUsers);
 
+router.route("/:id").delete(adminControllers.deleteUser);
 module.exports = router;
