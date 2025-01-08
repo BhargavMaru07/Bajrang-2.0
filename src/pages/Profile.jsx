@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import Navigate from "../Shared/Navigate";
 import convertTobase64 from "../helper/convertTobase64";
 import { useAuthContext } from "../Context/AuthContextModified";
+import useTitle from "../Hooks/title";
 
 const Profile = () => {
+  useTitle("My profile");
   const [file, setFile] = useState("");
   const { user, profileUpdate } = useAuthContext();
   const {

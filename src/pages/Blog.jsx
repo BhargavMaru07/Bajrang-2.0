@@ -5,8 +5,10 @@ import { useAuthContext } from "../Context/AuthContextModified";
 import BlogCard from "../components/BlogCard";
 import Button from "../Styles/Button";
 import { ICONS } from "../assets/Icons/icon";
+import useTitle from "../Hooks/title";
 
 const Blog = () => {
+  useTitle("Blog");
   const { isLoggedIn, user } = useAuthContext();
   const { blogs } = useBlogContext();
 
@@ -18,7 +20,9 @@ const Blog = () => {
             <div className="flex items-center justify-between">
               <p className="text-text">
                 Welcome back !{" "}
-                <span className="text-xl underline cursor-pointer text-btn">{user.name}</span>
+                <span className="text-xl underline cursor-pointer text-btn">
+                  {user.name}
+                </span>
                 <br /> You're all set—start sharing your ideas and post your
                 blog now!
               </p>

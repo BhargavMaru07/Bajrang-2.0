@@ -6,8 +6,10 @@ import Navigate from "../Shared/Navigate";
 import cartEmpty from "../assets/images/cartEmpty.svg";
 import Button from "../Styles/Button";
 import { Link } from "react-router-dom";
+import useTitle from "../Hooks/title";
 
 const Cart = () => {
+  useTitle("My Cart");
   // Sample cart data
   const {
     cart,

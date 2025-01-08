@@ -12,12 +12,14 @@ import { useProductContext } from "../Context/ProductContext";
 import Progress from "../helper/Progress";
 import Button from "../Styles/Button";
 import Navigate from "../Shared/Navigate";
+import useTitle from "../Hooks/title";
 
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(" ");
 // }
 
 const Shop = () => {
+  useTitle("Shop");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { updateFilterValue, clearFilter } = useFilterContext();
   const { isLoading } = useProductContext();

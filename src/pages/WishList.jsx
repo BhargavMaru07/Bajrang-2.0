@@ -4,8 +4,10 @@ import Navigate from "../Shared/Navigate";
 import Product from "../Shared/Product";
 import cartEmpty from "../assets/images/cartEmpty.svg";
 import { Link } from "react-router-dom";
+import useTitle from "../Hooks/title";
 
 const WishList = () => {
+  useTitle("My Wishlist");
   const { wishList } = useWishListContext();
 
   return (

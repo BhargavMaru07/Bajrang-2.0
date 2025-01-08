@@ -7,10 +7,12 @@ import Progress from "../helper/Progress";
 import Navigate from "../Shared/Navigate";
 import { useAuthContext } from "../Context/AuthContextModified";
 import noImage from "../assets/images/NoBlogImage.jpg";
+import useTitle from "../Hooks/title";
 
 const SingleBlog = () => {
   const { blog, getSingleBlog } = useBlogContext();
   const { id } = useParams(); // Extract `id` from the URL
+  useTitle(`Blog - ${id}`);
   const { user, isLogged } = useAuthContext();
 
   // Fetch the blog using the ID

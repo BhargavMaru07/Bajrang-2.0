@@ -11,6 +11,7 @@ import AddToCart from "../components/AddToCart";
 import { ICONS } from "../assets/Icons/icon";
 import Navigate from "../Shared/Navigate";
 import { useWishListContext } from "../Context/WishListContext";
+import useTitle from "../Hooks/title";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -70,6 +71,7 @@ const ProductOverview = () => {
   } = singleProduct;
 
   const { id } = useParams();
+  useTitle(`Shop - ${id}`);
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
