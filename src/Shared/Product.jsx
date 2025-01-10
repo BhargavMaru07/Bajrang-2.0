@@ -32,8 +32,7 @@ const Product = (Product) => {
 
           <div className="p-1 sm:p-1">
             <h4 className="font-semibold text-text text-md">
-              {/* <TruncatedTitle name={name} /> */}
-              {name}
+              <TruncatedTitle name={name} desktopLimit={18} mobileLimit={12} />
             </h4>
             <div className="flex items-center justify-between mt-2">
               <span className="text-lg font-bold text-pink-500">

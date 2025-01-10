@@ -26,16 +26,16 @@ const CartItem = ({
           alt={name}
           className="object-contain w-32 h-auto rounded-md"
         />
-        <div className="relative sm:static">
+        <div className="sm:static">
           <h2 className="mb-1 text-lg font-semibold">{name}</h2>
-          <p className="flex items-center gap-2 mb-1 text-gray-500 sm:justify-center">
+          <p className="flex items-center gap-2 mb-1 text-gray-500 sm:justify-start">
             <span className="text-xl text-black">
               <CurrencyFormate price={price} />
             </span>
             <span className="text-gray-400 line-through">
               <CurrencyFormate price={MRP} />
             </span>
-            <span className="absolute px-1 text-white bg-green-500 rounded right-1 top-1 sm:static">
+            <span className="absolute px-1 text-white bg-green-500 rounded left-1 top-3 sm:static">
               - {discount}.00%
             </span>
           </p>

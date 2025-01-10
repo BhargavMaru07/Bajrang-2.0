@@ -24,7 +24,7 @@ const Popular = () => {
           <Progress />
         ) : (
           <div className="container grid grid-cols-2 mx-auto sm:grid-cols-3 lg:grid-cols-5 max-w-7xl">
-            {products.slice(5, 16).map((product) => (
+            {products.slice(9, products.length).map((product) => (
               <Product key={product.id} {...product} />
             ))}
           </div>
