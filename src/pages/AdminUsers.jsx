@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Progress from "../helper/Progress";
 import { useAdminContext } from "../Context/AdminContext";
 import { ICONS } from "../assets/Icons/icon";
+import userProfile from "../assets/Logo/profile1.png";
 
 const AdminUsers = () => {
   const { users: initialUsers, isLoading } = useAdminContext();
@@ -120,7 +121,7 @@ const AdminUsers = () => {
                           alt="User profile picture"
                           className="w-10 h-10 rounded-full"
                           height="40"
-                          src="https://via.placeholder.com/100"
+                          src={userProfile}
                           width="40"
                         />
                         <span className="ml-4">{user.name}</span>

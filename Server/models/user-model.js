@@ -28,6 +28,14 @@ const UserSchema = new mongoose.Schema({
     type: Number,
   },
 
+  birthdate: {
+    type: Date,
+  },
+
+  gender: {
+    type: String,
+  },
+
   profileImage: {
     type: String,
     default: "/src/assets/images/profile-01.png",
