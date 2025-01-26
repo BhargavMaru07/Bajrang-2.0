@@ -22,6 +22,7 @@ import Logout from "./Auth/Logout";
 import Help from "./pages/Help";
 import SingleBlog from "./pages/singleBlog";
 import Address from "./pages/Address";
+import Chat from "./Chat/Chat";
 
 //Component
 import Footer from "./components/Footer";
@@ -97,6 +98,7 @@ const App = () => {
             />
             <Route exact path="*" element={<Error />} />
           </Routes>
+          <Chat />
           <Footer />
         </Main>
       </ThemeProvider>
