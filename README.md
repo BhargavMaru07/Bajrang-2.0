@@ -121,6 +121,7 @@ Follow these steps to run the project locally:
 
 - [✔] Dynamic Product Listings
 - [✔] Responsive Design
+- [✔] ChatBot Assistance 
 - [ ] Multi-language Support
 - [ ] Advanced Analytics
 - [ ] Enhanced Payment Gateway
@@ -141,6 +142,8 @@ Follow these steps to run the project locally:
 
 - **[Mayur Kapadi](https://github.com/mkkapadi12)**: Lead Developer  
 - **[Bhargav Maru](https://github.com/bhargavmaru07)**: Developer  
+- **[Jay Odedra ](https://github.com/Jay-Odedra-1884)**: Developer  
+- **[Harsh Vadher](https://github.com/Harshvadher05)**: Developer  
 
 ---
 
