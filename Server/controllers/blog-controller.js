@@ -19,7 +19,7 @@ const upload = multer({ storage });
 //Get All the blogs
 const getAllBlog = async (req, res) => {
   try {
-    const blogs = await BLOG.find({});
+    const blogs = await BLOG.find({}).populate("createdBy");
     return res.status(200).json(blogs);
   } catch (error) {
     return res.status(500).json({ error: "Failed to fetch blogs" });

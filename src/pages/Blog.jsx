@@ -12,6 +12,8 @@ const Blog = () => {
   const { isLoggedIn, user } = useAuthContext();
   const { blogs } = useBlogContext();
 
+  // console.log(blogs);
+
   return (
     <>
       <div className="mx-auto max-w-7xl">
@@ -47,9 +49,9 @@ const Blog = () => {
 
         <hr className="mt-5 mb-10 border-t-2 border-[#6254F3] mx-4" />
         <div className="grid grid-cols-1 gap-5 mx-auto md:grid-cols-3 lg:grid-cols-4 max-w-7xl sm:grid-cols-2">
-          {blogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
-          ))}
+          {blogs.map((blog) => {
+            return <BlogCard key={blog._id} blog={blog} />;
+          })}
         </div>
       </div>
     </>
