@@ -79,8 +79,6 @@ const user = async (req, res) => {
 const profile = async (req, res) => {
   try {
     const { _id } = req.user;
-    console.log("Request Body:", req.body);
-    console.log("Uploaded File:", req.file);
 
     const updatedData = req.body;
 
