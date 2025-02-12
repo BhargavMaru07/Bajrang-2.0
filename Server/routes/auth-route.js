@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const authControllers = require("../controllers/auth-controller");
 const authMiddleware = require("../middlewares/auth-middleware");
@@ -20,9 +21,9 @@ router.route("/user").get(authMiddleware, authControllers.user);
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: "dt6l8zbje",
-  api_key: "929316373326748",
-  api_secret: "VlUaeehpuJGAUbDUImclpWyKK2I",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
 });
 
 // Configure Multer storage with Cloudinary
@@ -36,10 +37,8 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage });
 //profile Route :
-router.route("/user/profile").patch(
-  authMiddleware,
-  upload.single("image"),
-  authControllers.profile
-);
+router
+  .route("/user/profile")
+  .patch(authMiddleware, upload.single("image"), authControllers.profile);
 
 module.exports = router;
