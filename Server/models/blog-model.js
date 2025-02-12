@@ -13,17 +13,18 @@ const BlogSchema = new mongoose.Schema(
     coverImage: {
       type: String,
     },
-    name:{
-      type:String,
+    name: {
+      type: String,
     },
     createdBy: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
   },
   { timestamps: true }
 );
 
-
-let BLOG = mongoose.model("blog",BlogSchema)
+let BLOG = mongoose.model("blog", BlogSchema);
 
 module.exports = BLOG;

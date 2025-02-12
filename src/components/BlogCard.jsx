@@ -4,8 +4,6 @@ import noImage from "../assets/images/NoBlogImage.jpg";
 import TruncatedTitle from "../helper/TruncatedTitle";
 
 function BlogCard({ blog }) {
-  // console.log(blog);
-
   return (
     <div className="flex flex-col justify-between w-full h-auto overflow-hidden border rounded-lg">
       <div className="sm:h-[70%] p-4 w-full h-auto">
@@ -29,8 +27,12 @@ function BlogCard({ blog }) {
           <div>
             <div className="flex items-center gap-3">
               <img
-                // src={blog.profileImage}
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src={
+                  blog?.createdBy?.profileImage === null
+                    ? "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    : blog.createdBy.profileImage
+                }
+                // src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt="profile pic"
                 className="object-cover rounded-full h-9 w-9"
               />
