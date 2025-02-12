@@ -79,22 +79,21 @@ const user = async (req, res) => {
 const profile = async (req, res) => {
   try {
     const { _id } = req.user;
-    // console.log(_id);
+    console.log("Request Body:", req.body);
+    console.log("Uploaded File:", req.file);
 
-    const updated_data = req.body;
-    // console.log("user form data:", updated_data);
+    const updatedData = req.body;
 
-    // Validate input
     if (!_id) {
       return res.status(400).json({ message: "User ID is required." });
     }
 
-    // Update the user
-    const user = await USER.findByIdAndUpdate(
-      _id,
-      updated_data
-      // { new: true } // This option returns the updated document
-    );
+    // If file is uploaded, get the Cloudinary URL
+    if (req.file) {
+      updatedData.profileImage = req.file.path;
+    }
+
+    const user = await USER.findByIdAndUpdate(_id, updatedData, { new: true });
 
     if (!user) {
       return res.status(404).json({ message: "User not found." });

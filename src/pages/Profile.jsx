@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Navigate from "../Shared/Navigate";
-import convertTobase64 from "../helper/convertTobase64";
+// import convertTobase64 from "../helper/convertTobase64";
 import { useAuthContext } from "../Context/AuthContextModified";
 import addUserProfile from "../assets/Logo/profile1.png";
 import useTitle from "../Hooks/title";
 
 const Profile = () => {
   useTitle("My profile");
-  const [file, setFile] = useState("");
-  const { user, profileUpdate } = useAuthContext();
+  const { user, profileUpdate, handleFileChange } = useAuthContext();
   const {
     register,
     handleSubmit,
@@ -24,11 +23,6 @@ const Profile = () => {
     } catch (error) {
       console.log("Form not Submitted !!");
     }
-  };
-
-  const onUpload = async (e) => {
-    const base64 = await convertTobase64(e.target.files[0]);
-    setFile(base64);
   };
 
   return (
@@ -83,7 +77,7 @@ const Profile = () => {
             <div className="flex flex-col items-start">
               <label htmlFor="profile" className="cursor-pointer">
                 <img
-                  src={file || addUserProfile}
+                  src={user?.profileImage || addUserProfile}
                   alt="Profile"
                   className="object-cover w-24 h-24 mb-4 rounded-full"
                 />
@@ -91,9 +85,10 @@ const Profile = () => {
               <input
                 type="file"
                 id="profile"
+                accept="image/*"
                 // {...register("profile")}
                 name="profile"
-                onChange={onUpload}
+                onChange={(e) => handleFileChange(e)}
                 className="hidden"
               />
             </div>
@@ -236,7 +231,7 @@ const Profile = () => {
                   className={`w-full p-2 mt-2 pb-3 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring ${
                     errors.gender ? "border-red-500" : ""
                   }`}
-                  value={user.gender || ""}
+                  // value={user.gender || ""}
                   {...register("gender", {
                     required: "Gender is required",
                   })}

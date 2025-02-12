@@ -7,6 +7,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState(""); // Initialize with null to indicate no user initially
+  const [file, setFile] = useState(null);
   const isLoggedIn = !!token;
 
   const authorizationToken = `Bearer ${token}`;
@@ -43,19 +44,34 @@ const AuthProvider = ({ children }) => {
       userLogout(); // Logout if authentication fails
     }
   };
+
+  // Handle file change
+  const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+  };
+
   const profileUpdate = async (data) => {
+    if (!file) return alert("Please select an image!");
+
+    const formData = new FormData();
+    formData.append("image", file);
+    Object.keys(data).forEach((key) => formData.append(key, data[key]));
+
     try {
       const res = await axios.patch(
         "https://bajrang-2-0-server.vercel.app/api/auth/user/profile",
-        data, // Pass the data as the request body
+        formData, // Pass the data as the request body
         {
           headers: {
             Authorization: authorizationToken, // Include the token in the headers
+            "Content-Type": "multipart/form-data", // Set the content type as multipart form data
           },
         }
       );
 
       toast.success("User updated successfully");
+      setFile(null);
       return res.data; // Return the response data
     } catch (error) {
       console.error(
@@ -89,6 +105,7 @@ const AuthProvider = ({ children }) => {
         token,
         authorizationToken,
         profileUpdate,
+        handleFileChange,
       }}
     >
       {children}
