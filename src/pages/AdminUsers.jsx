@@ -121,7 +121,7 @@ const AdminUsers = () => {
                           alt="User profile picture"
                           className="w-10 h-10 rounded-full"
                           height="40"
-                          src={userProfile}
+                          src={user.profileImage || userProfile}
                           width="40"
                         />
                         <span className="ml-4">{user.name}</span>
