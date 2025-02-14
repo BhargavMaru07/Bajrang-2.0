@@ -1,9 +1,9 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+// import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
-import { useBlogContext } from "../Context/BlogContext";
+// import { useBlogContext } from "../Context/BlogContext";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
 import axios from "axios";
@@ -55,11 +55,11 @@ const BlogForm = () => {
           setData({ title: "", body: "" });
           setFile(null); // Reset the file input
 
-          if (res.status === 201) {
-            toast.success("Blog Added !");
-            navigate("/blog"); //redirect to blog page
-            window.location.reload(); // Reload the page to fetch the updated blogs
-          }
+          // if (res.status === 201) {
+          toast.success("Blog Added !");
+          navigate("/blog"); //redirect to blog page
+          window.location.reload(); // Reload the page to fetch the updated blogs
+          // }
         })
         .catch((error) => {
           console.error("Error submitting the blog:", error);
