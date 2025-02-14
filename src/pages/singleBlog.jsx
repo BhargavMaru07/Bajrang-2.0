@@ -36,17 +36,17 @@ const SingleBlog = () => {
                 </p>
                 <span className="font-medium text-text">
                   Created at :{" "}
-                  {new Date(blog.createdAt).toLocaleDateString("en-GB")}
+                  {new Date(blog?.createdAt).toLocaleDateString("en-GB")}
                 </span>
               </p>
               <div className="flex justify-center py-2 capitalize bg-white border rounded-lg">
-                <h1 className="text-base md:text-2xl">{blog.title}</h1>
+                <h1 className="text-base md:text-2xl">{blog?.title}</h1>
               </div>
               <div className="flex justify-center w-full mt-2 mb-2 ">
                 <div>
                   <img
-                    src={noImage}
-                    // src={`/Server/public${blog.coverImage}`}
+                    // src={noImage}
+                    src={blog?.coverImage || noImage}
                     alt="coverImage"
                     className="h-fit rounded-2xl sm:w-full w-[90%] mx-auto"
                   />
