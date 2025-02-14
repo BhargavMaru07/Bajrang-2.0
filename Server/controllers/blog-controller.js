@@ -1,20 +1,17 @@
 const BLOG = require("../models/blog-model");
-const multer = require("multer");
-const path = require("path");
-const USER = require("../models/user-model");
 const COMMENT = require("../models/comment_model");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.resolve("./public/uploads"));
-  },
-  filename: function (req, file, cb) {
-    const filename = `${Date.now()}-${file.originalname}`;
-    cb(null, filename);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, path.resolve("./public/uploads"));
+//   },
+//   filename: function (req, file, cb) {
+//     const filename = `${Date.now()}-${file.originalname}`;
+//     cb(null, filename);
+//   },
+// });
 
-const upload = multer({ storage });
+// const upload = multer({ storage });
 
 //Get All the blogs
 const getAllBlog = async (req, res) => {
@@ -36,7 +33,7 @@ const addBlog = async (req, res) => {
       body,
       name,
       createdBy,
-      coverImage: "",
+      coverImage: req.file.path,
       // coverImage: `/uploads/${req.file.filename}`,
     });
 
@@ -106,7 +103,7 @@ let getAllComments = async (req, res) => {
 
 module.exports = {
   getAllBlog,
-  addBlog: [upload.single("coverImage"), addBlog],
+  addBlog,
   getSingleBlog,
   addComment,
   getAllComments,

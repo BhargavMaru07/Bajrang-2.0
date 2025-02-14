@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
 
   // Handle file change
   const handleFileChange = (e) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 

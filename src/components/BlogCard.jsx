@@ -4,13 +4,12 @@ import noImage from "../assets/images/NoBlogImage.jpg";
 import TruncatedTitle from "../helper/TruncatedTitle";
 
 function BlogCard({ blog }) {
-
   return (
     <div className="flex flex-col justify-between w-full h-auto overflow-hidden border rounded-lg">
       <div className="sm:h-[70%] p-4 w-full h-auto">
         <img
           // src={`/Server/public${blog.coverImage}`}
-          src={noImage}
+          src={blog?.coverImage || noImage}
           alt={blog.title}
           className="object-fill w-full h-full rounded-lg"
         />

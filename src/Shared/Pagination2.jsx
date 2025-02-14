@@ -2,7 +2,7 @@ import React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const Pagination2 = ({ count, displayPage, startPageIndex, endPageIndex }) => {
+const Pagination2 = ({ count, displayPage, startPageIndex, endPageIndex, totalResults }) => {
   return (
     <Stack
       spacing={6}
@@ -11,8 +11,8 @@ const Pagination2 = ({ count, displayPage, startPageIndex, endPageIndex }) => {
       <div className="!mt-4">
         <p className="text-sm text-gray-700">
           Showing <span className="font-medium">{startPageIndex + 1}</span> to{" "}
-          <span className="font-medium">{endPageIndex}</span> of{" "}
-          <span className="font-medium">15</span> results
+          <span className="font-medium">{endPageIndex + 1}</span> of{" "}
+          <span className="font-medium">{totalResults}</span> results
         </p>
       </div>
       <Pagination

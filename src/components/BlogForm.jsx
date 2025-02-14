@@ -6,10 +6,12 @@ import React, { useState } from "react";
 import { useBlogContext } from "../Context/BlogContext";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
+import axios from "axios";
 
 const BlogForm = () => {
   const { user } = useAuthContext();
-
+  //handling file
+  const [file, setFile] = useState(null);
   const [data, setData] = useState({
     title: "",
     body: "",
@@ -17,45 +19,54 @@ const BlogForm = () => {
   });
 
   const navigate = useNavigate();
-  //handling file
-  const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!file) return alert("Please select an image!");
 
     // Use FormData to include the file along with the title and body
     const formData = new FormData();
+    formData.append("image", file);
     formData.append("title", data.title);
     formData.append("body", data.body);
     formData.append("name", user.name);
     formData.append("createdBy", user._id);
-    if (file) {
-      formData.append("coverImage", "");
-    }
 
-    //FOR PRODUCTION..
-    // https://bajrang-2-0-server.vercel.app/api/blog/add-new
-    fetch("https://bajrang-2-0-server.vercel.app/api/blog/add-new", {
-      method: "POST",
-      body: formData,
-    })
-      .then((newBlog) => {
-        console.log("Blog and file submitted successfully.");
-        console.log("New Blog :", newBlog);
-        toast.success("Blog Added !");
-        // addBlogToState(newBlog); // Add the new blog to context state
-        setData({ title: "", body: "" });
-        setFile(null); // Reset the file input
-        navigate("/blog"); //redirect to blog page
-        window.location.reload(); // Reload the page to fetch the updated blogs
-      })
-      .catch((error) => {
-        console.error("Error submitting the blog:", error);
-      });
+    //FOR DEVELOPMENT
+    // http://localhost:5001/api/blog/add-new
+
+    try {
+      const res = await axios
+        .post(
+          "https://bajrang-2-0-server.vercel.app/api/blog/add-new",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then(() => {
+          setData({ title: "", body: "" });
+          setFile(null); // Reset the file input
+
+          if (res.status === 201) {
+            toast.success("Blog Added !");
+            navigate("/blog"); //redirect to blog page
+            window.location.reload(); // Reload the page to fetch the updated blogs
+          }
+        })
+        .catch((error) => {
+          console.error("Error submitting the blog:", error);
+        });
+    } catch (error) {
+      console.error("Error submitting the blog:", error);
+    }
   };
 
   return (
@@ -137,9 +148,11 @@ const BlogForm = () => {
                         <span>Upload a file</span>
                         <input
                           id="file-upload"
-                          name="coverImage"
+                          name="file-upload"
+                          // name="coverImage"
                           type="file"
-                          onChange={handleFileChange}
+                          accept="image/*"
+                          onChange={(e) => handleFileChange(e)}
                           className="sr-only"
                         />
                       </label>
