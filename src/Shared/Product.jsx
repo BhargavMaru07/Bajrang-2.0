@@ -2,13 +2,9 @@ import React from "react";
 import TruncatedTitle from "../helper/TruncatedTitle";
 import CurrencyFormate from "../helper/CurrencyFormate";
 import { NavLink } from "react-router-dom";
-// import image_1 from "https://i.ibb.co/0fsPZ5c/Product1.jpg";
 
 const Product = (Product) => {
-  // console.log(Product);
-
   const { image, name, price, colors, category, id, MRP } = Product;
-  // console.log(name);
 
   return (
     <div className="p-2">
@@ -36,10 +32,10 @@ const Product = (Product) => {
             </h4>
             <div className="flex items-center justify-between mt-2">
               <span className="text-lg font-bold text-pink-500">
-                {<CurrencyFormate price={price} />}
+                <CurrencyFormate price={price} />
               </span>
               <span className="ml-2 text-sm text-gray-400 line-through">
-                {<CurrencyFormate price={MRP} />}
+                <CurrencyFormate price={MRP} />
               </span>
             </div>
             <div className="flex items-center justify-between">
@@ -51,9 +47,7 @@ const Product = (Product) => {
                   }}
                 ></span>
               </div>
-              <span className="text-text sm:text-sm">
-                Category : {category}
-              </span>
+              <span className="text-text sm:text-sm">{category}</span>
             </div>
           </div>
         </div>

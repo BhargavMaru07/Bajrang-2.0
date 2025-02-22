@@ -23,13 +23,17 @@ const ProductList = () => {
           startPageIndex={startPageIndex}
           endPageIndex={endPageIndex}
         />
-        <Pagination2
-          count={totalPages}
-          displayPage={displayPage}
-          startPageIndex={startPageIndex}
-          endPageIndex={endPageIndex}
-          totalResults={filter_product.length}
-        />
+        {filter_product.length == 0 ? (
+          ""
+        ) : (
+          <Pagination2
+            count={totalPages}
+            displayPage={displayPage}
+            startPageIndex={startPageIndex}
+            endPageIndex={endPageIndex}
+            totalResults={filter_product.length}
+          />
+        )}
       </>
     );
   }
@@ -41,13 +45,17 @@ const ProductList = () => {
           startPageIndex={startPageIndex}
           endPageIndex={endPageIndex}
         />
-        <Pagination2
-          count={totalPages}
-          displayPage={displayPage}
-          startPageIndex={startPageIndex}
-          endPageIndex={endPageIndex}
-          totalResults={filter_product.length}
-        />
+        {filter_product.length == 0 ? (
+          ""
+        ) : (
+          <Pagination2
+            count={totalPages}
+            displayPage={displayPage}
+            startPageIndex={startPageIndex}
+            endPageIndex={endPageIndex}
+            totalResults={filter_product.length}
+          />
+        )}
       </>
     );
   }

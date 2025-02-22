@@ -1,21 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "../Shared/Product";
+import productnotfound from "../assets/images/productnotfound.svg";
 
 const GridView = ({ products, endPageIndex, startPageIndex }) => {
-  // console.log(startPageIndex);
-  // console.log(endPageIndex);
-
-  // console.log("products :", products);
   return (
     <Wrapper className="flex items-center justify-center">
-      <div className="container grid grid-cols-2 gap-0 sm:gap-4 sm:grid-cols-4">
-        {products.slice(startPageIndex, endPageIndex + 1).map((product) => {
-          // console.log("startPageIndex :", startPageIndex);
-          // console.log("endPageIndex :", endPageIndex);
-
-          return <Product key={product.id} {...product} />;
-        })}
+      <div
+        className={`container ${
+          products.length == 0
+            ? "sm:h-[70vh]"
+            : "grid grid-cols-2 gap-0 sm:gap-4 sm:grid-cols-4 sm:min-h-[100vh]"
+        }`}
+      >
+        {!products.length == 0 ? (
+          products.slice(startPageIndex, endPageIndex + 1).map((product) => {
+            return <Product key={product.id} {...product} />;
+          })
+        ) : (
+          <div className="flex flex-col items-center justify-center w-full h-full mb-4">
+            <div className="md:max-w-[380px] max-w-[180px]">
+              <img src={productnotfound} alt="product not found" />
+              <h2 className="mt-4 font-semibold text-center text-black sm:text-2xl">
+                Product Not Found !!
+              </h2>
+            </div>
+          </div>
+        )}
       </div>
     </Wrapper>
   );

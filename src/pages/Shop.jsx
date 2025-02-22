@@ -14,10 +14,6 @@ import Button from "../Styles/Button";
 import Navigate from "../Shared/Navigate";
 import useTitle from "../Hooks/title";
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
-
 const Shop = () => {
   useTitle("Shop");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -198,7 +194,7 @@ const Shop = () => {
             </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="mt-8">
+          <section aria-labelledby="products-heading" className="my-8">
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
