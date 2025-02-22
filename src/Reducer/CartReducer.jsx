@@ -143,7 +143,7 @@ const reducer = (state, action) => {
             accumulator.total_item += amount;
             accumulator.paying_amount += price * amount;
             accumulator.total_price += amount * MRP;
-            accumulator.total_discount += discount * amount;
+            accumulator.total_discount += (amount * MRP * discount) / 100;
 
             return accumulator;
           },

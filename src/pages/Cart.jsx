@@ -51,7 +51,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-8 p-4 lg:flex-row">
+        <div className="flex flex-col gap-8 p-2 lg:flex-row">
           {/* Cart Items */}
           <div className="flex-1">
             {cart.map((item) => {
@@ -68,7 +68,7 @@ const Cart = () => {
             </div>
             <div className="flex justify-between mb-2 text-green-500">
               <span>Discount</span>
-              <span>{total_discount}.00%</span>
+              <span>₹{total_discount.toFixed(2)}</span>
             </div>
             <div className="flex justify-between pb-4 mb-4 text-gray-600 border-b">
               <span>Subtotal</span>

@@ -2,7 +2,7 @@ import React from "react";
 import { ICONS } from "../assets/Icons/icon";
 const AmountCartToggle = ({ amount, setDecrese, setIncrese }) => {
   return (
-    <div className="flex items-center justify-start w-full gap-2 mt-4">
+    <div className="flex items-center justify-start w-full gap-2">
       <h2 className="text-base font-medium text-[#1B3030] title-font">
         Select Quantity :
       </h2>

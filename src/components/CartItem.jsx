@@ -19,27 +19,27 @@ const CartItem = ({
   // console.log(max);
 
   return (
-    <div className="relative flex justify-between p-0 mb-4 rounded-lg sm:p-4 bg-bg">
+    <div className="relative flex justify-between p-2 mb-4 rounded-lg shadow-md sm:p-4 bg-bg">
       <div className="flex gap-4">
         <img
           src={image}
           alt={name}
           className="object-contain w-32 h-auto rounded-md"
         />
-        <div className="sm:static">
-          <h2 className="mb-1 text-lg font-semibold">{name}</h2>
-          <p className="flex items-center gap-2 mb-1 text-gray-500 sm:justify-start">
+        <div className="flex flex-col items-start justify-between sm:static">
+          <h2 className="font-semibold">{name}</h2>
+          <p className="flex items-center gap-2 text-gray-500 sm:justify-start">
             <span className="text-xl text-black">
               <CurrencyFormate price={price} />
             </span>
             <span className="text-gray-400 line-through">
               <CurrencyFormate price={MRP} />
             </span>
-            <span className="absolute px-1 text-white bg-green-500 rounded left-1 top-3 sm:static">
+            <span className="absolute px-1 text-white bg-green-500 rounded left-2 top-2 sm:static">
               - {discount}.00%
             </span>
           </p>
-          <p className="flex items-center justify-start mb-1 text-gray-600">
+          <p className="flex items-center justify-start text-gray-600">
             Color :
             <span
               style={{ backgroundColor: color }}
