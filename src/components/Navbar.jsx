@@ -1,6 +1,5 @@
 "use client";
-
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useState } from "react";
 import logo from "../assets/Logo/logo.png";
 import {
   Dialog,
@@ -20,14 +19,10 @@ import {
   TabPanel,
   TabPanels,
 } from "@headlessui/react";
-
 import { ICONS } from "../assets/Icons/icon";
-
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../Context/AuthContextModified";
-// import { toast } from "react-toastify";
 import { useCartContext } from "../Context/CartContext";
-// import { Badge } from "@mui/material";
 
 const navigation = {
   categories: [
@@ -165,20 +160,7 @@ const navigation = {
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAuthContext();
-  const { cart } = useCartContext();
   const [open, setOpen] = useState(false);
-
-  // const handleSignOut = () => {
-  //   logout()
-  //     .then(() => {
-  //       // Sign-out successful.
-  //       toast.success("Logout Successfully");
-  //     })
-  //     .catch((error) => {
-  //       // An error happened.
-  //       toast.error(error.message);
-  //     });
-  // };
 
   return (
     <div className="bg-white">
@@ -464,40 +446,9 @@ const Navbar = () => {
                 </div>
               </PopoverGroup>
 
-              <div className="flex items-center m-0">
-                {/*
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {isLoggedIn ? (
-                    <Link
-                      to="/logout"
-                      // onClick={handleSignOut}
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      Sign out
-                    </Link>
-                  ) : (
-                    <>
-                      <Link
-                        to="/login"
-                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                      >
-                        Sign in
-                      </Link>
-                      <span
-                        aria-hidden="true"
-                        className="w-px h-6 bg-gray-200"
-                      />
-                      <Link
-                        to="/register"
-                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                      >
-                        Create account
-                      </Link>
-                    </>
-                  )}
-                </div> */}
+              <div className="flex items-center justify-end m-0">
                 {/* Search */}
-                <div className="flex rounded-full lg:ml-6 bg-bg">
+                <div className="flex rounded-full lg:ml-6 bg-bg hover:cursor-pointer">
                   <Link
                     to="/search"
                     className="p-2 text-gray-400 hover:text-gray-500"
@@ -602,27 +553,6 @@ const Navbar = () => {
                     )}
                   </MenuItems>
                 </Menu>
-
-                {/* Cart */}
-                {/* <div className="flow-root ml-4 lg:ml-6">
-                  <Link to="/cart" className="flex items-center p-2 -m-2 group">
-                    <Badge
-                      className=""
-                      badgeContent={cart.length == 0 ? "0" : cart.length}
-                      color="primary"
-                    >
-                      <ICONS.CART
-                        aria-hidden="true"
-                        className="text-gray-400 size-6 shrink-0 group-hover:text-gray-500"
-                      />
-                    </Badge>
-
-                    {/* <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      {cart.length}
-                    </span> */}
-                <span className="sr-only">items in cart, view bag</span>
-                {/*} </Link>
-                </div> */}
               </div>
             </div>
           </div>

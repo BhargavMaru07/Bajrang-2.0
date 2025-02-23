@@ -27,7 +27,7 @@ const Profile = () => {
 
   return (
     <div>
-      <Navigate name={"Home"} item={"Profile"} />
+      <Navigate name={"Profile"} item={user?.name} />
       <div className="grid grid-cols-12 p-0 mx-auto sm:p-0 max-w-7xl">
         <div className="hidden p-6 lg:col-span-4 md:block md:col-span-5 xl:col-span-3">
           <div className="flex flex-col gap-4">

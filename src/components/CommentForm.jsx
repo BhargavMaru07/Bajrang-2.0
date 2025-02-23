@@ -12,28 +12,32 @@ function CommentForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (user) {
-      fetch(`https://bajrang-2-0-server.vercel.app/api/blog/comment/${id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          comment,
-          createdBy: user._id,
-        }),
-      })
-        .then((newComment) => {
-          // toast.success("Comment Added !");
-          setComment("");
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.error("Error submitting the comment:", error);
-        });
+    if (!comment) {
+      toast.info("Please Write some comment");
     } else {
-      setComment("");
-      toast.error("Please Login !");
+      if (user) {
+        fetch(`https://bajrang-2-0-server.vercel.app/api/blog/comment/${id}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            comment,
+            createdBy: user._id,
+          }),
+        })
+          .then((newComment) => {
+            // toast.success("Comment Added !");
+            setComment("");
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.error("Error submitting the comment:", error);
+          });
+      } else {
+        setComment("");
+        toast.error("Please Login !");
+      }
     }
   };
 

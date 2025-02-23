@@ -22,7 +22,7 @@ const Shop = () => {
 
   return (
     <div className="bg-white">
-      <Navigate name={"Products"} item={"Latkans"} />
+      <Navigate name={"Shop"} item={"Latkans"} />
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>

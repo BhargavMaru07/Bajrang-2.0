@@ -1,10 +1,5 @@
-import React from "react";
-import { useState } from "react";
-import styled from "styled-components";
-import { FaCheck } from "react-icons/fa";
-// import AmoutCartToggle from './AmoutCartToggle';
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../Styles/Button";
 import { useCartContext } from "../Context/CartContext";
 import AmountCartToggle from "../Shared/AmountCartToggle";
 import { ICONS } from "../assets/Icons/icon";
@@ -13,7 +8,6 @@ const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
 
   const { id, colors, quantity } = product;
-  //   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
   const setDecrese = () => {
@@ -26,28 +20,7 @@ const AddToCart = ({ product }) => {
 
   return (
     <>
-      <Wrapper>
-        {/* <div className="colors">
-          <p>
-            Colors :
-            {colors.map((CurColor) => {
-              return (
-                <button
-                  key={id}
-                  style={{ backgroundColor: CurColor }}
-                  className={
-                    color === CurColor ? 'btnStyle active' : 'btnStyle'
-                  }
-                  onClick={() => setColor(CurColor)}>
-                  {color === CurColor ? (
-                    <FaCheck className="checkStyle" />
-                  ) : null}
-                </button>
-              );
-            })}
-          </p>
-        </div> */}
-
+      <section>
         {/* Amount cart toggle */}
 
         <AmountCartToggle
@@ -64,11 +37,9 @@ const AddToCart = ({ product }) => {
             Add To Bag <ICONS.BAG />
           </button>
         </NavLink>
-      </Wrapper>
+      </section>
     </>
   );
 };
-
-const Wrapper = styled.section``;
 
 export default AddToCart;
