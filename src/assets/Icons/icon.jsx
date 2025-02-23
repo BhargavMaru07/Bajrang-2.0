@@ -32,6 +32,8 @@ import {
   FaHeart,
   FaTrash,
   FaUsers,
+  FaPlay,
+  FaPause,
 } from "react-icons/fa";
 import { BsFunnelFill } from "react-icons/bs";
 import { FaPeopleCarryBox } from "react-icons/fa6";
@@ -64,6 +66,8 @@ export const ICONS = {
   TWITTER: Twitter,
   XMARK: XMarkIcon,
   CAMERA: CameraAltOutlined,
+  PLAY: FaPlay,
+  PAUSE: FaPause,
   //react icons :
   FORWARD: IoIosArrowForward,
   BACKWARD: IoIosArrowBack,

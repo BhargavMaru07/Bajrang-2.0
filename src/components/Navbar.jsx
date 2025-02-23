@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import logo from "../assets/Logo/logo.png";
 import {
   Dialog,
@@ -22,7 +22,7 @@ import {
 import { ICONS } from "../assets/Icons/icon";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../Context/AuthContextModified";
-import { useCartContext } from "../Context/CartContext";
+import myAudio from "../assets/audio/Mehmaan-Mismatched.mp3";
 
 const navigation = {
   categories: [
@@ -161,6 +161,17 @@ const navigation = {
 const Navbar = () => {
   const { isLoggedIn, user } = useAuthContext();
   const [open, setOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(new Audio(myAudio));
+
+  const toggleAudio = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className="bg-white">
@@ -340,6 +351,14 @@ const Navbar = () => {
                 <span className="sr-only">Open menu</span>
                 <ICONS.BARS aria-hidden="true" className="size-6" />
               </button>
+              {/* <div className="block sm:hidden">
+                  <button
+                    onClick={toggleAudio}
+                    className="p-2 text-lg font-semibold text-white rounded-full bg-btn hover:bg-blue-600 "
+                  >
+                    {isPlaying ? <ICONS.PAUSE /> : <ICONS.PLAY />}
+                  </button>
+                </div> */}
 
               {/* Logo */}
               <div className="flex ml-16 lg:ml-0">
@@ -446,9 +465,17 @@ const Navbar = () => {
                 </div>
               </PopoverGroup>
 
-              <div className="flex items-center justify-end m-0">
+              <div className="flex items-center justify-end gap-2 m-0">
+                <div className="hidden sm:block">
+                  <button
+                    onClick={toggleAudio}
+                    className="p-2 text-lg font-semibold text-white rounded-full bg-btn hover:bg-blue-600 "
+                  >
+                    {isPlaying ? <ICONS.PAUSE /> : <ICONS.PLAY />}
+                  </button>
+                </div>
                 {/* Search */}
-                <div className="flex rounded-full lg:ml-6 bg-bg hover:cursor-pointer">
+                <div className="flex rounded-full bg-bg hover:cursor-pointer">
                   <Link
                     to="/search"
                     className="p-2 text-gray-400 hover:text-gray-500"
@@ -458,7 +485,7 @@ const Navbar = () => {
                   </Link>
                 </div>
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="relative">
                   <div>
                     <MenuButton className="relative flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
