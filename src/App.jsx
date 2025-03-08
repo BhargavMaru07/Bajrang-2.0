@@ -1,6 +1,5 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { ToastContainer } from "react-toastify";
 import { GlobalStyle } from "./GlobalStyles";
 //rrd
 import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
@@ -23,6 +22,8 @@ import Help from "./pages/Help";
 import SingleBlog from "./pages/singleBlog";
 import Address from "./pages/Address";
 import Chat from "./Chat/Chat";
+import WishList from "./pages/WishList";
+import MyOrders from "./pages/MyOrders";
 
 //Component
 import Footer from "./components/Footer";
@@ -33,18 +34,17 @@ import PrivateRoute from "./Private/PrivateRoute";
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
-import WishList from "./pages/WishList";
-import MyOrders from "./pages/MyOrders";
+//Admin Layouts
 import AdminLayout from "./Layouts/AdminLayout";
 import AdminUsers from "./pages/AdminUsers";
 import AdminProducts from "./pages/AdminProducts";
 import AdminSettngs from "./pages/AdminSettngs";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <ToastContainer />
         <Main>
           <GlobalStyle />
           <Navbar />
@@ -100,6 +100,7 @@ const App = () => {
           </Routes>
           <Chat />
           <Footer />
+          <Toaster />
         </Main>
       </ThemeProvider>
     </>

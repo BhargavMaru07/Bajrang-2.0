@@ -34,7 +34,7 @@ const cards = [
 
 const WhatWeDo = () => {
   return (
-    <div className="px-4 py-2 mx-auto mt-6 mb-4 max-w-7xl sm:px-6">
+    <div className="px-4 py-2 mx-auto my-4 max-w-7xl sm:px-6">
       <div className="px-2 lg:px-4">
         <h1 className="mb-2 text-2xl font-semibold text-head">What</h1>
         <h3 className="mb-4 text-3xl font-semibold sm:text-3xl">We Do</h3>

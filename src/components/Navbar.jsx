@@ -5,6 +5,9 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
+  Disclosure,
+  // DisclosureButton,
+  // DisclosurePanel,
   Menu,
   MenuButton,
   MenuItem,
@@ -247,32 +250,44 @@ const Navbar = () => {
                         </div>
                       ))}
                     </div>
-                    {category.sections.map((section) => (
-                      <div key={section.name}>
-                        <p
-                          id={`${category.id}-${section.id}-heading-mobile`}
-                          className="font-medium text-gray-900"
-                        >
-                          {section.name}
-                        </p>
-                        <ul
-                          role="list"
-                          aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                          className="flex flex-col mt-6 space-y-6"
-                        >
-                          {section.items.map((item) => (
-                            <li key={item.name} className="flow-root">
-                              <Link
-                                href={item.href}
-                                className="block p-2 -m-2 text-gray-500"
+                    {category.sections.map((section) => {
+                      return (
+                        <Disclosure as="div" key={section.name}>
+                          <Disclosure.Button
+                            as="h1"
+                            id={`${category.id}-${section.id}-heading-mobile`}
+                            className="flex items-center justify-between w-full font-semibold text-text"
+                          >
+                            <span>{section.name}</span>
+                            <span>
+                              <ICONS.DOWN_ARROW size={25} />
+                            </span>
+                          </Disclosure.Button>
+
+                          <Disclosure.Panel
+                            as="ul"
+                            role="list"
+                            aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
+                            className="flex flex-col mt-6 space-y-6"
+                          >
+                            {section.items.map((item) => (
+                              <Disclosure.Button
+                                as="li"
+                                key={item.name}
+                                className="flow-root ml-2"
                               >
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                                <Link
+                                  href={item.href}
+                                  className="block p-2 -m-2 text-gray-500"
+                                >
+                                  {item.name}
+                                </Link>
+                              </Disclosure.Button>
+                            ))}
+                          </Disclosure.Panel>
+                        </Disclosure>
+                      );
+                    })}
                   </TabPanel>
                 ))}
               </TabPanels>

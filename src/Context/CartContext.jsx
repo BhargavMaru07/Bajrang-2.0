@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/CartReducer";
 import { getCartData, setCartData } from "../helper/localStorage";
+import toast from "react-hot-toast";
 
 const cartContext = createContext();
 
@@ -19,6 +20,7 @@ const CartContextProvider = ({ children }) => {
 
   const addToCart = (id, colors, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, colors, amount, product } });
+    toast.success(`${product.name} is Added !!`);
   };
 
   const setIncrement = (id) => {
@@ -31,6 +33,7 @@ const CartContextProvider = ({ children }) => {
 
   const removeItem = (id) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
+    toast.success("Item Removed !!");
   };
 
   useEffect(() => {

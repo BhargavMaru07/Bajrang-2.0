@@ -28,7 +28,7 @@ const service = [
 
 const OurValue = () => {
   return (
-    <div className="px-4 py-4 mx-auto mt-12 mb-16 max-w-7xl sm:px-6">
+    <div className="px-4 py-4 mx-auto my-4 max-w-7xl sm:px-6">
       <div className="px-2 py-2 lg:px-4 ">
         <h1 className="mb-3 text-2xl font-semibold text-head">Our</h1>
         <h3 className="mb-4 text-3xl font-semibold sm:text-3xl">

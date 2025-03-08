@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const AboutLatkan = () => {
   return (
-    <section className="flex items-center gap-8 p-6 lg:p-16 lg:h-[80vh] justify-evenly md:flex-row flex-col-reverse">
+    <section className="flex flex-col-reverse items-center gap-8 p-6 lg:py-4 justify-evenly md:flex-row">
       <div className="container lg:w-1/2">
         <h2 className="mb-4 text-2xl font-semibold text-head">About</h2>
         <h1 className="mb-6 text-3xl font-semibold sm:text-3xl">

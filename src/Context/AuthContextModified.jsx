@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -22,6 +22,9 @@ const AuthProvider = ({ children }) => {
   const userLogout = () => {
     localStorage.removeItem("token");
     setToken(null);
+    if (token == null) {
+      toast.success("Logout Successfully");
+    }
     setUser(""); // Clear the user data on logout
   };
 
@@ -78,6 +81,7 @@ const AuthProvider = ({ children }) => {
         "Error updating profile:",
         error.response?.data || error.message
       );
+      toast.error("Error Updating Profile");
       throw error; // Propagate the error for further handling
     }
   };

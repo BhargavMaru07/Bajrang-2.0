@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/WishListReducer";
 import { getWishData, setWishData } from "../helper/localStorage";
+import toast from "react-hot-toast";
 
 const wishListContext = createContext();
 
@@ -14,11 +15,12 @@ const WishListContextProvider = ({ children }) => {
 
   const addToWishList = (singleProduct) => {
     dispatch({ type: "ADD_TO_WISHLIST", payload: singleProduct });
+    toast.success(`${singleProduct.name} is added to Wishlist`);
   };
 
   const removeToWishList = (id) => {
     dispatch({ type: "REMOVE_TO_WISHLIST", payload: id });
-    console.log(id);
+    toast.success("Remove Product");
   };
 
   useEffect(() => {

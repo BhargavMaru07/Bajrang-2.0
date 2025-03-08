@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
 // import { useBlogContext } from "../Context/BlogContext";
-import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const BlogForm = () => {
   const { user } = useAuthContext();

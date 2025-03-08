@@ -4,8 +4,8 @@ import { Facebook, GitHub, Google, Instagram } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Styles/Button";
-import { toast } from "react-toastify";
 import { useAuthContext } from "../Context/AuthContextModified";
+import toast from "react-hot-toast";
 
 const LoginForm2 = () => {
   const {
@@ -21,13 +21,16 @@ const LoginForm2 = () => {
   const onSubmit = async (data) => {
     try {
       // console.log(data);
-      const response = await fetch("https://bajrang-2-0-server.vercel.app/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://bajrang-2-0-server.vercel.app/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         const res_data = await response.json();

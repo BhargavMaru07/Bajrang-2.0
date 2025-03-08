@@ -3,7 +3,7 @@ import React from "react";
 let pictures = Array.from({ length: 6 });
 const Pictures = () => {
   return (
-    <section className="px-4 py-4 mx-auto mt-12 mb-16 max-w-7xl sm:px-6">
+    <section className="px-4 py-4 mx-auto my-4 max-w-7xl sm:px-6">
       <div className="px-2 lg:px-4">
         <h1 className="mb-12 text-lg text-gray-600">
           Bajrang Latkan invites you to explore a vibrant collection of styles,

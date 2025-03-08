@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../Context/AuthContextModified";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 function CommentForm() {
   const [comment, setComment] = useState("");
@@ -13,7 +13,9 @@ function CommentForm() {
     e.preventDefault();
 
     if (!comment) {
-      toast.info("Please Write some comment");
+      toast("Please Write some comment", {
+        icon: "👏",
+      });
     } else {
       if (user) {
         fetch(`https://bajrang-2-0-server.vercel.app/api/blog/comment/${id}`, {
@@ -27,7 +29,6 @@ function CommentForm() {
           }),
         })
           .then((newComment) => {
-            // toast.success("Comment Added !");
             setComment("");
             window.location.reload();
           })

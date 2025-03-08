@@ -5,7 +5,7 @@ import Pictures from "../Shared/Pictures";
 const InstaLink = () => {
   return (
     <>
-      <h1 className="px-6 py-2 mx-auto mt-16 mb-10 text-2xl font-semibold max-w-7xl sm:px-10 sm:text-3xl">
+      <h1 className="px-6 py-2 mx-auto my-5 text-2xl font-semibold max-w-7xl sm:px-10 sm:text-3xl">
         Follow Us On Instagram{" "}
         <Link
           to={"https://www.instagram.com/mk_mayur_24"}
