@@ -16,7 +16,7 @@ const payment_route = require("./routes/payment-route");
 //cors
 app.use(
   cors({
-    origin: "*",
+    origin: "https://bajrang-2-0.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true,
   })
