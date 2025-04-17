@@ -24,6 +24,7 @@
     "@mui/material": "^6.1.10",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/themes": "^3.1.6",
+    "@stripe/stripe-js": "^7.1.0",
     "axios": "^1.7.9",
     "cd": "^0.3.3",
     "dotenv": "^16.4.7",

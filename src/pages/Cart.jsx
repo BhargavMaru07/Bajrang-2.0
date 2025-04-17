@@ -7,6 +7,7 @@ import cartEmpty from "../assets/images/cartEmpty.svg";
 import Button from "../Styles/Button";
 import { Link } from "react-router-dom";
 import useTitle from "../Hooks/title";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   useTitle("My Cart");
@@ -19,6 +20,39 @@ const Cart = () => {
     total_discount,
     paying_amount,
   } = useCartContext();
+
+  const makePayment = async () => {
+    const stripe = await loadStripe(
+      `pk_test_51REjdx2acjfn3gsFIc2rz43aY6crL6scR8AIZffIdeaxVAdrNKteYI37bG8LSUKXW8kg539Omh7wSqN72zFk3tyR009DnRwJfZ`
+    );
+
+    const body = {
+      cart: cart,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    const response = await fetch(
+      "https://bajrang-2-0-server.vercel.app/api/payment/create-checkout-session",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    );
+
+    const session = await response.json();
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      console.log(result.error);
+    }
+  };
 
   return (
     <div className="mx-auto max-w-7xl md:p-8">
@@ -78,7 +112,10 @@ const Cart = () => {
               <span>You Pay</span>
               <span>₹{paying_amount.toFixed(2)}</span>
             </div>
-            <button className="w-full px-4 py-2 mt-6 text-white bg-pink-500 rounded-lg hover:bg-pink-600">
+            <button
+              onClick={makePayment}
+              className="w-full px-4 py-2 mt-6 text-white bg-pink-500 rounded-lg hover:bg-pink-600"
+            >
               Checkout
             </button>
           </div>
