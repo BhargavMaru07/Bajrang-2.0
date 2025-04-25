@@ -44,6 +44,8 @@ const ProductOverview = () => {
   useTitle(`Shop - ${id}`);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    // Fetch the product details using the ID from the URL
     getSingleProduct(`${API}?id=${id}`);
   }, [id]);
 

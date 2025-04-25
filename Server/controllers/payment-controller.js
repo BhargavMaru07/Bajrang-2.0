@@ -10,7 +10,7 @@ const checkoutSession = async (req, res) => {
   const lineItems = cart?.map((cart) => {
     return {
       price_data: {
-        currency: "usd",
+        currency: "inr",
         product_data: {
           name: cart?.name,
           images: [cart?.image],

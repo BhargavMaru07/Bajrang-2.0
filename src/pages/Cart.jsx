@@ -35,6 +35,7 @@ const Cart = () => {
     };
 
     const response = await fetch(
+      // "http://localhost:5001/api/payment/create-checkout-session",
       "https://bajrang-2-0-server.vercel.app/api/payment/create-checkout-session",
       {
         method: "POST",
