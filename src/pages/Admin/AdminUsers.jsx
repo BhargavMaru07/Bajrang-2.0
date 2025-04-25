@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Progress from "../helper/Progress";
-import { useAdminContext } from "../Context/AdminContext";
-import { ICONS } from "../assets/Icons/icon";
-import userProfile from "../assets/Logo/profile1.png";
+import userProfile from "../../assets/Logo/profile1.png";
+import { ICONS } from "@/assets/Icons/icon";
+import { useAdminContext } from "@/Context/AdminContext";
+import Progress from "@/helper/Progress";
 
 const AdminUsers = () => {
   const { users: initialUsers, isLoading } = useAdminContext();
@@ -52,7 +52,7 @@ const AdminUsers = () => {
   }
 
   return (
-    <div className="bg-gray-100">
+    <div className="max-h-[83vh] overflow-auto bg-gray-100">
       <div className="container p-4 mx-auto">
         <div className="flex items-center justify-between mb-4">
           <div className="relative w-full sm:w-1/3">

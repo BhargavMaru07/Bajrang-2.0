@@ -9,7 +9,7 @@ const AdminSidebar = () => {
   const handleResize = () => {
     setIsMobileView(window.innerWidth < 768);
   };
-
+  
   useEffect(() => {
     // Add resize event listener
     window.addEventListener("resize", handleResize);
@@ -37,7 +37,7 @@ const AdminSidebar = () => {
   ];
 
   return (
-    <div className="flex justify-between h-full gap-8 p-2 rounded-lg md:flex-col">
+    <div className="flex justify-between gap-8 p-2 rounded-lg sm:h-[83vh] md:flex-col">
       <div className="flex gap-4 md:flex-col">
         {/* Sidebar Links */}
         {route.map((link, index) => {

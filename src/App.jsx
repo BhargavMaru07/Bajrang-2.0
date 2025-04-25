@@ -35,10 +35,10 @@ import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Reset from "./Auth/Reset";
 //Admin Layouts
-import AdminLayout from "./Layouts/AdminLayout";
-import AdminUsers from "./pages/AdminUsers";
-import AdminProducts from "./pages/AdminProducts";
-import AdminSettngs from "./pages/AdminSettngs";
+import AdminLayout from "./pages/Admin/Layouts/AdminLayout";
+import AdminUsers from "./pages/Admin/AdminUsers";
+import AdminProducts from "./pages/Admin/AdminProducts";
+import AdminSettngs from "./pages/Admin/AdminSettngs";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {

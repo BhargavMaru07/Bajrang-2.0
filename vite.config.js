@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { config } from "dotenv"; // Import dotenv
+import path from "path";
 
 // Load environment variables from .env file
 config();
@@ -13,6 +14,12 @@ export default defineConfig({
       "/api": "http://localhost:5001",
     },
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
+
   define: {
     "process.env": process.env,
   },

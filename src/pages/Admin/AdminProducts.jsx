@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ICONS } from "../assets/Icons/icon";
-import { useProductContext } from "../Context/ProductContext";
-import CurrencyFormate from "../helper/CurrencyFormate";
-import Progress from "../helper/Progress";
+import { ICONS } from "@/assets/Icons/icon";
+import { useProductContext } from "@/Context/ProductContext";
+import Progress from "@/helper/Progress";
+import CurrencyFormate from "@/helper/CurrencyFormate";
 
 const AdminProducts = () => {
   const { products, isLoading } = useProductContext();
@@ -28,7 +28,7 @@ const AdminProducts = () => {
   }
 
   return (
-    <div className="bg-gray-100">
+    <div className="max-h-[83vh] overflow-auto bg-gray-100">
       <div className="container p-4 mx-auto">
         <div className="flex items-center justify-between mb-4">
           <div className="relative w-full sm:w-1/3">

@@ -1,12 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
-import { ICONS } from "../assets/Icons/icon";
-import { useAdminContext } from "../Context/AdminContext";
-import { useProductContext } from "../Context/ProductContext";
-import Progress from "../helper/Progress";
+import React, { useState } from "react";
+import { ICONS } from "@/assets/Icons/icon";
+import { useAdminContext } from "@/Context/AdminContext";
+import { useProductContext } from "@/Context/ProductContext";
+import Progress from "@/helper/Progress";
 
 const ImgUrl =
   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
