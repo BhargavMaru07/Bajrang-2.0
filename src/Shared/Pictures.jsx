@@ -1,6 +1,12 @@
 import React from "react";
+import Insta1 from "../assets/images/Instagram/insta1.png";
+import Insta2 from "../assets/images/Instagram/insta2.png";
+import Insta3 from "../assets/images/Instagram/insta3.webp";
 
-let pictures = Array.from({ length: 6 });
+// let pictures = Array.from({ length: 6 });
+
+const InstaPost = [{ Insta: Insta1 }, { Insta: Insta2 }, { Insta: Insta3 }];
+
 const Pictures = () => {
   return (
     <section className="px-4 py-4 mx-auto my-4 max-w-7xl sm:px-6">
@@ -11,13 +17,13 @@ const Pictures = () => {
           options, you can bring your personal style to life.
         </h1>
         <div className="grid grid-cols-2 gap-8 py-2 mt-6 lg:grid-cols-3 xl:grid-cols-3">
-          {pictures.map((_, index) => (
+          {InstaPost.map((post, index) => (
             <div
               key={index}
               className="relative overflow-hidden rounded-lg cursor-pointer group"
             >
               <img
-                src="https://placehold.co/400"
+                src={post.Insta}
                 alt={`Picture ${index + 1}`}
                 className="object-cover w-full h-full rounded-lg"
               />

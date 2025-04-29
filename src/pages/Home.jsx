@@ -3,7 +3,7 @@ import HeroSection from "../components/HeroSection";
 import LatestArrival from "../components/LatestArrival";
 import Poster from "../components/Poster";
 import Popular from "../components/Popular";
-import AboutTeam from "../components/AboutTeam";
+// import AboutTeam from "../components/AboutTeam";
 import Banner from "../components/Banner";
 import useTitle from "../Hooks/title";
 
@@ -16,7 +16,7 @@ const Home = () => {
       <Banner />
       <Popular />
       <Poster />
-      <AboutTeam />
+      {/* <AboutTeam /> */}
     </>
   );
 };

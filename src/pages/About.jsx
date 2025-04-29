@@ -13,7 +13,7 @@ const About = () => {
       <AboutLatkan />
       <OurValue />
       <WhatWeDo />
-      <Team />
+      {/* <Team /> */}
       <InstaLink />
     </>
   );
